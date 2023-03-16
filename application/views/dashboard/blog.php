@@ -39,6 +39,37 @@
                 </li>
             </ul>
         </nav>
+        <!-- The Modal -->
+    <div class="modal fade" id="myModalParametre">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modifier</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <?php echo form_open("Dashboard/modifSuperUser/".$su[0]->superuser_id, array("class" => "form-group")) ?>
+                    <label>Pseudo</label>
+                    <input type="text" class="form-control my-2" name="superuser_pseudo" value="<?php echo $su[0]->superuser_pseudo ; ?>">
+                    <label>Mot de passe</label>
+                    <input type="password" class="form-control my-2" name="superuser_motdepasse">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Modifier">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -73,37 +104,7 @@
                     </div>
                 </nav>
                 <!-- The Modal -->
-    <div class="modal fade" id="myModalParametre">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modifier</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <?php echo form_open("Dashboard/modifSuperUser/".$su[0]->superuser_id, array(
-                            "class" => "form-group"
-                        )) ;?>
-                        <label>Pseudo</label>
-                        <input type="text" class="form-control my-2" name="superuser_pseudo" value="<?php echo $su[0]->superuser_pseudo ; ?>">
-                        <label>Mot de passe</label>
-                        <input type="password" class="form-control my-2" name="superuser_motdepasse">
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" value="Modifier">
-                    </div>
-
-                </div>
-            </div>
-        </div>
+           
             </div>
             <div id="layoutSidenav_content">
                 <main>

@@ -40,7 +40,7 @@
             </ul>
         </nav>
         <!-- The Modal -->
-    <div class="modal fade" id="myModalParametre">
+        <div class="modal fade" id="myModalParametre">
             <div class="modal-dialog">
                 <div class="modal-content">
 
@@ -52,9 +52,7 @@
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <?php echo form_open("Dashboard/modifSuperUser/".$su[0]->superuser_id, array(
-                            "class" => "form-group"
-                        )) ;?>
+                        <?php echo form_open("Dashboard/modifSuperUser/".$su[0]->superuser_id, array("class" => "form-group")) ?>
                         <label>Pseudo</label>
                         <input type="text" class="form-control my-2" name="superuser_pseudo" value="<?php echo $su[0]->superuser_pseudo ; ?>">
                         <label>Mot de passe</label>
@@ -66,6 +64,7 @@
                         
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                         <input type="submit" class="btn btn-primary" value="Modifier">
+                        </form>
                     </div>
 
                 </div>

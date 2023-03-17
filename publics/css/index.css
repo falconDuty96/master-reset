@@ -1789,3 +1789,17 @@ width: 150px;
   width: 100%;
   text-align: center;
 }
+
+#cgu-list {
+  padding-left: 0px ;
+  list-style: none ;
+}
+#cgu-list a {
+  display: block ;
+  color: #2d2824;
+  line-height: 35px ;
+}
+#cgu-list a:hover {
+  text-decoration: none ;
+  color: #51b3c1;
+}

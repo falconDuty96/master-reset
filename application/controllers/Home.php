@@ -38,6 +38,28 @@ class Home extends CI_Controller {
 		$this->load->view('faq', ['faq' => $this->getParticulierFAQ()]) ;
 		$this->load->view('template-parts/footer') ;
 	}
+	public function cgu() {
+		$data = $this->getParticulierCGU() ;
+		$this->load->view('template-parts/header') ;
+		$this->load->view('cgu', [
+			'cgu' => $this->getParticulierCGU() ,
+			"id" => 0 ,
+			'resultat' => $data[0]->cgu_contenu ,
+		
+		]) ;
+		$this->load->view('template-parts/footer') ;
+	}
+	public function showCGU($id) {
+		$data = $this->front->getCGUById($id) ;
+		$this->load->view('template-parts/header') ;
+		$this->load->view('cgu', [
+			'cgu' => $this->getParticulierCGU() ,
+			"id" => $id ,
+			'resultat' => $data[0]->cgu_contenu ,
+		
+		]) ;
+		$this->load->view('template-parts/footer') ;
+	}
 
 	public function selectCcm() {
 		return $this->front->getCcm() ;

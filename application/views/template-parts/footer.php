@@ -37,7 +37,7 @@
 						<a href="">Confidentialité</a>
 					</li>
 					<li>
-						<a href="">CGU</a>
+						<a href="<?php echo base_url() ;?>Home/cgu">CGU</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url() ;?>Home/faq">FAQ</a>

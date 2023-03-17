@@ -92,9 +92,21 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-ruler"></i></div>
                             CGU
                         </a>
+                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/cgv">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            CGV
+                        </a>
                         <a class="nav-link" href="<?php echo base_url() ?>Dashboard/faq">
                             <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
                             FAQ
+                        </a>
+                        <a class="nav-link" href="<?php echo base_url() ?>Dashboard/fiches">
+                            <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
+                            Fiches
+                        </a>
+                        <a class="nav-link" href="<?php echo base_url() ?>Dashboard/statistiques">
+                            <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
+                            Statistiques
                         </a>
                     </div>
                     </div>

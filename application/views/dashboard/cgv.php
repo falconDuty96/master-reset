@@ -90,11 +90,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                             Blogs
                         </a>
-                        <a class="nav-link activate" href="<?php echo base_url() ?>Dashboard/cgu">
+                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/cgu">
                             <div class="sb-nav-link-icon"><i class="fas fa-ruler"></i></div>
                             CGU
                         </a>
-                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/cgv">
+                        <a class="nav-link activate" href="<?php echo base_url() ?>Dashboard/cgv">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             CGV
                         </a>
@@ -129,20 +129,10 @@
                     <div class="row pt-3 mt-3" style="height: 600px ;background-color: white ;overflow-y: auto ;">
                         <div class="col-md-5">
                             <?php echo form_open_multipart("Dashboard/cguAdding", array('class' => "form-group p-4")) ?>
+                            
                             <div class="row mb-2">
                                 <div class="col-md-4">
-                                    <span class="textToBold">CGU Type</span>
-                                </div>
-                                <div class="col-md-8">
-                                    <select class="form-select" name="cgu_type">
-                                        <!-- <option value="professionnel">Professionnels</option> -->
-                                        <option value="particulier">Particuliers</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-md-4">
-                                    <span class="textToBold">CGU Entête</span>
+                                    <span class="textToBold">CGV Entête</span>
                                 </div>
                                 <div class="col-md-8">
                                     <input type="text" name="cgu_entete" class="form-control">
@@ -150,7 +140,7 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-md-4">
-                                    <span class="textToBold">CGU Contenu</span>
+                                    <span class="textToBold">CGV Contenu</span>
                                 </div>
                                 <div class="col-md-8">
                                     <textarea class="input-wysiwyg" name="cgu_contenu"></textarea>
@@ -170,7 +160,6 @@
                         <table class="border mt-3 table table-striped">
                             <thead style="background-color:#fec20b;">
                                 <tr>
-                                    <th>Type</th>
                                     <th>Entête</th>
                                     <th>Contenu</th>
                                     <th>Actions</th>
@@ -181,7 +170,6 @@
                                     <?php for ($i = 0; $i < count($cgu); $i++) : ?>
                                         <tr>
                                             <td><?php echo $cgu[$i]->cgu_entete; ?></td>
-                                            <td><?php echo $cgu[$i]->cgu_type; ?></td>
                                             <td><?php echo $cgu[$i]->cgu_contenu; ?></td>
 
                                             <td>

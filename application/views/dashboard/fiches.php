@@ -40,36 +40,36 @@
             </ul>
         </nav>
         <!-- The Modal -->
-        <div class="modal fade" id="myModalParametre">
-            <div class="modal-dialog">
-                <div class="modal-content">
+    <div class="modal fade" id="myModalParametre">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h4 class="modal-title">Modifier</h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <?php echo form_open("Dashboard/modifSuperUser/".$su[0]->superuser_id, array("class" => "form-group")) ?>
-                        <label>Pseudo</label>
-                        <input type="text" class="form-control my-2" name="superuser_pseudo" value="<?php echo $su[0]->superuser_pseudo ; ?>">
-                        <label>Mot de passe</label>
-                        <input type="password" class="form-control my-2" name="superuser_motdepasse">
-                    </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" value="Modifier">
-                        </form>
-                    </div>
-
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modifier</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <?php echo form_open("Dashboard/modifSuperUser/".$su[0]->superuser_id, array("class" => "form-group")) ?>
+                    <label>Pseudo</label>
+                    <input type="text" class="form-control my-2" name="superuser_pseudo" value="<?php echo $su[0]->superuser_pseudo ; ?>">
+                    <label>Mot de passe</label>
+                    <input type="password" class="form-control my-2" name="superuser_motdepasse">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Modifier">
+                    </form>
+                </div>
+
             </div>
         </div>
+    </div>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -80,11 +80,11 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-question"></i></div>
                             Comment ça marche ?
                         </a>
-                        <a class="nav-link activate" href="<?php echo base_url() ?>Dashboard/categories">
+                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/categories">
                             <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
                             Catégories
                         </a>
-                        <a class="nav-link" href="<?php echo base_url() ?>Dashboard/blogs">
+                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/blogs">
                             <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                             Blogs
                         </a>
@@ -100,7 +100,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
                             FAQ
                         </a>
-                        <a class="nav-link" href="<?php echo base_url() ?>Dashboard/fiches">
+                        <a class="nav-link activate" href="<?php echo base_url() ?>Dashboard/fiches">
                             <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
                             Fiches
                         </a>
@@ -115,6 +115,8 @@
 
                     </div>
                 </nav>
+                <!-- The Modal -->
+           
             </div>
             <div id="layoutSidenav_content">
                 <main>
@@ -124,65 +126,75 @@
                                 <h3>Comment ça marche ?</h3>
                             </div> -->
                         </div>
-                        <!-- <div class="row mt-3" style="height: 400px ;background-color: white ;overflow-y: auto ;" >
-                            <div class="col-md-3">
-                                <form class="form-group p-4">
+                        <div class="row pt-3 mt-3" style="height: 400px ;background-color: white ;overflow-y: auto ;" >
+                            <div class="col-md-5">
+                                <?php echo form_open_multipart("Dashboard/addBlogs",array('class' => "form-group p-4"))?>
                                     <div class="row mb-2">
-                                        <div class="col-md-3">
-                                            <span class="textToBold">Entête</span>
+                                        <div class="col-md-4">
+                                            <span class="textToBold">Titre du blog</span>
                                         </div>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control">
+                                        <div class="col-md-8">
+                                            <input type="text" name="blogs_presentation" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mb-2">
-                                        <div class="col-md-3">
-                                            <span class="textToBold">Contenu</span>
+                                        <div class="col-md-4">
+                                            <span class="textToBold">Lien du blog</span>
                                         </div>
-                                        <div class="col-md-9">
-                                            <textarea class="form-control" cols="30" rows="3"></textarea>
+                                        <div class="col-md-8">
+                                            <input type="text" name="blogs_lien" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mb-2">
-                                        <div class="col-md-3">
+                                        <div class="col-md-4">
+                                            <span class="textToBold">Image</span>
                                         </div>
-                                        <div class="col-md-9">
+                                        <div class="col-md-8">
+                                            <input type="file" name="blogs_image" accept="image/*" class="form-control" onchange="loadFile(event)">
+                                            <img id="output" class="mt-3" style="max-width: 100px;"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-md-4">
+                                        </div>
+                                        <div class="col-md-8">
                                             <input class="btn btn-primary" type="submit" value="Enregistrer">
                                         </div>
                                     </div>
                                 </form>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="row">
                             <table class="border mt-3 table table-striped">
                                 <thead style="background-color:#fec20b;">
                                     <tr>
-                                        <th>Catégorie</th>
-                                        <th>Texte</th>
-                                        <th>Image 1</th>
-                                        <th>Image 2</th>
+                                        <th>Nom</th>
+                                        <th>Lien</th>
+                                        <th>Image</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php if(isset($categories)):?>
-                                        <?php for($i = 0; $i < count($categories); $i++):?>
+                                    <?php if(isset($blogs)):?>
+                                        <?php for($i = 0; $i < count($blogs); $i++):?>
                                             <tr>
-                                                <td><?php echo $categories[$i]->categories_nom ; ?></td>
-                                                <td><?php echo $categories[$i]->categories_texte ; ?></td>
                                                 <td>
-                                                    <img style="width: 100px;" src="<?php echo base_url()."publics/".$categories[$i]->categories_image1 ; ?>" alt="">
+                                                    <?php echo $blogs[$i]->blogs_presentation ; ?>
                                                 </td>
                                                 <td>
-                                                    <img style="width: 100px;" src="<?php echo base_url()."publics/".$categories[$i]->categories_image2 ; ?>" alt="">
+                                                    <a href="<?php echo $blogs[$i]->blogs_lien ; ?>"><?php echo $blogs[$i]->blogs_lien ; ?></a>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $categories[$i]->categories_id ?>">Modifier</a>
+                                                    <img style="width: 100px;" src="<?php echo base_url()."publics/".$blogs[$i]->blogs_image ; ?>" alt="">
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $blogs[$i]->blogs_id ?>">Modifier</a>
+                                                    <a href="<?php echo base_url() ?>Dashboard/dropBlogs/<?php echo $blogs[$i]->blogs_id ;?>" class="btn btn-danger">Supprimer</a>
                                                 </td>
                                             </tr>
 
                                             <!-- The Modal -->
-                                            <div class="modal fade" id="myModal<?php echo $categories[$i]->categories_id ?>">
+                                            <div class="modal fade" id="myModal<?php echo $blogs[$i]->blogs_id ?>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -194,39 +206,32 @@
 
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
-                                                    <?php echo form_open_multipart("Dashboard/alterCategories/{$categories[$i]->categories_id}")?>
+                                                    
+                                                    <?php echo form_open_multipart("Dashboard/modifBlogs/{$blogs[$i]->blogs_id}")?>
+                                                    <input type="hidden" name="blogs_id" value="<?php echo $blogs[$i]->blogs_id ?>">
                                                     <div class="row mb-2">
                                                         <div class="col-md-3">
-                                                            <span class="textToBold">Catégorie</span>
+                                                            <span class="textToBold">Nom</span>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <input type="text" name="categories_nom" class="form-control" value="<?php echo $categories[$i]->categories_nom ; ?>">
+                                                            <input type="text" name="blogs_presentation" class="form-control" value="<?php echo $blogs[$i]->blogs_presentation ; ?>">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-md-3">
-                                                            <span class="textToBold">Texte</span>
+                                                            <span class="textToBold">Lien</span>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <textarea name="categories_texte" class="form-control" cols="30" rows="3"><?php echo $categories[$i]->categories_texte ; ?></textarea>
+                                                            <input type="text" name="blogs_lien" class="form-control" value="<?php echo $blogs[$i]->blogs_lien ; ?>">
                                                         </div>
                                                     </div>
                                                     <div class="row mb-2">
                                                         <div class="col-md-3">
-                                                            <span class="textToBold">Image 1</span>
+                                                            <span class="textToBold">Image</span>
                                                         </div>
                                                         <div class="col-md-9">
-                                                            <img id="output1" style="width: 100px;" src="<?php echo base_url()."publics/".$categories[$i]->categories_image1 ; ?>" alt="">                  
-                                                            <input type="file" name="categories_image1" accept="image/*" class="form-control mt-2" onchange="loadFile1(event)">
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-3">
-                                                            <span class="textToBold">Image 2</span>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                        <img id="output2" style="width: 100px;" src="<?php echo base_url()."publics/".$categories[$i]->categories_image2 ; ?>" alt="">                  
-                                                            <input type="file" name="categories_image2" accept="image/*" class="form-control mt-2" onchange="loadFile2(event)">
+                                                        <img id="output2" style="width: 100px;" src="<?php echo base_url()."publics/".$blogs[$i]->blogs_image ; ?>" alt="">                  
+                                                        <input type="file" name="blogs_image" accept="image/*" class="form-control mt-2" onchange="loadFile2(event)">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -263,16 +268,14 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="<?php echo base_url()?>publics/dashboard/js/datatables-simple-demo.js"></script>
         <script>
-            var loadFile1 = function(event) {
-                event.stopImmediatePropagation() ;
-                var output = document.getElementById('output1');
+            var loadFile = function(event) {
+                var output = document.getElementById('output');
                 output.src = URL.createObjectURL(event.target.files[0]);
                 output.onload = function() {
                     URL.revokeObjectURL(output.src) // free memory
                 }
             };
             var loadFile2 = function(event) {
-                event.stopImmediatePropagation() ;
                 var output = document.getElementById('output2');
                 output.src = URL.createObjectURL(event.target.files[0]);
                 output.onload = function() {

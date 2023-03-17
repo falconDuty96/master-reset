@@ -80,7 +80,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-question"></i></div>
                             Comment ça marche ?
                         </a>
-                        <a class="nav-link activate" href="<?php echo base_url() ?>Dashboard/categories">
+                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/categories">
                             <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
                             Catégories
                         </a>
@@ -104,7 +104,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
                             Fiches
                         </a>
-                        <a class="nav-link" href="<?php echo base_url() ?>Dashboard/statistiques">
+                        <a class="nav-link activate" href="<?php echo base_url() ?>Dashboard/statistiques">
                             <div class="sb-nav-link-icon"><i class="fas fa-voicemail"></i></div>
                             Statistiques
                         </a>

@@ -24,6 +24,15 @@
         public function faq() {
             $this->load->view("dashboard/faq",["faq" => $this->front->getFAQ(),"su" => $this->front->getSU() ,]) ;
         }
+        public function cgv() {
+            $this->load->view("dashboard/cgv") ;
+        }
+        public function fiches() {
+            $this->load->view("dashboard/fiches") ;
+        }
+        public function statistiques() {
+            $this->load->view("dashboard/statistiques") ;
+        }
         public function modifCCM($id) {
             $this->front->modifCcm([$this->input->post('ccm_entete'),$this->input->post('ccm_texte'),$id]) ;
             redirect('Dashboard/') ;

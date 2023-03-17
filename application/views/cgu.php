@@ -13,10 +13,10 @@
                         <ul id="cgu-list">
                             <?php if (isset($cgu)) : ?>
                                 <?php for ($i = 0; $i < count($cgu); $i++) : ?>
-                                    <?php if($id == $i): ?>
-                                        <a class="" style="color: #51b3c1" href="Home/showCGU/<?= $cgu[$i]->cgu_id; ?>"><?= $cgu[$i]->cgu_entete; ?></a>
+                                    <?php if($id == $cgu[$i]->cgu_id): ?>
+                                        <a class="" style="color: #51b3c1; font-weight: bold;" href="Home/showCGU/<?= $cgu[$i]->cgu_id; ?>"><?= $cgu[$i]->cgu_entete; ?></a>
                                     <?php else:?>
-                                        <a href="<?= base_url() ;?>Home/showCGU/<?= $cgu[$i]->cgu_id; ?>"><?= $cgu[$i]->cgu_entete; ?></a>
+                                        <a style="" href="<?= base_url() ;?>Home/showCGU/<?= $cgu[$i]->cgu_id; ?>"><?= $cgu[$i]->cgu_entete; ?></a>
                                     <?php endif ;?>
                                     
                                 <?php endfor; ?>

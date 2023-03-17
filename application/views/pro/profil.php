@@ -166,18 +166,18 @@
                 <h1 class="h3">Modifier Mot de passe</h1>
                 <div class="container mt-4">
                     <div class="form-conteneur" style="width: 500px;">
-
+                        <?php echo form_open("Pro/modifPassword/{$profil[0]->users_id}") ; ?>
                         <div class="row mb-2">
                             <div class="col-md-5">Ancien mot de passe:</div>
-                            <div class="col-md-7"><input type="password" class="form-control" value=""></div>
+                            <div class="col-md-7"><input type="password" name="old_pass" class="form-control"></div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-5">Nouveau mot de passe:</div>
-                            <div class="col-md-7"><input type="password" class="form-control" value=""></div>
+                            <div class="col-md-7"><input type="password" name="new_pass" class="form-control"></div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-5">Confirmer mot de passe:</div>
-                            <div class="col-md-7"><input type="password" class="form-control" value=""></div>
+                            <div class="col-md-7"><input type="password" name="new_pass_confirm" class="form-control"></div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-5"></div>
@@ -185,6 +185,7 @@
                                 <input type="submit" class="btn btn-primary" value="Modifier">
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </main>

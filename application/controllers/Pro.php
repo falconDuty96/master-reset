@@ -61,4 +61,24 @@
             $this->pro->updateProUser($data) ;
             redirect('Pro/profil') ;
         }
+        public function modifPassword($id) {
+            $d = $this->pro->getProUserById($id) ;
+            if($d[0]->users_motdepasse == $this->input->post('new_pass')) {
+                $data = [
+                    sha1($this->input->post('new_pass')),
+                    $id ,
+                ] ;
+                $this->pro->updatePassword($data) ;
+                redirect('Pro/deconnect') ;
+            }
+            else {
+                redirect('Pro/profil') ;
+            }
+
+            
+        }
+        public function deconnect() {
+            session_destroy() ;
+            redirect('Home/') ;
+        }
     }

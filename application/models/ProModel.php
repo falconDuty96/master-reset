@@ -22,5 +22,11 @@
                 ->where("users_id","=")
                 ->execute($data) ;
         }
+        public function updatePassword($data) {
+            DB::update('users')
+                ->parametters(['users_motdepasse'])
+                ->where("users_id","=")
+                ->execute($data) ;
+        }
 
     }

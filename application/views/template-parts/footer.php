@@ -40,7 +40,7 @@
 						<a href="">CGU</a>
 					</li>
 					<li>
-						<a href="">FAQ</a>
+						<a href="<?php echo base_url() ;?>Home/faq">FAQ</a>
 					</li>
 				</ul>
 			</div>

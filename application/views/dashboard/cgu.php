@@ -116,7 +116,7 @@
                     </div>
                     <div class="row pt-3 mt-3" style="height: 600px ;background-color: white ;overflow-y: auto ;">
                         <div class="col-md-5">
-                            <?php echo form_open_multipart("Dashboard/faq", array('class' => "form-group p-4")) ?>
+                            <?php echo form_open_multipart("Dashboard/cguAdding", array('class' => "form-group p-4")) ?>
                             <div class="row mb-2">
                                 <div class="col-md-4">
                                     <span class="textToBold">CGU Type</span>
@@ -165,21 +165,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (isset($ccm)) : ?>
-                                    <?php for ($i = 0; $i < count($ccm); $i++) : ?>
+                                <?php if (isset($cgu)) : ?>
+                                    <?php for ($i = 0; $i < count($cgu); $i++) : ?>
                                         <tr>
-                                            <td><?php echo $ccm[$i]->ccm_entete; ?></td>
-                                            <td><?php echo $ccm[$i]->ccm_texte; ?></td>
+                                            <td><?php echo $cgu[$i]->cgu_entete; ?></td>
+                                            <td><?php echo $cgu[$i]->cgu_type; ?></td>
+                                            <td><?php echo $cgu[$i]->cgu_contenu; ?></td>
+
                                             <td>
-                                                <img style="width: 100px;" src="<?php echo base_url() . "publics/" . $ccm[$i]->ccm_image; ?>" alt="">
-                                            </td>
-                                            <td>
-                                                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $ccm[$i]->ccm_id ?>">Modifier</a>
+                                                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $cgu[$i]->cgu_id ?>">Modifier</a>
+                                                <a href="<?= base_url(); ?>Dashboard/dropCGU/<?php echo $cgu[$i]->cgu_id ?>" class="btn btn-danger">Supprimer</a>
                                             </td>
                                         </tr>
 
                                         <!-- The Modal -->
-                                        <div class="modal fade" id="myModal<?php echo $ccm[$i]->ccm_id ?>">
+                                        <div class="modal fade" id="myModal<?php echo $cgu[$i]->cgu_id ?>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -191,13 +191,23 @@
 
                                                     <!-- Modal body -->
                                                     <div class="modal-body">
-                                                        <?php echo form_open("Dashboard/modifCCM/{$ccm[$i]->ccm_id}") ; ?>
+                                                        <?php echo form_open("Dashboard/modifCGU/{$cgu[$i]->cgu_id}"); ?>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <span class="textToBold">CGU Type</span>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <select class="form-select" name="cgu_type">
+                                                                    <option value="<?php echo $cgu[$i]->cgu_type; ?>"><?php echo $cgu[$i]->cgu_type; ?>s</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                         <div class="row mb-2">
                                                             <div class="col-md-3">
                                                                 <span class="textToBold">Entête</span>
                                                             </div>
                                                             <div class="col-md-9">
-                                                                <input type="text" name="ccm_entete" class="form-control" value="<?php echo $ccm[$i]->ccm_entete; ?>">
+                                                                <input type="text" name="cgu_entete" class="form-control" value="<?php echo $cgu[$i]->cgu_entete; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="row mb-2">
@@ -205,7 +215,7 @@
                                                                 <span class="textToBold">Contenu</span>
                                                             </div>
                                                             <div class="col-md-9">
-                                                                <textarea name="ccm_texte" class="form-control" cols="30" rows="3"><?php echo $ccm[$i]->ccm_texte; ?></textarea>
+                                                                <textarea class="input-wysiwyg" name="cgu_contenu"><?php echo $cgu[$i]->cgu_contenu; ?></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -249,7 +259,7 @@
                 toolbar: 'undo redo | bold italic underline | numlist bullist indent outdent | link image media | align lineheight | fontfamily fontsize ',
             });
         }
-        initWysiwyg() ;
+        initWysiwyg();
     </script>
 </body>
 

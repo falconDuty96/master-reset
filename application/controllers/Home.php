@@ -15,8 +15,6 @@ class Home extends CI_Controller {
 			'ccm' => $this->selectCcm() ,
 			'blogs' => $this->selectBlogs() ,
 			'categ' => $this->selectCategories() ,
-			'faq' => $this->getParticulierFAQ() ,
-			'cgu' => $this->getParticulierCGU() ,
 		] ;
 		$this->load->view('template-parts/header') ;
 		$this->load->view('index',$data) ;
@@ -34,6 +32,11 @@ class Home extends CI_Controller {
 	}
 	public function connectUsers() {
 		$this->load->view('inscription_utilisateur') ;
+	}
+	public function faq() {
+		$this->load->view('template-parts/header') ;
+		$this->load->view('faq', ['faq' => $this->getParticulierFAQ()]) ;
+		$this->load->view('template-parts/footer') ;
 	}
 
 	public function selectCcm() {

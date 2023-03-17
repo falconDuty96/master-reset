@@ -13,16 +13,16 @@
             ]) ;
         }
         public function blogs() {
-            $this->load->view("dashboard/blog.php",["blogs" => $this->front->getBlogs(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/blog",["blogs" => $this->front->getBlogs(),"su" => $this->front->getSU() ,]) ;
         }
         public function categories() {
-            $this->load->view("dashboard/categories.php",["categories" => $this->front->getAllCategories(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/categories",["categories" => $this->front->getAllCategories(),"su" => $this->front->getSU() ,]) ;
         }
         public function cgu() {
-            $this->load->view("dashboard/cgu.php",["cgu" => $this->front->getCGU(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/cgu",["cgu" => $this->front->getCGU(),"su" => $this->front->getSU() ,]) ;
         }
         public function faq() {
-            $this->load->view("dashboard/faq.php",["faq" => $this->front->getFAQ(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/faq",["faq" => $this->front->getFAQ(),"su" => $this->front->getSU() ,]) ;
         }
         public function modifCCM($id) {
             $this->front->modifCcm([$this->input->post('ccm_entete'),$this->input->post('ccm_texte'),$id]) ;
@@ -168,6 +168,15 @@
             $this->front->addFAQ($data) ;
             redirect("Dashboard/faq") ;
         }
+        public function cguAdding() {
+            $data = [
+                $this->input->post("cgu_type") ,
+                $this->input->post("cgu_entete") ,
+                $this->input->post("cgu_contenu") ,
+            ] ;
+            $this->front->addCGU($data) ;
+            redirect("Dashboard/cgu") ;
+        }
         public function modifFAQ($id) {
             $data = [
                 $this->input->post("faq_type") ,
@@ -178,8 +187,22 @@
             $this->front->alterFAQ($data) ;
             redirect("Dashboard/faq") ;
         }
+        public function modifCGU($id) {
+            $data = [
+                $this->input->post("cgu_type") ,
+                $this->input->post("cgu_entete") ,
+                $this->input->post("cgu_contenu") ,
+                $id ,
+            ] ;
+            $this->front->alterCGU($data) ;
+            redirect("Dashboard/cgu") ;
+        }
         public function dropFAQ($id) {
             $this->front->deleteFAQ($id) ;
             redirect("Dashboard/faq") ;
+        }
+        public function dropCGU($id) {
+            $this->front->deleteCGU($id) ;
+            redirect("Dashboard/cgu") ;
         }
     }

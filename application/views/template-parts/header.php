@@ -459,7 +459,7 @@
 							<ul class="navbar-nav">
 								<li class="nav-item icon-menu" id="menu-1">
 									<img src="<?php echo base_url() ?>publics/icone/ic_a.png" alt="" class="nav_icone">
-									<a class="nav-link" href="index.html">Accueil</a>
+									<a class="nav-link" href="<?= base_url() ;?>Home/">Accueil</a>
 								</li>
 
 								<li class="nav-item icon-menu" data-shower="1" id="menu-2">

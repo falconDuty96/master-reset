@@ -131,11 +131,19 @@
                        ->order(["faq_id" => "ASC"])
                        ->execute([$type]) ;
         }
+        public function getFAQByTypeWithID($id,$type) {
+            return DB::select("faq")
+                       ->where("faq_type","=")
+                       ->and("faq_id","=")
+                       ->order(["faq_id" => "ASC"])
+                       ->execute([$id,$type]) ;
+        }
         public function getFAQ() {
             return DB::select("faq")
                        ->order(["faq_id" => "ASC"])
                        ->execute(null) ;
         }
+        
         public function getFAQById($id) {
             return DB::select("faq")
                        ->where("faq_id","=")

@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="col-md-8">
                                     <select class="form-select" name="cgu_type">
-                                        <!-- <option value="professionnel">Professionnels</option> -->
+                                        <option value="professionnel">Professionnels</option>
                                         <option value="particulier">Particuliers</option>
                                     </select>
                                 </div>

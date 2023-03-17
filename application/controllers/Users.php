@@ -45,15 +45,14 @@ class Users extends CI_Controller {
 				$_SESSION['users_nom'] = $infos[0]->users_nom ;
 				$_SESSION['users_prenoms'] = $infos[0]->users_prenoms ;
 				$_SESSION['users_email'] = $infos[0]->users_email ;
+				$_SESSION['users_id'] = $infos[0]->users_id ;
 				if($this->input->post('users_type') == "particulier") {
 					$_SESSION['particulier'] = true ;
 				}
 				else if($this->input->post('users_type') == "professionnel") {
 					$_SESSION['particulier'] = false ;
 				}
-				$this->load->view('template-parts/header') ;
-				$this->load->view('index') ;
-				$this->load->view('template-parts/footer') ;
+				redirect('pro/') ;
 			}
 		}
 	}
@@ -91,7 +90,7 @@ class Users extends CI_Controller {
 		else
 		{
 			$infos = $this->users->getSpecificUsersByEmail($this->input->post('users_email'),$this->input->post("users_type")) ;
-			$this->users->addUsers($fields, $datas) ;
+			
 			if(count($infos) > 0) {
 				
 				if($this->input->post('users_type') == "particulier") {
@@ -108,6 +107,7 @@ class Users extends CI_Controller {
 				}
 			}
 			else {
+
 				$_SESSION['connected'] = true ;
 				$_SESSION['users_nom'] = $this->input->post('users_nom') ;
 				$_SESSION['users_prenoms'] = $this->input->post('users_prenoms') ;
@@ -118,9 +118,10 @@ class Users extends CI_Controller {
 				else if($this->input->post('users_type') == "professionnel") {
 					$_SESSION['particulier'] = false ;
 				}
-				$this->load->view('template-parts/header') ;
-				$this->load->view('index') ;
-				$this->load->view('template-parts/footer') ;
+				$d = $this->users->getSpecificUsersByEmail($this->input->post('users_email'),$this->input->post("users_type")) ;
+				$_SESSION['users_id'] = $d[0]->users_id ;
+				$this->users->addUsers($fields, $datas) ;
+				redirect('pro/') ;
 			}
 		}
 	}

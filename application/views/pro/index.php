@@ -58,7 +58,7 @@
                         <span class="line"></span>
                     </span>
                     <div class="pt-2">
-                        <a href="index.html" class="sidebar-link active">
+                        <a href="<?php echo base_url()?>pro/" class="sidebar-link active">
                             <span class="icon"><i class="fa-solid fa-file"></i></span>
                             <span class="ms-2">Fiches</span>
                         </a>
@@ -75,11 +75,11 @@
                         <span class="line"></span>
                     </span>
                     <div class="pt-2">
-                        <a href="Abonnement.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/abonnement" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             <span class="ms-2">Nouvel abonnement</span>
                         </a>
-                        <a href="transactions.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/transactions" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-receipt"></i></span>
                             <span class="ms-2">Transactions</span>
                         </a>
@@ -92,11 +92,11 @@
                         <span class="line"></span>
                     </span>
                     <div class="pt-2">
-                        <a href="mails.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/mails" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-scale-balanced"></i></span>
                             <span class="ms-2">Mails</span>
                         </a>
-                        <a href="notifications.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/notifications" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-handshake-angle"></i></span>
                             <span class="ms-2">Notifications</span>
                         </a>
@@ -109,19 +109,19 @@
                         <span class="line"></span>
                     </span>
                     <div class="pt-2">
-                        <a href="profil.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/profil" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             <span class="ms-2">Profil</span>
                         </a>
-                        <a href="faq.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/faq" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-phone"></i></span>
                             <span class="ms-2">F.A.Q</span>
                         </a>
-                        <a href="cgv.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/cgv" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-receipt"></i></span>
                             <span class="ms-2">C.G.V</span>
                         </a>
-                        <a href="cgu.html" class="sidebar-link">
+                        <a href="<?php echo base_url()?>pro/cgu" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-receipt"></i></span>
                             <span class="ms-2">C.G.U</span>
                         </a>

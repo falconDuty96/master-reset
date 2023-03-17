@@ -22,7 +22,7 @@
             $this->load->view("dashboard/cgu",["cgu" => $this->front->getCGU(),"su" => $this->front->getSU() ,]) ;
         }
         public function faq() {
-            $this->load->view("dashboard/faq",["faq" => $this->front->getFAQ(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/faq",["faq" => $this->front->getFAQByType('particulier'),"su" => $this->front->getSU() ,]) ;
         }
         public function cgv() {
             $this->load->view("dashboard/cgv",["cgv" => $this->front->getCGV(),"su" => $this->front->getSU() ,]) ;

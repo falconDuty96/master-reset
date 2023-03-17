@@ -50,12 +50,7 @@
                 ->where('categories_id','=')
                 ->execute($data) ;
         }
-        public function showFAQ() {
-
-        }
-        public function showCGU() {
-
-        }
+        
         public function getSU() {
             return DB::select('superuser')->execute(null) ;
         }
@@ -70,5 +65,69 @@
                        ->where('superuser_pseudo', '=')
                        ->and('superuser_motdepasse', '=')
                        ->execute($data) ;
+        }
+        public function addCGU($data) {
+            DB::insert('cgu')
+                ->parametters(['cgu_type','cgu_entete','cgu_contenu'])
+                ->execute($data) ;
+        }
+        public function addFAQ($data) {
+            DB::insert('faq')
+                ->parametters(['faq_type','faq_question','faq_contenu'])
+                ->execute($data) ;
+        }
+        public function alterFAQ($data) {
+            DB::update('faq')
+                ->parametters(['faq_type','faq_question','faq_contenu'])
+                ->where('faq_id','=')
+                ->execute($data) ;
+        }
+        public function alterCGU($data) {
+            DB::update('cgu')
+                ->parametters(['cgu_type','cgu_entete','cgu_contenu'])
+                ->where('cgu_id','=')
+                ->execute($data) ;
+        }
+        public function getCGU() {
+            return DB::select("cgu")
+                       ->order(["cgu_id" => "ASC"])
+                       ->execute(null) ;
+        }
+        public function getCGUById($id) {
+            return DB::select("cgu")
+                       ->where("cgu_id","=")
+                       ->execute([$id]) ;
+        }
+        public function getCGUByType($type) {
+            return DB::select("cgu")
+                       ->where("cgu_type","=")
+                       ->order(["cgu_id" => "ASC"])
+                       ->execute([$type]) ;
+        }
+        public function getFAQByType($type) {
+            return DB::select("faq")
+                       ->where("faq_type","=")
+                       ->order(["faq_id" => "ASC"])
+                       ->execute([$type]) ;
+        }
+        public function getFAQ() {
+            return DB::select("faq")
+                       ->order(["faq_id" => "ASC"])
+                       ->execute(null) ;
+        }
+        public function getFAQById($id) {
+            return DB::select("faq")
+                       ->where("faq_id","=")
+                       ->execute([$id]) ;
+        }
+        public function deleteFAQ($id) {
+            return DB::delete("faq")
+                       ->where("faq_id","=")
+                       ->execute([$id]) ;
+        }
+        public function deleteCGU($id) {
+            return DB::delete("cgu")
+                       ->where("cgu_id","=")
+                       ->execute([$id]) ;
         }
     }

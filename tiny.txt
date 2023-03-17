@@ -1,0 +1,10 @@
+<script src="https://cdn.tiny.cloud/1/l06ynxeds4qx56hp791skqu2sa71b2rzyhee9qj6e4opw7gm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+
+function initWysiwyg(){
+  tinymce.init({
+    selector: 'textarea.input-wysiwyg',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | bold italic underline | numlist bullist indent outdent | link image media | align lineheight | fontfamily fontsize ',
+  });
+}

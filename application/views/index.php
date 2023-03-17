@@ -953,8 +953,16 @@
 		<div class="row">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 				<h2 class="text-center mb-4 entete_row entete_row_primary">FAQ</h2>
+				<?php if (isset($faq)) : ?>
+					<?php for ($fi = 0; $fi < count($faq); $fi++) : ?>
+						<button class="accordion"><?= $faq[$fi]->faq_question ;?></button>
+						<div class="panel">
+							<?= $faq[$fi]->faq_contenu ;?>
+						</div>
+					<?php endfor; ?>
+				<?php endif; ?>
 
-				<button class="accordion">IGOguide à l'air d'avoir choisi des endroits assez atypiques, voir vraiment insolites. Pourquoi ce choix ?</button>
+				<!-- <button class="accordion">IGOguide à l'air d'avoir choisi des endroits assez atypiques, voir vraiment insolites. Pourquoi ce choix ?</button>
 				<div class="panel">
 					<p>
 						Les guides et annuaires dit classiques des hébergements, de bars, de restaurants, de balades, d'activités fleurissent tous les jours sur la toile. IGOguide se voulait différent de plusieurs façons afin de se démarquer, dont principalement 3 axes: <br><br>
@@ -981,7 +989,7 @@
 				<button class="accordion">Quel est le principe de la carte interactive ?</button>
 				<div class="panel">
 					<p>Jetez votre dévolu sur un établissement et choisissez avec facilité toutes vos activités se trouvant autour! Mais l'inverse est valable aussi! Faites l'activité tant attendue et vous trouverez de quoi vous restaurer et dormir à proximité!!!</p>
-				</div>
+				</div> -->
 
 			</div>
 		</div>

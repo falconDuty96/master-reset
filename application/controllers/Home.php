@@ -15,6 +15,8 @@ class Home extends CI_Controller {
 			'ccm' => $this->selectCcm() ,
 			'blogs' => $this->selectBlogs() ,
 			'categ' => $this->selectCategories() ,
+			'faq' => $this->getParticulierFAQ() ,
+			'cgu' => $this->getParticulierCGU() ,
 		] ;
 		$this->load->view('template-parts/header') ;
 		$this->load->view('index',$data) ;
@@ -42,6 +44,12 @@ class Home extends CI_Controller {
 	}
 	public function selectCategories() {
 		return $this->front->getAllCategories() ;
+	}
+	public function getParticulierFAQ() {
+		return $this->front->getFAQByType("particulier") ;
+	}
+	public function getParticulierCGU() {
+		return $this->front->getCGUByType("particulier") ;
 	}
 	
 	

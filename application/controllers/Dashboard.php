@@ -19,10 +19,10 @@
             $this->load->view("dashboard/categories.php",["categories" => $this->front->getAllCategories(),"su" => $this->front->getSU() ,]) ;
         }
         public function cgu() {
-            $this->load->view("dashboard/cgu.php",["cgu" => $this->front->showFAQ(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/cgu.php",["cgu" => $this->front->getCGU(),"su" => $this->front->getSU() ,]) ;
         }
         public function faq() {
-            $this->load->view("dashboard/faq.php",["faq" => $this->front->showCGU(),"su" => $this->front->getSU() ,]) ;
+            $this->load->view("dashboard/faq.php",["faq" => $this->front->getFAQ(),"su" => $this->front->getSU() ,]) ;
         }
         public function modifCCM($id) {
             $this->front->modifCcm([$this->input->post('ccm_entete'),$this->input->post('ccm_texte'),$id]) ;
@@ -157,5 +157,29 @@
                 }
             }
             
+        }
+
+        public function faqAdding() {
+            $data = [
+                $this->input->post("faq_type") ,
+                $this->input->post("faq_question") ,
+                $this->input->post("faq_contenu") ,
+            ] ;
+            $this->front->addFAQ($data) ;
+            redirect("Dashboard/faq") ;
+        }
+        public function modifFAQ($id) {
+            $data = [
+                $this->input->post("faq_type") ,
+                $this->input->post("faq_question") ,
+                $this->input->post("faq_contenu") ,
+                $id ,
+            ] ;
+            $this->front->alterFAQ($data) ;
+            redirect("Dashboard/faq") ;
+        }
+        public function dropFAQ($id) {
+            $this->front->deleteFAQ($id) ;
+            redirect("Dashboard/faq") ;
         }
     }

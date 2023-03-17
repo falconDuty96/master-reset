@@ -25,7 +25,7 @@
             $this->load->view("dashboard/faq",["faq" => $this->front->getFAQ(),"su" => $this->front->getSU() ,]) ;
         }
         public function cgv() {
-            $this->load->view("dashboard/cgv") ;
+            $this->load->view("dashboard/cgv",["cgv" => $this->front->getCGV(),"su" => $this->front->getSU() ,]) ;
         }
         public function fiches() {
             $this->load->view("dashboard/fiches") ;
@@ -186,6 +186,14 @@
             $this->front->addCGU($data) ;
             redirect("Dashboard/cgu") ;
         }
+        public function cgvAdding() {
+            $data = [
+                $this->input->post("cgv_entete") ,
+                $this->input->post("cgv_contenu") ,
+            ] ;
+            $this->front->addCGV($data) ;
+            redirect("Dashboard/cgv") ;
+        }
         public function modifFAQ($id) {
             $data = [
                 $this->input->post("faq_type") ,
@@ -206,6 +214,15 @@
             $this->front->alterCGU($data) ;
             redirect("Dashboard/cgu") ;
         }
+        public function modifCGV($id) {
+            $data = [
+                $this->input->post("cgv_entete") ,
+                $this->input->post("cgv_contenu") ,
+                $id ,
+            ] ;
+            $this->front->alterCGV($data) ;
+            redirect("Dashboard/cgv") ;
+        }
         public function dropFAQ($id) {
             $this->front->deleteFAQ($id) ;
             redirect("Dashboard/faq") ;
@@ -213,5 +230,9 @@
         public function dropCGU($id) {
             $this->front->deleteCGU($id) ;
             redirect("Dashboard/cgu") ;
+        }
+        public function dropCGV($id) {
+            $this->front->deleteCGV($id) ;
+            redirect("Dashboard/cgv") ;
         }
     }

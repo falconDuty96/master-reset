@@ -71,6 +71,11 @@
                 ->parametters(['cgu_type','cgu_entete','cgu_contenu'])
                 ->execute($data) ;
         }
+        public function addCGV($data) {
+            DB::insert('cgv')
+                ->parametters(['cgv_entete','cgv_contenu'])
+                ->execute($data) ;
+        }
         public function addFAQ($data) {
             DB::insert('faq')
                 ->parametters(['faq_type','faq_question','faq_contenu'])
@@ -88,6 +93,12 @@
                 ->where('cgu_id','=')
                 ->execute($data) ;
         }
+        public function alterCGV($data) {
+            DB::update('cgv')
+                ->parametters(['cgv_entete','cgv_contenu'])
+                ->where('cgv_id','=')
+                ->execute($data) ;
+        }
         public function getCGU() {
             return DB::select("cgu")
                        ->order(["cgu_id" => "ASC"])
@@ -103,6 +114,16 @@
                        ->where("cgu_type","=")
                        ->order(["cgu_id" => "ASC"])
                        ->execute([$type]) ;
+        }
+        public function getCGV() {
+            return DB::select("cgv")
+                       ->order(["cgv_id" => "ASC"])
+                       ->execute(null) ;
+        }
+        public function getCGVById($id) {
+            return DB::select("cgv")
+                       ->where("cgv_id","=")
+                       ->execute([$id]) ;
         }
         public function getFAQByType($type) {
             return DB::select("faq")
@@ -130,4 +151,10 @@
                        ->where("cgu_id","=")
                        ->execute([$id]) ;
         }
+        public function deleteCGV($id) {
+            return DB::delete("cgv")
+                       ->where("cgv_id","=")
+                       ->execute([$id]) ;
+        }
+        
     }

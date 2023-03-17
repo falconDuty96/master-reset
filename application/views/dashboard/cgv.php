@@ -90,7 +90,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                             Blogs
                         </a>
-                        <a class="nav-link " href="<?php echo base_url() ?>Dashboard/cgu">
+                        <a class="nav-link" href="<?php echo base_url() ?>Dashboard/cgu">
                             <div class="sb-nav-link-icon"><i class="fas fa-ruler"></i></div>
                             CGU
                         </a>
@@ -128,14 +128,14 @@
                     </div>
                     <div class="row pt-3 mt-3" style="height: 600px ;background-color: white ;overflow-y: auto ;">
                         <div class="col-md-5">
-                            <?php echo form_open_multipart("Dashboard/cguAdding", array('class' => "form-group p-4")) ?>
+                            <?php echo form_open_multipart("Dashboard/cgvAdding", array('class' => "form-group p-4")) ?>
                             
                             <div class="row mb-2">
                                 <div class="col-md-4">
                                     <span class="textToBold">CGV Entête</span>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" name="cgu_entete" class="form-control">
+                                    <input type="text" name="cgv_entete" class="form-control">
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -143,7 +143,7 @@
                                     <span class="textToBold">CGV Contenu</span>
                                 </div>
                                 <div class="col-md-8">
-                                    <textarea class="input-wysiwyg" name="cgu_contenu"></textarea>
+                                    <textarea class="input-wysiwyg" name="cgv_contenu"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -166,20 +166,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php if (isset($cgu)) : ?>
-                                    <?php for ($i = 0; $i < count($cgu); $i++) : ?>
+                                <?php if (isset($cgv)) : ?>
+                                    <?php for ($i = 0; $i < count($cgv); $i++) : ?>
                                         <tr>
-                                            <td><?php echo $cgu[$i]->cgu_entete; ?></td>
-                                            <td><?php echo $cgu[$i]->cgu_contenu; ?></td>
+                                            <td><?php echo $cgv[$i]->cgv_entete; ?></td>
+                                            <td><?php echo $cgv[$i]->cgv_contenu; ?></td>
 
                                             <td>
-                                                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $cgu[$i]->cgu_id ?>">Modifier</a>
-                                                <a href="<?= base_url(); ?>Dashboard/dropCGU/<?php echo $cgu[$i]->cgu_id ?>" class="btn btn-danger">Supprimer</a>
+                                                <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal<?php echo $cgv[$i]->cgv_id ?>">Modifier</a>
+                                                <a href="<?= base_url(); ?>Dashboard/dropCGV/<?php echo $cgv[$i]->cgv_id ?>" class="btn btn-danger">Supprimer</a>
                                             </td>
                                         </tr>
 
                                         <!-- The Modal -->
-                                        <div class="modal fade" id="myModal<?php echo $cgu[$i]->cgu_id ?>">
+                                        <div class="modal fade" id="myModal<?php echo $cgv[$i]->cgv_id ?>">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
 
@@ -191,23 +191,14 @@
 
                                                     <!-- Modal body -->
                                                     <div class="modal-body">
-                                                        <?php echo form_open("Dashboard/modifCGU/{$cgu[$i]->cgu_id}"); ?>
-                                                        <div class="row mb-2">
-                                                            <div class="col-md-4">
-                                                                <span class="textToBold">CGU Type</span>
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <select class="form-select" name="cgu_type">
-                                                                    <option value="<?php echo $cgu[$i]->cgu_type; ?>"><?php echo $cgu[$i]->cgu_type; ?>s</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                                        <?php echo form_open("Dashboard/modifCGV/{$cgv[$i]->cgv_id}"); ?>
+                                                        
                                                         <div class="row mb-2">
                                                             <div class="col-md-3">
                                                                 <span class="textToBold">Entête</span>
                                                             </div>
                                                             <div class="col-md-9">
-                                                                <input type="text" name="cgu_entete" class="form-control" value="<?php echo $cgu[$i]->cgu_entete; ?>">
+                                                                <input type="text" name="cgv_entete" class="form-control" value="<?php echo $cgv[$i]->cgv_entete; ?>">
                                                             </div>
                                                         </div>
                                                         <div class="row mb-2">
@@ -215,7 +206,7 @@
                                                                 <span class="textToBold">Contenu</span>
                                                             </div>
                                                             <div class="col-md-9">
-                                                                <textarea class="input-wysiwyg" name="cgu_contenu"><?php echo $cgu[$i]->cgu_contenu; ?></textarea>
+                                                                <textarea class="input-wysiwyg" name="cgv_contenu"><?php echo $cgv[$i]->cgv_contenu; ?></textarea>
                                                             </div>
                                                         </div>
                                                     </div>

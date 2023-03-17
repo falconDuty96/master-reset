@@ -49,6 +49,17 @@ class Home extends CI_Controller {
 		]) ;
 		$this->load->view('template-parts/footer') ;
 	}
+	public function cgv() {
+		$data = $this->front->getCGV() ;
+		$this->load->view('template-parts/header') ;
+		$this->load->view('cgv', [
+			'cgv' => $this->front->getCGV() ,
+			"id" => 0 ,
+			'resultat' => $data[0]->cgv_contenu ,
+		
+		]) ;
+		$this->load->view('template-parts/footer') ;
+	}
 	public function showCGU($id) {
 		$data = $this->front->getCGUById($id) ;
 		$this->load->view('template-parts/header') ;
@@ -56,6 +67,17 @@ class Home extends CI_Controller {
 			'cgu' => $this->getParticulierCGU() ,
 			"id" => $id ,
 			'resultat' => $data[0]->cgu_contenu ,
+		
+		]) ;
+		$this->load->view('template-parts/footer') ;
+	}
+	public function showCGV($id) {
+		$data = $this->front->getCGVById($id) ;
+		$this->load->view('template-parts/header') ;
+		$this->load->view('cgv', [
+			'cgv' => $this->front->getCGV() ,
+			"id" => $id ,
+			'resultat' => $data[0]->cgv_contenu ,
 		
 		]) ;
 		$this->load->view('template-parts/footer') ;

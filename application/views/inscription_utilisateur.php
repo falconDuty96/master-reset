@@ -63,7 +63,7 @@
                 </div>
                 <!-- <div class="form-group"><label>Choisissez votre logo</label><input class="border rounded form-control-file" type="file"></div> -->
                 <div class="form-group">
-                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">J'accepte les<a href="#">&nbsp;CGU</a>&nbsp;</label></div>
+                    <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1"><label class="form-check-label" for="formCheck-1">J'accepte les<a href="<?php echo base_url() ;?>Home/cgu" target="_blank">&nbsp;CGU</a>&nbsp;</label></div>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-warning btn-block" type="submit">S'inscrire</button>

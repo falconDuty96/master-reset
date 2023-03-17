@@ -1,27 +1,35 @@
--- --------------------------------------------------------
--- Hôte:                         127.0.0.1
--- Version du serveur:           8.0.30 - MySQL Community Server - GPL
--- SE du serveur:                Win64
--- HeidiSQL Version:             12.1.0.6537
--- --------------------------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le : ven. 17 mars 2023 à 07:06
+-- Version du serveur : 8.0.31
+-- Version de PHP : 7.4.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de données : `igoguide`
+--
 
--- Listage de la structure de la base pour igoguide
-CREATE DATABASE IF NOT EXISTS `igoguide` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `igoguide`;
+-- --------------------------------------------------------
 
--- Listage de la structure de table igoguide. abonnements
+--
+-- Structure de la table `abonnements`
+--
+
+DROP TABLE IF EXISTS `abonnements`;
 CREATE TABLE IF NOT EXISTS `abonnements` (
-  `abonnements_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `abonnements_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `abonnements_duree` varchar(50) NOT NULL,
   `etablissements_id` int NOT NULL,
   `abonnements_datedebut` date NOT NULL,
@@ -32,31 +40,39 @@ CREATE TABLE IF NOT EXISTS `abonnements` (
   PRIMARY KEY (`abonnements_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.abonnements : 0 rows
-DELETE FROM `abonnements`;
-/*!40000 ALTER TABLE `abonnements` DISABLE KEYS */;
-/*!40000 ALTER TABLE `abonnements` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Listage de la structure de table igoguide. blogs
+--
+-- Structure de la table `blogs`
+--
+
+DROP TABLE IF EXISTS `blogs`;
 CREATE TABLE IF NOT EXISTS `blogs` (
-  `blogs_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `blogs_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `blogs_presentation` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci,
   `blogs_lien` text NOT NULL,
   `blogs_image` text NOT NULL,
   `blogs_createdAt` date NOT NULL,
   PRIMARY KEY (`blogs_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.blogs : 1 rows
-DELETE FROM `blogs`;
-/*!40000 ALTER TABLE `blogs` DISABLE KEYS */;
+--
+-- Déchargement des données de la table `blogs`
+--
+
 INSERT INTO `blogs` (`blogs_id`, `blogs_presentation`, `blogs_lien`, `blogs_image`, `blogs_createdAt`) VALUES
-	(10, 'Google', 'https://google.com', 'dashboard/uploads/bg1.jpg', '2023-03-15');
-/*!40000 ALTER TABLE `blogs` ENABLE KEYS */;
+(10, 'Google', 'https://google.com', 'dashboard/uploads/phone-g75fd4bada_1920.jpg', '2023-03-15'),
+(11, 'qsdfqsdf', 'qsdfqsdfqsdf', 'dashboard/uploads/photographer-g1cd664b18_1920.jpg', '2023-03-16');
 
--- Listage de la structure de table igoguide. categories
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
-  `categories_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `categories_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `categories_nom` varchar(200) NOT NULL,
   `categories_texte` text NOT NULL,
   `categories_image1` text NOT NULL,
@@ -64,21 +80,27 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`categories_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.categories : 6 rows
-DELETE FROM `categories`;
-/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` (`categories_id`, `categories_nom`, `categories_texte`, `categories_image1`, `categories_image2`) VALUES
-	(1, 'Hébergements ', 'Des nuits atypiques, c\'est assuré…insolites, c\'est probable…et des nuits magiques, c\'est certain! L\'univers que', 'dashboard/uploads/activite.jpg', 'dashboard/uploads/balade.jpg'),
-	(2, 'Où boire ?', 'Se retrouver entre amis ou en famille pour un partage de bons moments.', 'dashboard/uploads/bar.jpg', 'dashboard/uploads/hebergement_atypique.jpg'),
-	(3, 'Restaurants', 'Lorsque l\'on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi', 'dashboard/uploads/Mtn-logo-svg.svg.png', 'dashboard/uploads/Norme-Marquage-sol-Parking-en-Bataille.jpg'),
-	(4, 'Balade', 'À la recherche d\'une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous', 'dashboard/uploads/pngtree-vector-phone-cell-icon-png-image_332938.jpg', 'dashboard/uploads/voiture-livraison-gratuite-vector-illustration-icone-design-plat-prestation-service_153097-2149.webp'),
-	(5, 'Activités', 'À la recherche d\'une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sou', 'dashboard/uploads/alen-alen-wer.jpg', 'dashboard/uploads/face-de-la-taille-basse-illustration-vectorielle-style-plat-vue-de-profil-2dat6rr.jpg'),
-	(6, 'Services', 'Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services d', 'dashboard/uploads/request.PNG', 'dashboard/uploads/response.PNG');
-/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+--
+-- Déchargement des données de la table `categories`
+--
 
--- Listage de la structure de table igoguide. ccm
+INSERT INTO `categories` (`categories_id`, `categories_nom`, `categories_texte`, `categories_image1`, `categories_image2`) VALUES
+(1, 'Hébergements ', 'Des nuits atypiques, c\'est assuré…insolites, c\'est probable…et des nuits magiques, c\'est certain! L\'univers que', 'dashboard/uploads/activite.jpg', 'dashboard/uploads/balade.jpg'),
+(2, 'Où boire ?', 'Se retrouver entre amis ou en famille pour un partage de bons moments.', 'dashboard/uploads/bar.jpg', 'dashboard/uploads/hebergement_atypique.jpg'),
+(3, 'Restaurants', 'Lorsque l\'on va au restaurant, on ne se contente plus de savourer un délicieux repas. On cherche aussi', 'dashboard/uploads/drinks-gdb6d36a89_1920.jpg', 'dashboard/uploads/brick-wall-g1e5f2117e_1920.jpg'),
+(4, 'Balade', 'À la recherche d\'une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sous', 'dashboard/uploads/bike-ride-g0393d745a_1920.jpg', 'dashboard/uploads/little-girl-g9e8827e6c_1920.jpg'),
+(5, 'Activités', 'À la recherche d\'une activité dans le lieu où vous vous trouvez ? Envie de découvrir les régions françaises sou', 'dashboard/uploads/photographer-g1cd664b18_1920.jpg', 'dashboard/uploads/child-ga45e57a49_1920.jpg'),
+(6, 'Services', 'Et si pour animer votre soirée ou rendre votre séjour inoubliable, vous faisiez appel aux services d', 'dashboard/uploads/seo-g4696b6c02_1920.jpg', 'dashboard/uploads/phone-g75fd4bada_1920.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `ccm`
+--
+
+DROP TABLE IF EXISTS `ccm`;
 CREATE TABLE IF NOT EXISTS `ccm` (
-  `ccm_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `ccm_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `ccm_entete` varchar(200) NOT NULL,
   `ccm_texte` varchar(200) NOT NULL,
   `ccm_image` text NOT NULL,
@@ -86,18 +108,39 @@ CREATE TABLE IF NOT EXISTS `ccm` (
   PRIMARY KEY (`ccm_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.ccm : 3 rows
-DELETE FROM `ccm`;
-/*!40000 ALTER TABLE `ccm` DISABLE KEYS */;
-INSERT INTO `ccm` (`ccm_id`, `ccm_entete`, `ccm_texte`, `ccm_image`, `ccm_createdAt`) VALUES
-	(1, 'Etape 1: Choisir une destination', 'Par mots-clés pour n\'en faire qu\'une bouchée. Avec sa carte interactive, super addictive ! Ou ', 'image/Comment/igoguide icone COMMENT CA MARCHE 1.png', '0000-00-00'),
-	(2, 'Etape 2: J\'ai trouvé', 'Super ! Accédez à présent directement à sa fiche ! Tous ses renseignements dont ses photos, site, tarifs, adresse, mail et téléphone ci-trouvent', 'image/Comment/igoguide icone COMMENT CA MARCHE 2.png', '0000-00-00'),
-	(3, 'Etape 3: J\'y vais', 'Ah! Vous voyez ! Vos recherches étaient vraiment, faciles sur IGOguide!', 'image/Comment/igoguide icone COMMENT CA MARCHE 3.png', '0000-00-00');
-/*!40000 ALTER TABLE `ccm` ENABLE KEYS */;
+--
+-- Déchargement des données de la table `ccm`
+--
 
--- Listage de la structure de table igoguide. etablissements
+INSERT INTO `ccm` (`ccm_id`, `ccm_entete`, `ccm_texte`, `ccm_image`, `ccm_createdAt`) VALUES
+(1, 'Etape 1: Choisir une destination !!!', 'Super ! Accédez', 'image/Comment/igoguide icone COMMENT CA MARCHE 1.png', '0000-00-00'),
+(2, 'Etape 2: J\'ai trouvé, uh uh', 'Super ! Accédez à présent directement à sa fiche ! Tous ses renseignements dont ses photos, site, tarifs, adresse, mail et téléphone ci-trouvent', 'image/Comment/igoguide icone COMMENT CA MARCHE 2.png', '0000-00-00'),
+(3, 'Etape 3: J\'y vais', 'Ah! Vous voyez ! Vos recherches étaient vraiment, faciles sur IGOguide!', 'image/Comment/igoguide icone COMMENT CA MARCHE 3.png', '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cgu`
+--
+
+DROP TABLE IF EXISTS `cgu`;
+CREATE TABLE IF NOT EXISTS `cgu` (
+  `cgu_id` int NOT NULL AUTO_INCREMENT,
+  `cgu_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `cgu_entete` text COLLATE utf8mb4_general_ci NOT NULL,
+  `cgu_contenu` text COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`cgu_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etablissements`
+--
+
+DROP TABLE IF EXISTS `etablissements`;
 CREATE TABLE IF NOT EXISTS `etablissements` (
-  `etablissements_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `etablissements_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `etablissements_nom` varchar(200) NOT NULL,
   `etablissements_presentation` varchar(255) NOT NULL,
   `etablissements_adresse` varchar(255) NOT NULL,
@@ -120,28 +163,45 @@ CREATE TABLE IF NOT EXISTS `etablissements` (
   PRIMARY KEY (`etablissements_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.etablissements : 0 rows
-DELETE FROM `etablissements`;
-/*!40000 ALTER TABLE `etablissements` DISABLE KEYS */;
-/*!40000 ALTER TABLE `etablissements` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Listage de la structure de table igoguide. favoris
+--
+-- Structure de la table `faq`
+--
+
+DROP TABLE IF EXISTS `faq`;
+CREATE TABLE IF NOT EXISTS `faq` (
+  `faq_id` int NOT NULL AUTO_INCREMENT,
+  `faq_question` text COLLATE utf8mb4_general_ci NOT NULL,
+  `faq_contenu` text COLLATE utf8mb4_general_ci NOT NULL,
+  `faq_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`faq_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `favoris`
+--
+
+DROP TABLE IF EXISTS `favoris`;
 CREATE TABLE IF NOT EXISTS `favoris` (
-  `favoris_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `favoris_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `etablissements_id` int NOT NULL,
   `users_id` int NOT NULL,
   `favoris_createdAt` date NOT NULL,
   PRIMARY KEY (`favoris_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.favoris : 0 rows
-DELETE FROM `favoris`;
-/*!40000 ALTER TABLE `favoris` DISABLE KEYS */;
-/*!40000 ALTER TABLE `favoris` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Listage de la structure de table igoguide. mentions
+--
+-- Structure de la table `mentions`
+--
+
+DROP TABLE IF EXISTS `mentions`;
 CREATE TABLE IF NOT EXISTS `mentions` (
-  `mentions_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `mentions_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `mentions_cgu` varchar(50) NOT NULL,
   `mentions_cgv` text NOT NULL,
   `mentions_legale` text NOT NULL,
@@ -151,53 +211,69 @@ CREATE TABLE IF NOT EXISTS `mentions` (
   PRIMARY KEY (`mentions_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.mentions : 0 rows
-DELETE FROM `mentions`;
-/*!40000 ALTER TABLE `mentions` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mentions` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Listage de la structure de table igoguide. migrations
+--
+-- Structure de la table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `version` bigint NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.migrations : 1 rows
-DELETE FROM `migrations`;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` (`version`) VALUES
-	(20230313160800);
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+--
+-- Déchargement des données de la table `migrations`
+--
 
--- Listage de la structure de table igoguide. reseauxsociaux
+INSERT INTO `migrations` (`version`) VALUES
+(20230313160800);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reseauxsociaux`
+--
+
+DROP TABLE IF EXISTS `reseauxsociaux`;
 CREATE TABLE IF NOT EXISTS `reseauxsociaux` (
-  `rs_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `rs_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `rs_name` varchar(50) NOT NULL,
   `rs_icon` text NOT NULL,
   `rs_lien` text NOT NULL,
   PRIMARY KEY (`rs_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
--- Listage des données de la table igoguide.reseauxsociaux : 0 rows
-DELETE FROM `reseauxsociaux`;
-/*!40000 ALTER TABLE `reseauxsociaux` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reseauxsociaux` ENABLE KEYS */;
+-- --------------------------------------------------------
 
--- Listage de la structure de table igoguide. superuser
+--
+-- Structure de la table `superuser`
+--
+
+DROP TABLE IF EXISTS `superuser`;
 CREATE TABLE IF NOT EXISTS `superuser` (
   `superuser_id` int NOT NULL AUTO_INCREMENT,
-  `superuser_pseudo` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `superuser_motdepasse` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superuser_pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superuser_motdepasse` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`superuser_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Listage des données de la table igoguide.superuser : ~1 rows (environ)
-DELETE FROM `superuser`;
-INSERT INTO `superuser` (`superuser_id`, `superuser_pseudo`, `superuser_motdepasse`) VALUES
-	(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+--
+-- Déchargement des données de la table `superuser`
+--
 
--- Listage de la structure de table igoguide. users
+INSERT INTO `superuser` (`superuser_id`, `superuser_pseudo`, `superuser_motdepasse`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `users_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `users_id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `users_nom` varchar(200) NOT NULL,
   `users_prenoms` varchar(200) NOT NULL,
   `users_email` varchar(200) NOT NULL,
@@ -208,14 +284,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `users_joinedAt` date NOT NULL,
   PRIMARY KEY (`users_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+COMMIT;
 
--- Listage des données de la table igoguide.users : 0 rows
-DELETE FROM `users`;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

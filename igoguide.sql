@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 17 mars 2023 à 07:06
+-- Généré le : ven. 17 mars 2023 à 09:04
 -- Version du serveur : 8.0.31
 -- Version de PHP : 7.4.33
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `blogs` (
 
 INSERT INTO `blogs` (`blogs_id`, `blogs_presentation`, `blogs_lien`, `blogs_image`, `blogs_createdAt`) VALUES
 (10, 'Google', 'https://google.com', 'dashboard/uploads/phone-g75fd4bada_1920.jpg', '2023-03-15'),
-(11, 'qsdfqsdf', 'qsdfqsdfqsdf', 'dashboard/uploads/photographer-g1cd664b18_1920.jpg', '2023-03-16');
+(11, 'qsdfqsdf', 'sary', 'dashboard/uploads/photographer-g1cd664b18_1920.jpg', '2023-03-16');
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,30 @@ CREATE TABLE IF NOT EXISTS `cgu` (
   `cgu_entete` text COLLATE utf8mb4_general_ci NOT NULL,
   `cgu_contenu` text COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`cgu_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `cgu`
+--
+
+INSERT INTO `cgu` (`cgu_id`, `cgu_type`, `cgu_entete`, `cgu_contenu`) VALUES
+(2, 'particulier', 'Qui somme nous ?', '<p><strong>IGOGUIDE</strong></p>\r\n<ol>\r\n<li>Une plateforme</li>\r\n<li>igoguide</li>\r\n<li>sdfsdfsdf</li>\r\n<li>sdf</li>\r\n<li>sd</li>\r\n<li>f</li>\r\n<li>sdf</li>\r\n</ol>'),
+(3, 'particulier', 'qsdfqsdfqsdfqsdf', '<p>sqdfqsdfqsdf</p>'),
+(4, 'particulier', 'qsdfqsdfqsdf', '<p>sqdfqsdfqsdf</p>');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `cgv`
+--
+
+DROP TABLE IF EXISTS `cgv`;
+CREATE TABLE IF NOT EXISTS `cgv` (
+  `cgv_id` int NOT NULL AUTO_INCREMENT,
+  `cgv_entete` text COLLATE utf8mb4_general_ci NOT NULL,
+  `cgv_contenu` text COLLATE utf8mb4_general_ci NOT NULL,
+  PRIMARY KEY (`cgv_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -255,6 +278,7 @@ CREATE TABLE IF NOT EXISTS `superuser` (
   `superuser_id` int NOT NULL AUTO_INCREMENT,
   `superuser_pseudo` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `superuser_motdepasse` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `superuser_type` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`superuser_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -262,8 +286,8 @@ CREATE TABLE IF NOT EXISTS `superuser` (
 -- Déchargement des données de la table `superuser`
 --
 
-INSERT INTO `superuser` (`superuser_id`, `superuser_pseudo`, `superuser_motdepasse`) VALUES
-(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+INSERT INTO `superuser` (`superuser_id`, `superuser_pseudo`, `superuser_motdepasse`, `superuser_type`) VALUES
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin');
 
 -- --------------------------------------------------------
 

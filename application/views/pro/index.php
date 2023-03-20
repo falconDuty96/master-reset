@@ -178,12 +178,12 @@
                                                 <a href="<?= $data[$ic]->etablissements_insta; ?>">Instagram</a>
                                             </td>
                                             <td>
-                                                <a href=""  data-bs-toggle="modal" data-bs-target="#myModalShow<?= $data[$ic]->etablissements_id; ?>">
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#myModalShow<?= $data[$ic]->etablissements_id; ?>">
                                                     <span role="button" class="btn-tooltip text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editer">
                                                         <i class="fa-regular fa-eye"></i>
                                                     </span>
                                                 </a>
-                                                <a href="#">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#myModalEdit<?= $data[$ic]->etablissements_id; ?>">
                                                     <span role="button" class="btn-tooltip text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editer">
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </span>
@@ -198,7 +198,7 @@
 
                                         <!-- The Modal -->
                                         <div class="modal fade" id="myModalShow<?= $data[$ic]->etablissements_id; ?>">
-                                            <div class="modal-dialog modal-xl">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
 
                                                     <!-- Modal Header -->
@@ -208,8 +208,321 @@
                                                     </div>
 
                                                     <!-- Modal body -->
+                                                    <div class="modal-body" style="min-height: 500px">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <!-- Identité -->
+                                                                <span class="sidebar-title mt-3">
+                                                                    <span class="bolder">Identité</span>
+                                                                    <span class="line"></span>
+                                                                </span>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Nom de l'établissement : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_nom; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">E-mail : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_email; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Télephone : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_telephone; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Description : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_presentation; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Mot clé : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_motcle; ?>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- Localisation -->
+                                                                <span class="sidebar-title mt-3">
+                                                                    <span class="bolder">Localisation</span>
+                                                                    <span class="line"></span>
+
+                                                                </span>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Adresse : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_adresse; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Pays : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_pays; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Longitude : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_longitude; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Latitude : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_latitude; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Code postal : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_codepostal; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Ville : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_ville; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Région : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_region; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Département : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?= $data[$ic]->etablissements_departement; ?>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Photos -->
+                                                                <span class="sidebar-title mt-3">
+                                                                    <span class="bolder">Photos</span>
+                                                                    <span class="line"></span>
+                                                                </span>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Photos : </div>
+                                                                    <div class="col-md-8">
+                                                                        <img class="img-fluid" src="<?= base_url() ?>publics/<?= $data[$ic]->etablissements_photo; ?>" alt="">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Catégories -->
+                                                                <span class="sidebar-title mt-3">
+                                                                    <span class="bolder">Catégorie et sous catégorie</span>
+                                                                    <span class="line"></span>
+                                                                </span>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Catégorie : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?php echo $data[$ic]->categories_nom; ?>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Sous catégorie : </div>
+                                                                    <div class="col-md-8">
+                                                                        <?php echo $data[$ic]->sous_categories_nom; ?>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Catégories -->
+                                                                <span class="sidebar-title mt-3">
+                                                                    <span class="bolder">Réseaux sociaux</span>
+                                                                    <span class="line"></span>
+                                                                </span>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Facebook : </div>
+                                                                    <div class="col-md-8">
+                                                                        <a href="<?php echo $data[$ic]->etablissements_fb; ?>">Facebook</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-4">Instagram : </div>
+                                                                    <div class="col-md-8">
+                                                                        <a href="<?php echo $data[$ic]->etablissements_insta; ?>">Instagram</a>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Activités -->
+                                                                <?php
+                                                                $act = json_decode($data[$ic]->etablissements_activites);
+
+
+                                                                ?>
+                                                                <span class="sidebar-title mt-3">
+                                                                    <span class="bolder">Activités</span>
+                                                                    <span class="line"></span>
+                                                                </span>
+                                                                <?php
+                                                                $act = json_decode($data[$ic]->etablissements_activites);
+                                                                foreach ($act as $key => $value) :
+                                                                    if ($value != null) :
+                                                                ?>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4"><?= $key; ?> : </div>
+                                                                            <div class="col-md-8">
+                                                                                <?php if ($value == "on") : ?>
+                                                                                    OUI
+                                                                                <?php else : ?>
+                                                                                    <?= $value; ?>
+                                                                                <?php endif; ?>
+                                                                            </div>
+                                                                        </div>
+                                                                <?php
+                                                                    endif;
+                                                                endforeach;
+                                                                ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Modal footer -->
+                                                    <!-- <div class="modal-footer">
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                                                    </div> -->
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <!-- Modal modif etablissements -->
+                                        <!-- The Modal -->
+                                        <div class="modal fade" id="myModalEdit<?= $data[$ic]->etablissements_id; ?>">
+                                            <div class="modal-dialog modal-xl">
+                                                <div class="modal-content">
+
+                                                    <!-- Modal Header -->
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title">Modifier fiche</h4>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                    </div>
+
+                                                    <!-- Modal body -->
                                                     <div class="modal-body">
-                                                        Modal body..
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Indentité de l'établissement</span>
+                                                            <span class="line"></span>
+                                                        </span>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Nom de l'établissement :</label>
+                                                                    <input type="text" class="form-control" name="etablissements_nom" value="<?= $data[$ic]->etablissements_nom; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Télephone :</label>
+                                                                    <input type="text" class="form-control" name="etablissements_telephone" value="<?= $data[$ic]->etablissements_telephone; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Mot clés :</label>
+                                                                    <input type="text" class="form-control" name="etablissements_motcle" value="<?= $data[$ic]->etablissements_motcle; ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Email :</label>
+                                                                    <input type="text" class="form-control" name="etablissements_email" value="<?= $data[$ic]->etablissements_email; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Description :</label>
+                                                                    <input type="text" class="form-control" name="etablissements_presentation" value="<?= $data[$ic]->etablissements_presentation; ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Localisation</span>
+                                                            <span class="line"></span>
+                                                        </span>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Adresse :</label>
+                                                                    <input type="text" class="form-control" id="searchTextField" name="etablissement_adresse" value="<?= $data[$ic]->etablissements_adresse; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Pays :</label>
+                                                                    <input type="text" class="form-control" id='pays' name="etablissements_pays" value="<?= $data[$ic]->etablissements_pays; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Longitude :</label>
+                                                                    <input type="text" class="form-control" id="longitude" name="etablissements_longitude" value="<?= $data[$ic]->etablissements_longitude; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Latitude :</label>
+                                                                    <input type="text" class="form-control" id="latitude" name="etablissements_latitude" value="<?= $data[$ic]->etablissements_latitude; ?>">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label>Code postal :</label>
+                                                                    <input type="text" class="form-control" id="code_postal" name="etablissements_codepostal" value="<?= $data[$ic]->etablissements_codepostal; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Ville :</label>
+                                                                    <input type="text" class="form-control" id="ville" name="etablissements_ville" value="<?= $data[$ic]->etablissements_ville; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Région :</label>
+                                                                    <input type="text" class="form-control" id="region" name="etablissements_region" value="<?= $data[$ic]->etablissements_region; ?>">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Departement :</label>
+                                                                    <input type="text" class="form-control" id="departement" name="etablissements_departement" value="<?= $data[$ic]->etablissements_departement; ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Réseaux sociaux</span>
+                                                            <span class="line"></span>
+                                                        </span>
+                                                        <div class="form-group">
+                                                            <label>Site web :</label>
+                                                            <input type="text" class="form-control" name="etablissements_website" value="<?= $data[$ic]->etablissements_website; ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Facebook :</label>
+                                                            <input type="text" class="form-control" name="etablissements_fb" value="<?= $data[$ic]->etablissements_fb; ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Instagram :</label>
+                                                            <input type="text" class="form-control" name="etablissements_insta" value="<?= $data[$ic]->etablissements_insta; ?>">
+                                                        </div>
+
+
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Réseaux sociaux</span>
+                                                            <span class="line"></span>
+                                                        </span>
+                                                        <div class="form-group">
+                                                            <label>Site web :</label>
+                                                            <input type="text" class="form-control" name="etablissements_website" value="<?= $data[$ic]->etablissements_website; ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Facebook :</label>
+                                                            <input type="text" class="form-control" name="etablissements_fb" value="<?= $data[$ic]->etablissements_fb; ?>">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Instagram :</label>
+                                                            <input type="text" class="form-control" name="etablissements_insta" value="<?= $data[$ic]->etablissements_insta; ?>">
+                                                        </div>
+
+
+
                                                     </div>
 
                                                     <!-- Modal footer -->
@@ -240,7 +553,7 @@
                         <?php echo form_open_multipart('Pro/addEtablissement', array("class" => "modal-content")); ?>
 
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5">Créer fiche</h1>
+                            <h1 class="modal-title fs-5">Créer un fiche</h1>
                             <button type="button" id="close-modal-fiche" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">

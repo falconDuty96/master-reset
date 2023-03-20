@@ -319,7 +319,20 @@
                                     <span class="bolder">Sous-catégorie</span>
                                     <span class="line"></span>
                                 </span>
-                                <div class="form-group sc-selector" id="categ-1">
+
+                                <?php if(isset($sc)): ?>
+                                    <?php for($sc_id = 0; $sc_id < count($sc); $sc_id++): ?>
+                                        <div class="form-group d-none sc-selector" id="categ-<?php echo $sc_id + 1 ?>">
+                                            <select class="form-select" name="sc">
+                                                <?php for($ssc_id = 0; $ssc_id < count($sc[$sc_id]); $ssc_id++): ?>
+                                                    <option value="<?php echo $sc[$sc_id][$ssc_id]->sous_categories_id ;?>"><?php echo $sc[$sc_id][$ssc_id]->sous_categories_nom ;?></option>
+                                                <?php endfor ; ?>
+                                            </select>
+                                        </div>
+                                    <?php endfor ;?>
+                                <?php endif ; ?>
+                                
+                                <!-- <div class="form-group sc-selector" id="categ-1">
                                     <select class="form-select" name="sc">
                                         <option value="">Cabanes sur terre</option>
                                         <option value="">Cabanes sous terre</option>
@@ -385,7 +398,7 @@
                                         <option value="">Locations de vélos</option>
                                         <option value="">Divers</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <span class="sidebar-title my-3">
                                     <span class="bolder">Divers</span>
                                     <span class="line"></span>
@@ -394,119 +407,119 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Tarif :</label>
-                                            <input type="number" class="form-control" min="0">
+                                            <input type="number" name="tarif" class="form-control" min="0">
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Piscines
+                                                <input type="checkbox" name="piscines"> Piscines
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Salle de bain et W.C
+                                                <input type="checkbox" name="salle_de_bain_et_wc"> Salle de bain et W.C
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Animaux
+                                                <input type="checkbox" name="animaux"> Animaux
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Lits doubles
+                                                <input type="checkbox" name="lits_doubles"> Lits doubles
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Lits superposés
+                                                <input type="checkbox" name="lits_superposes"> Lits superposés
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Capacité :</label>
-                                            <input type="number" class="form-control" min="0">
+                                            <input type="number" class="form-control" min="0" name="capacite">
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Bain à remous
+                                                <input type="checkbox" name="bain_a_remous"> Bain à remous
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Accès à Internet
+                                                <input type="checkbox" name="acces_a_internet"> Accès à Internet
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Enfants
+                                                <input type="checkbox" name="enfants"> Enfants
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Lits d'appoints
+                                                <input type="checkbox" name="lits_appoints"> Lits d'appoints
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Accessible aux handicapés
+                                                <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Age minimum :</label>
-                                            <input type="number" class="form-control" min="0">
+                                            <input type="number" class="form-control" min="0" name="age_minimum">
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Sauna
+                                                <input type="checkbox" name="sauna"> Sauna
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Ménage inclus
+                                                <input type="checkbox" name="menage_inclus"> Ménage inclus
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Petit déjeuner inclus
+                                                <input type="checkbox" name="petit_dejeuner"> Petit déjeuner inclus
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Lits pour bébé
+                                                <input type="checkbox" name="lits_pour_bebe"> Lits pour bébé
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Possibilité de manger sur place
+                                                <input type="checkbox" name="manger_sur_place"> Possibilité de manger sur place
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Nombre de couchage :</label>
-                                            <input type="number" class="form-control" min="0">
+                                            <input type="number" class="form-control" min="0" name="nombre_de_couchage">
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Cuisines
+                                                <input type="checkbox" name="cuisines"> Cuisines
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Draps et linges inclus
+                                                <input type="checkbox" name="draps_et_linges"> Draps et linges inclus
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Lits simples
+                                                <input type="checkbox" name="lits_simples"> Lits simples
                                             </label>
                                         </div>
                                         <div class="form-group">
                                             <label>
-                                                <input type="checkbox"> Canapés lits
+                                                <input type="checkbox" name="canapes_lits"> Canapés lits
                                             </label>
                                         </div>
                                     </div>

@@ -20,9 +20,8 @@ class Pro extends CI_Controller
 
     public function index()
     {
-        $this->load->view('pro/index',[
-            "sc" => $this->pro->getCategories_sous_categories() ,
-        ]);
+        $this->load->view('pro/index',['sc' => $this->pro->getCategories_sous_categories()]);
+        // $this->pro->getCategories_sous_categories() ;
     }
     public function abonnement()
     {
@@ -110,15 +109,44 @@ class Pro extends CI_Controller
         $image = "";
         $activite = "";
         $id_categories = "";
-        $sous_categories_id = $this->input->post("sous_categories_id");
+        $sous_categories_id = $this->input->post("sc");
 
         $categ = $this->input->post('categorie');
+
         switch ($categ) {
             case "categ-1":
                 $id_categories = 1;
+                $activite = array(
+                    "Piscines" => $this->input->post("piscines") ,
+                    "Salle de bain et W.C" => $this->input->post("salle_de_bain_et_wc") ,
+                    "Animaux" => $this->input->post("animaux") ,
+                    "Lits doubles" => $this->input->post("lits_doubles") ,
+                    "Lits superposés" => $this->input->post("lits_superposes") ,
+                    "Bain à remous" => $this->input->post("bain_a_remous") ,
+                    "Accès à Internet" => $this->input->post("acces_a_internet") ,
+                    "Enfants" => $this->input->post("enfants") ,
+                    "Lits d'appoints" => $this->input->post("lits_appoints") ,
+                    "Accessible aux handicapés" => $this->input->post("accessible_handicapes") ,
+                    "Sauna" => $this->input->post("sauna") ,
+                    "Ménage inclus" => $this->input->post("menage_inclus") ,
+                    "Petit déjeuner inclus" => $this->input->post("petit_dejeuner") ,
+                    "Lits pour bébé" => $this->input->post("lits_pour_bebe") ,
+                    "Possibilité de manger sur place" => $this->input->post("manger_sur_place") ,
+                    "Cuisines" => $this->input->post("cuisines") ,
+                    "Draps et linges inclus" => $this->input->post("draps_et_linges") ,
+                    "Lits simples" => $this->input->post("lits_simples") ,
+                    "Canapés lits" => $this->input->post("canapes_lits") ,
+                    "Tarif" => $this->input->post("tarif") ,
+                    "Capacité" => $this->input->post("capacite") ,
+                    "Age minimum" => $this->input->post("age_minimum") ,
+                    "Nombre de couchage" => $this->input->post("nombre_de_couchage") ,
+                ) ;
                 break;
             case "categ-2":
                 $id_categories = 2;
+                $activite = array(
+                    ""
+                ) ;
                 break;
             case "categ-3":
                 $id_categories = 3;
@@ -157,7 +185,7 @@ class Pro extends CI_Controller
             $this->input->post("etablissements_fb"),
             $this->input->post("etablissements_insta"),
             $image,
-            $activite,
+            json_encode($activite),
             $_SESSION['users_id'],
             $id_categories,
             date('Y-m-d'),

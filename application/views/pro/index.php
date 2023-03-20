@@ -307,12 +307,12 @@
                                 </span>
                                 <div class="form-group">
                                     <select class="form-select" id="selector-categ" name="categorie">
-                                        <option value="categ-1">Hébergements</option>
+                                        <!-- <option value="categ-1">Hébergements</option>
                                         <option value="categ-2">Où boire</option>
                                         <option value="categ-3">Où manger</option>
                                         <option value="categ-4">Balades</option>
                                         <option value="categ-5">Activités</option>
-                                        <option value="categ-6">Services</option>
+                                        <option value="categ-6">Services</option> -->
                                     </select>
                                 </div>
                                 <span class="sidebar-title my-3">

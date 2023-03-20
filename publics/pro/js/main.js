@@ -1,4 +1,31 @@
 $(document).ready(function () {
+
+    const URL = 'http://localhost/master-reset/'
+
+    function showSCByID(id) {
+        $.ajax({
+            url: URL+"Pro/showSC" ,
+            type: "post",
+            data: {
+                'id': id ,
+            }
+        })
+        .done(function(data) {
+            
+        })
+    }
+    function afficheCategorie() {
+        $.ajax({
+            url: URL+"Pro/showCategorie",
+            type: "post",
+            data: {},
+        })
+        .done(function(data) {
+            $("#selector-categ").html(data) ;
+        })
+    }
+    afficheCategorie() ;
+
     $(".sc-selector").removeClass("d-none")
     $(".sc-selector").addClass("d-none")
     $("#categ-1").removeClass("d-none")

@@ -39,6 +39,7 @@
         }
         public function getAllCategories() {
             return DB::select('categories')
+                       ->order(['categories_id' => "ASC"])
                        ->execute(null) ;
         }
         public function getCategoriesById($id) {

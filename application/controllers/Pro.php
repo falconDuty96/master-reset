@@ -8,9 +8,21 @@ class Pro extends CI_Controller
         $this->load->model("FrontModel", "front");
         $this->load->model("ProModel", "pro");
     }
+
+    public function showCategorie() {
+        $categ = $this->front->getAllCategories() ;
+        $design = "" ;
+        for($i = 0; $i < count($categ); $i++) {
+            $design .= "<option value='categ-".$categ[$i]->categories_id."'>".$categ[$i]->categories_nom."</option>" ;
+        }
+        echo $design ;
+    }
+
     public function index()
     {
-        $this->load->view('pro/index');
+        $this->load->view('pro/index',[
+            "sc" => $this->pro->getCategories_sous_categories() ,
+        ]);
     }
     public function abonnement()
     {

@@ -46,11 +46,23 @@
         }
 
         public function getCategories_sous_categories($idCateg) {
-            return DB::select('categories')
-                      ->inner("sous_categories","categories_id")
-                      ->where('sous_categories.categories_id',"=")
-                      ->execute([$idCateg]) ;
+
+            $data_categ = DB::customSelect("SELECT * FROM categories") ;
+            $data_port = [] ;
+            $data_array = [] ;
+            for($i = 0; $i < count($data_categ); $i++) {
+                array_push($data_categ,$data_categ[$i]->categories_id) ;
+                $data = DB::select('categories')
+                          ->where('categories_id', "=")
+                          ->execute(array($data_categ[0]->categories_id)) ;
+            }
+            
+            // return DB::select('categories')
+            //           ->inner("sous_categories","categories_id")
+            //           ->where('sous_categories.categories_id',"=")
+            //           ->execute([$idCateg]) ;
         }
+
 
 
     }

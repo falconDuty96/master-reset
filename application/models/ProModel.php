@@ -28,5 +28,29 @@
                 ->where("users_id","=")
                 ->execute($data) ;
         }
+        public function insertEtablissement($data) {
+            DB::insert('etablissements')
+                ->parametters(["etablissements_nom","etablissements_presentation","etablissements_adresse","etablissements_motcle","etablissements_longitude","etablissements_latitude","etablissements_codepostal","etablissements_departement","etablissements_region","etablissements_pays","etablissements_telephone","etablissements_email","etablissements_website","etablissements_fb","etablissements_insta","etablissements_photo","etablissements_activites","users_id","categories_id","etablissements_createdAt","etablissements_ville","sous_categories_id"])
+                ->execute($data) ;
+        }
+        public function updateEtablissement($data) {
+            DB::update('etablissements')
+                ->parametters(["etablissements_nom","etablissements_presentation","etablissements_adresse","etablissements_motcle","etablissements_longitude","etablissements_latitude","etablissements_codepostal","etablissements_departement","etablissements_region","etablissements_pays","etablissements_telephone","etablissements_email","etablissements_website","etablissements_fb","etablissements_insta","etablissements_photo","etablissements_activites","users_id","categories_id","etablissements_createdAt","etablissements_ville","sous_categories_id"])
+                ->where('etablissements_id',"=")
+                ->execute($data) ;
+        }
+        public function deleteEtablissement($id) {
+            DB::delete('etablissements')
+                ->where("etablissements_id","=")
+                ->execute([$id]) ;
+        }
+
+        public function getCategories_sous_categories($idCateg) {
+            return DB::select('categories')
+                      ->inner("sous_categories","categories_id")
+                      ->where('sous_categories.categories_id',"=")
+                      ->execute([$idCateg]) ;
+        }
+
 
     }

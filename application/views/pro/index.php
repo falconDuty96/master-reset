@@ -503,32 +503,30 @@
                                                             <input type="text" class="form-control" name="etablissements_insta" value="<?= $data[$ic]->etablissements_insta; ?>">
                                                         </div>
 
-
                                                         <span class="sidebar-title my-3">
-                                                            <span class="bolder">Réseaux sociaux</span>
+                                                            <span class="bolder">Média</span>
                                                             <span class="line"></span>
                                                         </span>
                                                         <div class="form-group">
-                                                            <label>Site web :</label>
-                                                            <input type="text" class="form-control" name="etablissements_website" value="<?= $data[$ic]->etablissements_website; ?>">
+                                                            <label>Image de l'établissement :</label>
+                                                            <input type="file" class="form-control" name="etablissements_photo">
+                                                            <img src="<?= base_url(); ?>publics/<?= $data[$ic]->etablissements_photo; ?>" alt="">
                                                         </div>
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Catégories</span>
+                                                            <span class="line"></span>
+                                                        </span>
                                                         <div class="form-group">
-                                                            <label>Facebook :</label>
-                                                            <input type="text" class="form-control" name="etablissements_fb" value="<?= $data[$ic]->etablissements_fb; ?>">
+                                                            
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label>Instagram :</label>
-                                                            <input type="text" class="form-control" name="etablissements_insta" value="<?= $data[$ic]->etablissements_insta; ?>">
-                                                        </div>
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Sous-catégorie</span>
+                                                            <span class="line"></span>
+                                                        </span>
 
 
 
                                                     </div>
-
-                                                    <!-- Modal footer -->
-                                                    <!-- <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                                                    </div> -->
 
                                                 </div>
                                             </div>
@@ -668,12 +666,7 @@
                             </span>
                             <div class="form-group">
                                 <select class="form-select" id="selector-categ" name="categorie">
-                                    <!-- <option value="categ-1">Hébergements</option>
-                                        <option value="categ-2">Où boire</option>
-                                        <option value="categ-3">Où manger</option>
-                                        <option value="categ-4">Balades</option>
-                                        <option value="categ-5">Activités</option>
-                                        <option value="categ-6">Services</option> -->
+
                                 </select>
                             </div>
                             <span class="sidebar-title my-3">
@@ -692,74 +685,6 @@
                                     </div>
                                 <?php endfor; ?>
                             <?php endif; ?>
-
-                            <!-- <div class="form-group sc-selector" id="categ-1">
-                                    <select class="form-select" name="sc">
-                                        <option value="">Cabanes sur terre</option>
-                                        <option value="">Cabanes sous terre</option>
-                                        <option value="">Cabanes sur l'eau</option>
-                                        <option value="">Cabanes sur Tippis/Tentes/Yourts</option>
-                                        <option value="">Habitats roulants</option>
-                                        <option value="">Cabanes sur les arbres</option>
-                                        <option value="">Bulles</option>
-                                        <option value="">Monuments historiques</option>
-                                        <option value="">Bâteaux</option>
-                                        <option value="">Hébergements de charme</option>
-                                        <option value="">Hôtels atypiques</option>
-                                    </select>
-                                </div>
-                                <div class="form-group d-none sc-selector" id="categ-2">
-                                    <select class="form-select" name="sc">
-                                        <option value="">Bars à lounge/Whisky/Cocktails</option>
-                                        <option value="">Concerts bars</option>
-                                        <option value="">Bars à vin</option>
-                                        <option value="">Pubs-Bars à tapas</option>
-                                        <option value="">Bars à thèmes-jeux-billard</option>
-                                        <option value="">Bars à rooftop</option>
-                                        <option value="">Bars à chat</option>
-                                    </select>
-                                </div>
-                                <div class="form-group d-none sc-selector" id="categ-3">
-                                    <select class="form-select" name="sc">
-                                        <option value="">Restaurants originaux</option>
-                                        <option value="">Restaurants avec animations</option>
-                                        <option value="">Cuisines traditionnelle</option>
-                                        <option value="">Cuisines du monde</option>
-                                        <option value="">Types fast food/tapas</option>
-                                        <option value="">Brasseries-Bistrot-Auberges</option>
-                                    </select>
-                                </div>
-                                <div class="form-group d-none sc-selector" id="categ-4">
-                                    <select class="form-select" name="sc">
-                                        <option value="">Randonnées nature</option>
-                                        <option value="">Au fil de l'eau</option>
-                                        <option value="">Sites historiques</option>
-                                        <option value="">Perles sauvages</option>
-                                        <option value="">Les jardins de imaginaire</option>
-                                    </select>
-                                </div>
-                                <div class="form-group d-none sc-selector" id="categ-5">
-                                    <select class="form-select" name="sc">
-                                        <option value="">Ateliers-Stages</option>
-                                        <option value="">Activités physiques et sportives</option>
-                                        <option value="">Activités ludiques</option>
-                                        <option value="">Activités gustatives</option>
-                                        <option value="">Activités éducatives</option>
-                                        <option value="">Activités bien-être</option>
-                                        <option value="">Shopping artisans et créateurs</option>
-                                    </select>
-                                </div>
-                                <div class="form-group d-none sc-selector" id="categ-6">
-                                    <select class="form-select" name="sc">
-                                        <option value="">Organisateurs</option>
-                                        <option value="">Photographes et vidéo</option>
-                                        <option value="">Traiteurs</option>
-                                        <option value="">Fleuristes</option>
-                                        <option value="">Locations de véhicules</option>
-                                        <option value="">Locations de vélos</option>
-                                        <option value="">Divers</option>
-                                    </select>
-                                </div> -->
                             <span class="sidebar-title my-3">
                                 <span class="bolder">Divers</span>
                                 <span class="line"></span>

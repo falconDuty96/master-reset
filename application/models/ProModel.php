@@ -52,7 +52,23 @@ class ProModel extends CI_Model
             ->where("etablissements_id", "=")
             ->execute([$id]);
     }
+    public function selectEtablissements() {
+        // return DB::select("etablissements")
+        //           ->inner("categories","categories_id")
+        //           ->inner("sous_categories","sous_categories_id")
+        //           ->order(["etablissements_id" => "DESC"])
+        //           ->execute(null) ;
 
+        return DB::customQuery("SELECT * FROM etablissements INNER JOIN categories ON categories.categories_id=etablissements.categories_id INNER JOIN sous_categories ON sous_categories.sous_categories_id=etablissements.sous_categories_id WHERE users_id='".$_SESSION['users_id']."' ORDER BY etablissements_id DESC") ;
+    }
+
+    public function selectEtablissementID($id) {
+        return DB::select("etablissements")
+                  ->inner("categories","categories.categories_id")
+                  ->where("etablissements_id","=")
+                  ->and("users_id","=")
+                  ->execute(array($id,$_SESSION['users_id'])) ;
+    }
     public function getCategories_sous_categories()
     {
 

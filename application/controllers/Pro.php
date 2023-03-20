@@ -20,7 +20,10 @@ class Pro extends CI_Controller
 
     public function index()
     {
-        $this->load->view('pro/index',['sc' => $this->pro->getCategories_sous_categories()]);
+        $this->load->view('pro/index',[
+            'sc' => $this->pro->getCategories_sous_categories(),
+            'data' => $this->pro->selectEtablissements(),
+        ]);
         // $this->pro->getCategories_sous_categories() ;
     }
     public function abonnement()
@@ -109,7 +112,7 @@ class Pro extends CI_Controller
         $image = "";
         $activite = "";
         $id_categories = "";
-        $sous_categories_id = $this->input->post("sc");
+        $sous_categories_id = "";
 
         $categ = $this->input->post('categorie');
 
@@ -141,24 +144,55 @@ class Pro extends CI_Controller
                     "Age minimum" => $this->input->post("age_minimum") ,
                     "Nombre de couchage" => $this->input->post("nombre_de_couchage") ,
                 ) ;
+                $sous_categories_id = $this->input->post("sc_1");
                 break;
             case "categ-2":
                 $id_categories = 2;
                 $activite = array(
-                    ""
+                    "Heure d'ouverture" => $this->input->post("heure_ouverture_2") ,
+                    "Heure de fermeture" => $this->input->post("heure_fermeture_2") ,
+                    "Tarif" => $this->input->post("tarif_2") ,
+                    "Adapté aux handicapés" => $this->input->post("adapte_handicap_2") ,
                 ) ;
+                $sous_categories_id = $this->input->post("sc_2");
                 break;
             case "categ-3":
                 $id_categories = 3;
+                $activite = array(
+                    "Jours non ouverts" => $this->input->post("jours_non_ouverts") ,
+                    "Famille avec enfants" => $this->input->post("famille_enfants") ,
+                    "Livraisons" => $this->input->post("livraisons") ,
+                    "Heure d'ouverture" => $this->input->post("heure_ouverture") ,
+                    "Conseillé pour groupes" => $this->input->post("conseille_groupes") ,
+                    "Accessible aux handicapés" => $this->input->post("accessible_handicapes") ,
+                    "Heure de fermeture" => $this->input->post("heure_fermeture") ,
+                    "Repas sur place" => $this->input->post("repas_place") ,
+                    "Repas emportés" => $this->input->post("repas_emportes") ,
+                ) ;
+                $sous_categories_id = $this->input->post("sc_3");
                 break;
             case "categ-4":
                 $id_categories = 4;
+                $activite = array(
+                    "Durée de la balade" => $this->input->post("duree_balade") ,
+                    "Tarif à partir de" => $this->input->post("tarif_a_partir") ,
+                    "Distance du parcours (en Km)" => $this->input->post("distance_parcours") ,
+                ) ;
+                $sous_categories_id = $this->input->post("sc_4");
                 break;
             case "categ-5":
                 $id_categories = 5;
+                $activite = array(
+                    
+                ) ;
+                $sous_categories_id = $this->input->post("sc_5");
                 break;
             case "categ-6":
                 $id_categories = 6;
+                $activite = array(
+                    
+                ) ;
+                $sous_categories_id = $this->input->post("sc_6");
                 break;
         }
 
@@ -194,6 +228,11 @@ class Pro extends CI_Controller
         ];
 
         $this->pro->insertEtablissement($data);
+        redirect('Pro/');
+    }
+
+    public function dropEtablissement($id) {
+        $this->pro->deleteEtablissement($id) ;
         redirect('Pro/');
     }
 }

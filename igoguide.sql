@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 20 mars 2023 à 11:59
+-- Généré le : lun. 20 mars 2023 à 15:01
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.1
 
@@ -190,11 +190,7 @@ CREATE TABLE `etablissements` (
 --
 
 INSERT INTO `etablissements` (`etablissements_id`, `etablissements_nom`, `etablissements_presentation`, `etablissements_adresse`, `etablissements_motcle`, `etablissements_longitude`, `etablissements_latitude`, `etablissements_codepostal`, `etablissements_departement`, `etablissements_region`, `etablissements_pays`, `etablissements_telephone`, `etablissements_email`, `etablissements_website`, `etablissements_fb`, `etablissements_insta`, `etablissements_photo`, `etablissements_activites`, `users_id`, `categories_id`, `etablissements_createdAt`, `etablissements_ville`, `sous_categories_id`) VALUES
-(2, 'qsdfqsdf', 'qsdfqsfqsdf', '13ème Arrondissement, Paris, France', 'qsdfqsdfqsdf', '2.3598969', '48.8261675', '75013', 'Département de Paris', 'Île-de-France', 'France', 'qsdfqsdf', 'qsdfqsdf', 'qsdfqsdf', 'qsdfqsdf', 'qsdfqsdfqsdf', 'pro/uploads/Capture.PNG', '', 3, 1, '2023-03-20', 'Paris', 0),
-(3, 'qsdfqsdf', 'qsdfqsdf', 'Bruges, Belgique', 'qsdfqsdfqsdf', '3.2247552', '51.2091807', '101', 'Flandre Occidentale', 'Région Flamande', 'Belgique', 'qsdfqsdf', 'qsdfqsdf', 'qsdfqsdf', 'qsdfqsdf', 'qsdfqsdf', 'pro/uploads/Graph 2.PNG', '', 3, 3, '2023-03-20', 'Bruges', 0),
-(4, 'qsdfqsdf', 'qsdfqsdf', '13ème Arrondissement, Paris, France', 'qdfqsdf', '2.3598969', '48.8261675', '75013', 'Département de Paris', 'Île-de-France', 'France', 'qsdfqsdf', 'qsdfqsdfqdf', 'qsfdqfd', 'qsdfqsfd', 'qsdfqsdfqsdf', 'pro/uploads/42.jpg', '', 3, 2, '2023-03-20', 'Paris', 7),
-(5, 'qsdfqsdfqsdfqsdfqsfd', 'qsdfqsdfazer', '136 Đường Hồ Tùng Mậu, Goldmark City, Phú Diễn, District de Bac Tu Liem, Hanoï, Vietnam', 'zerazerazer', '105.766206', '21.0429502', '10100', 'Bắc Từ Liêm', 'Hà Nội', 'Vietnam', 'qsdfqsdfqsdf', 'qsdfqsfdqsdfqsdf', 'qsdf', 'qsdfqsfdqsdf', 'qsdfq', 'pro/uploads/signaux-des-agents.jpg', '{\"Piscines\":\"sdfsdf\",\"Salle de bain et W.C\":\"sdfsdf\"}', 3, 1, '2023-03-20', '', 7),
-(6, 'qsdfqfd', 'qdf', 'San Francisco de Borja 1373, Santiago, Estación Central, Chili', 'qsdf', '-70.6815232', '-33.4660986', '101', 'Santiago', 'Región Metropolitana', 'Chili', 'qsdf', 'qsdfq', 'qsdfqsdfqsfdqdf', 'qsdfqsdfqdfqsdf', 'qsdfqfqsdfqdf', 'pro/uploads/gateau-mariage-flores-couleur_144627-13807.jpg', '{\"Piscines\":\"on\",\"Salle de bain et W.C\":\"on\",\"Animaux\":\"on\",\"Lits doubles\":\"on\",\"Lits superpos\\u00e9s\":\"on\",\"Bain \\u00e0 remous\":\"on\",\"Acc\\u00e8s \\u00e0 Internet\":\"on\",\"Enfants\":\"on\",\"Lits d\'appoints\":\"on\",\"Accessible aux handicap\\u00e9s\":\"on\",\"Sauna\":\"on\",\"M\\u00e9nage inclus\":\"on\",\"Petit d\\u00e9jeuner inclus\":\"on\",\"Lits pour b\\u00e9b\\u00e9\":\"on\",\"Possibilit\\u00e9 de manger sur place\":\"on\",\"Cuisines\":\"on\",\"Draps et linges inclus\":\"on\",\"Lits simples\":\"on\",\"Canap\\u00e9s lits\":\"on\",\"Tarif\":\"1000\",\"Capacit\\u00e9\":\"22\",\"Age minimum\":\"15\",\"Nombre de couchage\":\"5\"}', 3, 1, '2023-03-20', 'Santiago', 7);
+(10, 'qsdfqsdf', 'qsdfqsdf', '13ème Arrondissement, Paris, France', 'qsdfqsdf', '2.3598969', '48.8261675', '75013', 'Département de Paris', 'Île-de-France', 'France', 'qsdfqsdf', 'qsdfqsdf', 'qsdf', 'qsdfqsfd', 'qsdf', 'pro/uploads/', '{\"Piscines\":\"on\",\"Salle de bain et W.C\":null,\"Animaux\":null,\"Lits doubles\":null,\"Lits superpos\\u00e9s\":null,\"Bain \\u00e0 remous\":null,\"Acc\\u00e8s \\u00e0 Internet\":null,\"Enfants\":null,\"Lits d\'appoints\":null,\"Accessible aux handicap\\u00e9s\":null,\"Sauna\":null,\"M\\u00e9nage inclus\":null,\"Petit d\\u00e9jeuner inclus\":null,\"Lits pour b\\u00e9b\\u00e9\":null,\"Possibilit\\u00e9 de manger sur place\":null,\"Cuisines\":null,\"Draps et linges inclus\":null,\"Lits simples\":null,\"Canap\\u00e9s lits\":null,\"Tarif\":\"100\",\"Capacit\\u00e9\":\"100\",\"Age minimum\":\"12\",\"Nombre de couchage\":\"5\"}', 3, 1, '2023-03-20', 'Paris', 2);
 
 -- --------------------------------------------------------
 
@@ -346,7 +342,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`users_id`, `users_nom`, `users_prenoms`, `users_email`, `users_telephone`, `users_motdepasse`, `users_type`, `users_photo`, `users_joinedAt`) VALUES
 (1, 'sqdfqsdf', 'qsdfqsdfqdsf', 'qsd@gmail.com', 'qsdfqsdf', 'c129b324aee662b04eccf68babba85851346dff9', 'particulier', NULL, '2023-03-03'),
 (2, 'sqdfqsdf', 'qsdfqsdf', 'rakoto.jenny1996@gmail.com', 'sqdfqsdfqsfd', 'c129b324aee662b04eccf68babba85851346dff9', 'professionnel', NULL, '2023-03-03'),
-(3, 'Rabezavana', 'Ralay', 'bezana@gmail.com', '0343403434', 'c129b324aee662b04eccf68babba85851346dff9', 'professionnel', 'pro/uploads/face-de-la-taille-basse-illustration-vectorielle-style-plat-vue-de-profil-2dat6rr.jpg', '2023-03-03');
+(3, 'Rabezavana', 'Ralay', 'bezana@gmail.com', '0343403434', 'c129b324aee662b04eccf68babba85851346dff9', 'professionnel', 'pro/uploads/devenez_partenaire.png', '2023-03-03');
 
 --
 -- Index pour les tables déchargées
@@ -480,7 +476,7 @@ ALTER TABLE `cgv`
 -- AUTO_INCREMENT pour la table `etablissements`
 --
 ALTER TABLE `etablissements`
-  MODIFY `etablissements_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `etablissements_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `faq`

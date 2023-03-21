@@ -22,6 +22,7 @@ $(document).ready(function () {
         })
         .done(function(data) {
             $("#selector-categ").html(data) ;
+            $("#selector-categ-modif").html(data) ;
         })
     }
     afficheCategorie() ;
@@ -29,9 +30,12 @@ $(document).ready(function () {
     $(".sc-selector").removeClass("d-none")
     $(".sc-selector").addClass("d-none")
     $("#categ-1").removeClass("d-none")
+    $("#categ-1-modif").removeClass("d-none")
     $("#selector-categ").val("categ-1")
+    $("#selector-categ-modif").val("categ-1-modif")
     $(".divers-selector").addClass('d-none')
     $("#divers-1").removeClass("d-none")
+    $("#divers-1-modif").removeClass("d-none")
 
     $("#selector-categ").change(function () {
         var value = $(this).val();
@@ -54,6 +58,33 @@ $(document).ready(function () {
             case "categ-4":
                 $(".divers-selector").addClass('d-none')
                 $("#divers-4").removeClass("d-none")
+                break;
+            default:
+                $(".divers-selector").addClass('d-none')
+        }
+    })
+
+    $("#selector-categ-modif").change(function () {
+        var value = $(this).val();
+        $(".sc-selector").removeClass("d-none")
+        $(".sc-selector").addClass("d-none")
+        $("#" + value+"-modif").removeClass("d-none")
+        switch (value) {
+            case "categ-1":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-1-modif").removeClass("d-none")
+                break;
+            case "categ-2":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-2-modif").removeClass("d-none")
+                break;
+            case "categ-3":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-3-modif").removeClass("d-none")
+                break;
+            case "categ-4":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-4-modif").removeClass("d-none")
                 break;
             default:
                 $(".divers-selector").addClass('d-none')

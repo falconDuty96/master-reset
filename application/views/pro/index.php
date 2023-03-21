@@ -48,7 +48,7 @@
                         </li>
                         <li class="text-muted"><a class="dropdown-item" href="<?= base_url() ?>Pro/profil"> <i class="fa-solid fa-user"></i> Profil</a></li>
                         <li class="text-muted"><a class="dropdown-item" href="#"> <i class="fa-solid fa-circle-question"></i> Aide</a></li>
-                        <li class="text-muted"><a class="dropdown-item" href="#"> <i class="fa-solid fa-cog"></i> Déconnexion</a></li>
+                        <li class="text-muted"><a class="dropdown-item" href="<?php echo base_url(); ?>Pro/deconnect"> <i class="fa-solid fa-cog"></i> Déconnexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -136,7 +136,7 @@
 
             </div>
             <main class="content">
-                <h1 class="h3">Nouvelle fiche</h1>
+                <h1 class="h3">Nouvel fiche</h1>
                 <div class="form-container shadow shadow-sm">
                     <h6 class="form-title d-flex justify-content-between">
                         <span>Fiches enregistrées</span>
@@ -311,7 +311,12 @@
                                                                 <div class="row">
                                                                     <div class="col-md-4">Photos : </div>
                                                                     <div class="col-md-8">
-                                                                        <img class="img-fluid" src="<?= base_url() ?>publics/<?= $data[$ic]->etablissements_photo; ?>" alt="">
+                                                                        <?php
+                                                                        $photo_etab = json_decode($data[$ic]->etablissements_photo);
+                                                                        for ($pe = 0; $pe < count($photo_etab); $pe++) : ?>
+                                                                            <img width="100" class="mr-2" src="<?= base_url() ?>publics/<?= $photo_etab[$pe] ?>" alt="">
+                                                                        <?php endfor; ?>
+
                                                                     </div>
                                                                 </div>
 
@@ -407,7 +412,7 @@
                                                         <h4 class="modal-title">Modifier fiche</h4>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                     </div>
-
+                                                    <?php echo form_open_multipart('Pro/editEtablissement/' . $data[$ic]->etablissements_id . '', array("class" => "modal-content")); ?>
                                                     <!-- Modal body -->
                                                     <div class="modal-body">
                                                         <span class="sidebar-title my-3">
@@ -418,25 +423,25 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Nom de l'établissement :</label>
-                                                                    <input type="text" class="form-control" name="etablissements_nom" value="<?= $data[$ic]->etablissements_nom; ?>">
+                                                                    <input type="text" class="form-control" name="etablissements_nom" value="<?= $data[$ic]->etablissements_nom; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Télephone :</label>
-                                                                    <input type="text" class="form-control" name="etablissements_telephone" value="<?= $data[$ic]->etablissements_telephone; ?>">
+                                                                    <input type="text" class="form-control" name="etablissements_telephone" value="<?= $data[$ic]->etablissements_telephone; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Mot clés :</label>
-                                                                    <input type="text" class="form-control" name="etablissements_motcle" value="<?= $data[$ic]->etablissements_motcle; ?>">
+                                                                    <input type="text" class="form-control" name="etablissements_motcle" value="<?= $data[$ic]->etablissements_motcle; ?>" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Email :</label>
-                                                                    <input type="text" class="form-control" name="etablissements_email" value="<?= $data[$ic]->etablissements_email; ?>">
+                                                                    <input type="email" class="form-control" name="etablissements_email" value="<?= $data[$ic]->etablissements_email; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Description :</label>
-                                                                    <input type="text" class="form-control" name="etablissements_presentation" value="<?= $data[$ic]->etablissements_presentation; ?>">
+                                                                    <input type="text" class="form-control" name="etablissements_presentation" value="<?= $data[$ic]->etablissements_presentation; ?>" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -452,37 +457,37 @@
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Adresse :</label>
-                                                                    <input type="text" class="form-control" id="searchTextField" name="etablissement_adresse" value="<?= $data[$ic]->etablissements_adresse; ?>">
+                                                                    <input type="text" class="form-control" id="searchTextFieldModif" name="etablissement_adresse" value="<?= $data[$ic]->etablissements_adresse; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Pays :</label>
-                                                                    <input type="text" class="form-control" id='pays' name="etablissements_pays" value="<?= $data[$ic]->etablissements_pays; ?>">
+                                                                    <input type="text" class="form-control" id='paysModif' name="etablissements_pays" value="<?= $data[$ic]->etablissements_pays; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Longitude :</label>
-                                                                    <input type="text" class="form-control" id="longitude" name="etablissements_longitude" value="<?= $data[$ic]->etablissements_longitude; ?>">
+                                                                    <input type="text" class="form-control" id="longitudeModif" name="etablissements_longitude" value="<?= $data[$ic]->etablissements_longitude; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Latitude :</label>
-                                                                    <input type="text" class="form-control" id="latitude" name="etablissements_latitude" value="<?= $data[$ic]->etablissements_latitude; ?>">
+                                                                    <input type="text" class="form-control" id="latitudeModif" name="etablissements_latitude" value="<?= $data[$ic]->etablissements_latitude; ?>" required>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label>Code postal :</label>
-                                                                    <input type="text" class="form-control" id="code_postal" name="etablissements_codepostal" value="<?= $data[$ic]->etablissements_codepostal; ?>">
+                                                                    <input type="text" class="form-control" id="code_postalModif" name="etablissements_codepostal" value="<?= $data[$ic]->etablissements_codepostal; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Ville :</label>
-                                                                    <input type="text" class="form-control" id="ville" name="etablissements_ville" value="<?= $data[$ic]->etablissements_ville; ?>">
+                                                                    <input type="text" class="form-control" id="villeModif" name="etablissements_ville" value="<?= $data[$ic]->etablissements_ville; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Région :</label>
-                                                                    <input type="text" class="form-control" id="region" name="etablissements_region" value="<?= $data[$ic]->etablissements_region; ?>">
+                                                                    <input type="text" class="form-control" id="regionModif" name="etablissements_region" value="<?= $data[$ic]->etablissements_region; ?>" required>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>Departement :</label>
-                                                                    <input type="text" class="form-control" id="departement" name="etablissements_departement" value="<?= $data[$ic]->etablissements_departement; ?>">
+                                                                    <input type="text" class="form-control" id="departementModif" name="etablissements_departement" value="<?= $data[$ic]->etablissements_departement; ?>" required>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -509,424 +514,691 @@
                                                         </span>
                                                         <div class="form-group">
                                                             <label>Image de l'établissement :</label>
-                                                            <input type="file" class="form-control" name="etablissements_photo">
-                                                            <img src="<?= base_url(); ?>publics/<?= $data[$ic]->etablissements_photo; ?>" alt="">
+                                                            <input type="file" class="form-control" name="etablissements_photo[]" multiple>
+                                                            <?php
+                                                            $photo_etab = json_decode($data[$ic]->etablissements_photo);
+                                                            for ($pe = 0; $pe < count($photo_etab); $pe++) : ?>
+                                                                <img width="100" class="mr-2" src="<?= base_url() ?>publics/<?= $photo_etab[$pe] ?>" alt="">
+                                                            <?php endfor; ?>
                                                         </div>
                                                         <span class="sidebar-title my-3">
                                                             <span class="bolder">Catégories</span>
                                                             <span class="line"></span>
                                                         </span>
                                                         <div class="form-group">
-                                                            
+                                                            <select class="form-select" id="selector-categ-modif" name="categorie">
+
+                                                            </select>
                                                         </div>
                                                         <span class="sidebar-title my-3">
                                                             <span class="bolder">Sous-catégorie</span>
                                                             <span class="line"></span>
                                                         </span>
 
+                                                        <?php if (isset($sc)) : ?>
+                                                            <?php for ($sc_id = 0; $sc_id < count($sc); $sc_id++) : ?>
+                                                                <div class="form-group d-none sc-selector" id="categ-<?php echo $sc_id + 1 ?>-modif">
+                                                                    <select class="form-select" name="sc_<?php echo $sc_id + 1 ?>">
+                                                                        <?php for ($ssc_id = 0; $ssc_id < count($sc[$sc_id]); $ssc_id++) : ?>
+                                                                            <option value="<?php echo $sc[$sc_id][$ssc_id]->sous_categories_id; ?>"><?php echo $sc[$sc_id][$ssc_id]->sous_categories_nom; ?></option>
+                                                                        <?php endfor; ?>
+                                                                    </select>
+                                                                </div>
+                                                            <?php endfor; ?>
+                                                        <?php endif; ?>
+                                                        <span class="sidebar-title my-3">
+                                                            <span class="bolder">Divers</span>
+                                                            <span class="line"></span>
+                                                        </span>
+                                                        <div class="row d-none divers-selector" id="divers-1-modif">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+
+                                                                    <div class="row">
+                                                                        <div class="col-md-8">
+                                                                            <label>Tarif :</label>
+                                                                            <input type="number" name="tarif" class="form-control" min="0">
+                                                                        </div>
+                                                                        <div class="col-md-4">
+                                                                            <input type="checkbox" name="nuits"> Nuits
+                                                                            <input type="checkbox" name="jours"> Jours
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="piscines"> Piscines
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="salle_de_bain_et_wc"> Salle de bain et W.C
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="animaux"> Animaux
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="lits_doubles"> Lits doubles
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="lits_superposes"> Lits superposés
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Capacité :</label>
+                                                                    <input type="number" class="form-control" min="0" name="capacite">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="bain_a_remous"> Bain à remous
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="acces_a_internet"> Accès à Internet
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="enfants"> Enfants
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="lits_appoints"> Lits d'appoints
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Age minimum :</label>
+                                                                    <input type="number" class="form-control" min="0" name="age_minimum">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="sauna"> Sauna
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="menage_inclus"> Ménage inclus
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="petit_dejeuner"> Petit déjeuner inclus
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="lits_pour_bebe"> Lits pour bébé
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="manger_sur_place"> Possibilité de manger sur place
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Nombre de couchage :</label>
+                                                                    <input type="number" class="form-control" min="0" name="nombre_de_couchage">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="cuisines"> Cuisines
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="draps_et_linges"> Draps et linges inclus
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="lits_simples"> Lits simples
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="canapes_lits"> Canapés lits
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row d-none divers-selector" id="divers-2-modif">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Heure d'ouverture :</label>
+                                                                    <input type="time" class="form-control" name="heure_ouverture_2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Heure de fermeture :</label>
+                                                                    <input type="time" class="form-control" name="heure_fermeture_2">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>Tarif :</label>
+                                                                    <input type="number" class="form-control" name="tarif_2" min="0">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        Adapté aux handicapés :
+                                                                    </label>
+
+                                                                    <input type="checkbox" name="adapte_handicap_2">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row d-none divers-selector" id="divers-3-modif">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Jours non ouverts :</label>
+                                                                    <input type="text" class="form-control" name="jours_non_ouverts" placeholder="ex: Lundi, Mardi, Mercredi,...">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="famille_enfants"> Famille avec enfants
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="livraisons"> Livraisons
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Heure d'ouverture :</label>
+                                                                    <input type="time" class="form-control" name="heure_ouverture">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="conseille_groupes"> Conseillé pour groupes
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Heure de fermeture :</label>
+                                                                    <input type="time" class="form-control" name="heure_fermeture">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="repas_place"> Repas sur place
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>
+                                                                        <input type="checkbox" name="repas_emportes"> Repas emportés
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row d-none divers-selector" id="divers-4-modif">
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Durée de la balade :</label>
+                                                                    <input type="time" class="form-control" name="duree_balade">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Tarif à partir de :</label>
+                                                                    <input type="number" class="form-control" min="0" name="tarif_a_partir">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div class="form-group">
+                                                                    <label>Distance du parcours (en Km):</label>
+                                                                    <input type="number" class="form-control" min="0" name="distance_parcours">
+                                                                </div>
+                                                            </div>
+                                                        </div>
 
 
                                                     </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="_btn _btn-success w-100">Créer</button>
+                                                    </div>
+                                                    </form>
 
                                                 </div>
+
                                             </div>
                                         </div>
-
-
-                                    <?php endfor; ?>
-
-
-                                </tbody>
-                            </table>
                         </div>
+
+
+                    <?php endfor; ?>
+
+
+                    </tbody>
+                    </table>
                     </div>
                 </div>
+        </div>
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="modal-fiche" tabindex="-1" aria-labelledby="modal-fiche" aria-hidden="true" data-bs-backdrop="static">
-                    <div class="modal-dialog modal-xl" id="form-header">
+        <!-- Modal -->
+        <div class="modal fade" id="modal-fiche" tabindex="-1" aria-labelledby="modal-fiche" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-xl" id="form-header">
 
-                        <!-- <form class="modal-content"> -->
-                        <?php echo form_open_multipart('Pro/addEtablissement', array("class" => "modal-content")); ?>
+                <!-- <form class="modal-content"> -->
+                <?php echo form_open_multipart('Pro/addEtablissement', array("class" => "modal-content")); ?>
 
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5">Créer un fiche</h1>
-                            <button type="button" id="close-modal-fiche" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Créer un fiche</h1>
+                    <button type="button" id="close-modal-fiche" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Indentité de l'établissement</span>
+                        <span class="line"></span>
+                    </span>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nom de l'établissement :</label>
+                                <input type="text" class="form-control" name="etablissements_nom" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Télephone :</label>
+                                <input type="text" class="form-control" name="etablissements_telephone" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Mot clés :</label>
+                                <input type="text" class="form-control" name="etablissements_motcle" required>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Indentité de l'établissement</span>
-                                <span class="line"></span>
-                            </span>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Nom de l'établissement :</label>
-                                        <input type="text" class="form-control" name="etablissements_nom">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Télephone :</label>
-                                        <input type="text" class="form-control" name="etablissements_telephone">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Mot clés :</label>
-                                        <input type="text" class="form-control" name="etablissements_motcle">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Email :</label>
-                                        <input type="text" class="form-control" name="etablissements_email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Description :</label>
-                                        <input type="text" class="form-control" name="etablissements_presentation">
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Localisation</span>
-                                <span class="line"></span>
-                            </span>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Adresse :</label>
-                                        <input type="text" class="form-control" id="searchTextField" name="etablissement_adresse">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Pays :</label>
-                                        <input type="text" class="form-control" id='pays' name="etablissements_pays">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Longitude :</label>
-                                        <input type="text" class="form-control" id="longitude" name="etablissements_longitude">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Latitude :</label>
-                                        <input type="text" class="form-control" id="latitude" name="etablissements_latitude">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Code postal :</label>
-                                        <input type="text" class="form-control" id="code_postal" name="etablissements_codepostal">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Ville :</label>
-                                        <input type="text" class="form-control" id="ville" name="etablissements_ville">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Région :</label>
-                                        <input type="text" class="form-control" id="region" name="etablissements_region">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Departement :</label>
-                                        <input type="text" class="form-control" id="departement" name="etablissements_departement">
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Réseaux sociaux</span>
-                                <span class="line"></span>
-                            </span>
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Site web :</label>
-                                <input type="text" class="form-control" name="etablissements_website">
+                                <label>Email :</label>
+                                <input type="email" class="form-control" name="etablissements_email" required>
                             </div>
                             <div class="form-group">
-                                <label>Facebook :</label>
-                                <input type="text" class="form-control" name="etablissements_fb">
+                                <label>Description :</label>
+                                <input type="text" class="form-control" name="etablissements_presentation" required>
                             </div>
-                            <div class="form-group">
-                                <label>Instagram :</label>
-                                <input type="text" class="form-control" name="etablissements_insta">
-                            </div>
+                        </div>
+                    </div>
 
 
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Média</span>
-                                <span class="line"></span>
-                            </span>
-                            <div class="form-group">
-                                <label>Image de l'établissement :</label>
-                                <input type="file" class="form-control" name="etablissements_photo">
-                            </div>
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Catégories</span>
-                                <span class="line"></span>
-                            </span>
-                            <div class="form-group">
-                                <select class="form-select" id="selector-categ" name="categorie">
 
+
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Localisation</span>
+                        <span class="line"></span>
+                    </span>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Adresse :</label>
+                                <input type="text" class="form-control" id="searchTextField" name="etablissement_adresse" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Pays :</label>
+                                <input type="text" class="form-control" id='pays' name="etablissements_pays" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Longitude :</label>
+                                <input type="text" class="form-control" id="longitude" name="etablissements_longitude" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Latitude :</label>
+                                <input type="text" class="form-control" id="latitude" name="etablissements_latitude" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Code postal :</label>
+                                <input type="text" class="form-control" id="code_postal" name="etablissements_codepostal" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Ville :</label>
+                                <input type="text" class="form-control" id="ville" name="etablissements_ville" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Région :</label>
+                                <input type="text" class="form-control" id="region" name="etablissements_region" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Departement :</label>
+                                <input type="text" class="form-control" id="departement" name="etablissements_departement" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Réseaux sociaux</span>
+                        <span class="line"></span>
+                    </span>
+                    <div class="form-group">
+                        <label>Site web :</label>
+                        <input type="text" class="form-control" name="etablissements_website">
+                    </div>
+                    <div class="form-group">
+                        <label>Facebook :</label>
+                        <input type="text" class="form-control" name="etablissements_fb">
+                    </div>
+                    <div class="form-group">
+                        <label>Instagram :</label>
+                        <input type="text" class="form-control" name="etablissements_insta">
+                    </div>
+
+
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Média</span>
+                        <span class="line"></span>
+                    </span>
+                    <div class="form-group">
+                        <label>Image de l'établissement :</label>
+                        <input type="file" class="form-control" name="etablissements_photo[]" multiple>
+
+                    </div>
+
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Catégories</span>
+                        <span class="line"></span>
+                    </span>
+                    <div class="form-group">
+                        <select class="form-select" id="selector-categ" name="categorie">
+
+                        </select>
+                    </div>
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Sous-catégorie</span>
+                        <span class="line"></span>
+                    </span>
+
+                    <?php if (isset($sc)) : ?>
+                        <?php for ($sc_id = 0; $sc_id < count($sc); $sc_id++) : ?>
+                            <div class="form-group d-none sc-selector" id="categ-<?php echo $sc_id + 1 ?>">
+                                <select class="form-select" name="sc_<?php echo $sc_id + 1 ?>">
+                                    <?php for ($ssc_id = 0; $ssc_id < count($sc[$sc_id]); $ssc_id++) : ?>
+                                        <option value="<?php echo $sc[$sc_id][$ssc_id]->sous_categories_id; ?>"><?php echo $sc[$sc_id][$ssc_id]->sous_categories_nom; ?></option>
+                                    <?php endfor; ?>
                                 </select>
                             </div>
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Sous-catégorie</span>
-                                <span class="line"></span>
-                            </span>
+                        <?php endfor; ?>
+                    <?php endif; ?>
+                    <span class="sidebar-title my-3">
+                        <span class="bolder">Divers</span>
+                        <span class="line"></span>
+                    </span>
+                    <div class="row d-none divers-selector" id="divers-1">
+                        <div class="col-md-3">
+                            <div class="form-group">
 
-                            <?php if (isset($sc)) : ?>
-                                <?php for ($sc_id = 0; $sc_id < count($sc); $sc_id++) : ?>
-                                    <div class="form-group d-none sc-selector" id="categ-<?php echo $sc_id + 1 ?>">
-                                        <select class="form-select" name="sc_<?php echo $sc_id + 1 ?>">
-                                            <?php for ($ssc_id = 0; $ssc_id < count($sc[$sc_id]); $ssc_id++) : ?>
-                                                <option value="<?php echo $sc[$sc_id][$ssc_id]->sous_categories_id; ?>"><?php echo $sc[$sc_id][$ssc_id]->sous_categories_nom; ?></option>
-                                            <?php endfor; ?>
-                                        </select>
-                                    </div>
-                                <?php endfor; ?>
-                            <?php endif; ?>
-                            <span class="sidebar-title my-3">
-                                <span class="bolder">Divers</span>
-                                <span class="line"></span>
-                            </span>
-                            <div class="row d-none divers-selector" id="divers-1">
-                                <div class="col-md-3">
-                                    <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-8">
                                         <label>Tarif :</label>
                                         <input type="number" name="tarif" class="form-control" min="0">
                                     </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="piscines"> Piscines
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="salle_de_bain_et_wc"> Salle de bain et W.C
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="animaux"> Animaux
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="lits_doubles"> Lits doubles
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="lits_superposes"> Lits superposés
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Capacité :</label>
-                                        <input type="number" class="form-control" min="0" name="capacite">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="bain_a_remous"> Bain à remous
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="acces_a_internet"> Accès à Internet
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="enfants"> Enfants
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="lits_appoints"> Lits d'appoints
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Age minimum :</label>
-                                        <input type="number" class="form-control" min="0" name="age_minimum">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="sauna"> Sauna
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="menage_inclus"> Ménage inclus
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="petit_dejeuner"> Petit déjeuner inclus
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="lits_pour_bebe"> Lits pour bébé
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="manger_sur_place"> Possibilité de manger sur place
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Nombre de couchage :</label>
-                                        <input type="number" class="form-control" min="0" name="nombre_de_couchage">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="cuisines"> Cuisines
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="draps_et_linges"> Draps et linges inclus
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="lits_simples"> Lits simples
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="canapes_lits"> Canapés lits
-                                        </label>
+                                    <div class="col-md-4">
+                                        <input type="checkbox" name="nuits"> Nuits
+                                        <input type="checkbox" name="jours"> Jours
                                     </div>
                                 </div>
                             </div>
-                            <div class="row d-none divers-selector" id="divers-2">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Heure d'ouverture :</label>
-                                        <input type="time" class="form-control" name="heure_ouverture_2">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Heure de fermeture :</label>
-                                        <input type="time" class="form-control" name="heure_fermeture_2">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Tarif :</label>
-                                        <input type="number" class="form-control" name="tarif_2" min="0">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>
-                                            Adapté aux handicapés :
-                                        </label>
-
-                                        <input type="checkbox" name="adapte_handicap_2">
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="piscines"> Piscines
+                                </label>
                             </div>
-                            <div class="row d-none divers-selector" id="divers-3">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Jours non ouverts :</label>
-                                        <input type="text" class="form-control" name="jours_non_ouverts" placeholder="ex: Lundi, Mardi, Mercredi,...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="famille_enfants"> Famille avec enfants
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="livraisons"> Livraisons
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Heure d'ouverture :</label>
-                                        <input type="time" class="form-control" name="heure_ouverture">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="conseille_groupes"> Conseillé pour groupes
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Heure de fermeture :</label>
-                                        <input type="time" class="form-control" name="heure_fermeture">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="repas_place"> Repas sur place
-                                        </label>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>
-                                            <input type="checkbox" name="repas_emportes"> Repas emportés
-                                        </label>
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="salle_de_bain_et_wc"> Salle de bain et W.C
+                                </label>
                             </div>
-                            <div class="row d-none divers-selector" id="divers-4">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Durée de la balade :</label>
-                                        <input type="time" class="form-control" name="duree_balade">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Tarif à partir de :</label>
-                                        <input type="number" class="form-control" min="0" name="tarif_a_partir">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Distance du parcours (en Km):</label>
-                                        <input type="number" class="form-control" min="0" name="distance_parcours">
-                                    </div>
-                                </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="animaux"> Animaux
+                                </label>
                             </div>
-
-
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="lits_doubles"> Lits doubles
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="lits_superposes"> Lits superposés
+                                </label>
+                            </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="_btn _btn-success w-100">Créer</button>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Capacité :</label>
+                                <input type="number" class="form-control" min="0" name="capacite">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="bain_a_remous"> Bain à remous
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="acces_a_internet"> Accès à Internet
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="enfants"> Enfants
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="lits_appoints"> Lits d'appoints
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
+                                </label>
+                            </div>
                         </div>
-                        </form>
-
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Age minimum :</label>
+                                <input type="number" class="form-control" min="0" name="age_minimum">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="sauna"> Sauna
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="menage_inclus"> Ménage inclus
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="petit_dejeuner"> Petit déjeuner inclus
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="lits_pour_bebe"> Lits pour bébé
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="manger_sur_place"> Possibilité de manger sur place
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Nombre de couchage :</label>
+                                <input type="number" class="form-control" min="0" name="nombre_de_couchage">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="cuisines"> Cuisines
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="draps_et_linges"> Draps et linges inclus
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="lits_simples"> Lits simples
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="canapes_lits"> Canapés lits
+                                </label>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row d-none divers-selector" id="divers-2">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Heure d'ouverture :</label>
+                                <input type="time" class="form-control" name="heure_ouverture_2">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Heure de fermeture :</label>
+                                <input type="time" class="form-control" name="heure_fermeture_2">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Tarif :</label>
+                                <input type="number" class="form-control" name="tarif_2" min="0">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>
+                                    Adapté aux handicapés :
+                                </label>
+
+                                <input type="checkbox" name="adapte_handicap_2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-none divers-selector" id="divers-3">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Jours non ouverts :</label>
+                                <input type="text" class="form-control" name="jours_non_ouverts" placeholder="ex: Lundi, Mardi, Mercredi,...">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="famille_enfants"> Famille avec enfants
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="livraisons"> Livraisons
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Heure d'ouverture :</label>
+                                <input type="time" class="form-control" name="heure_ouverture">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="conseille_groupes"> Conseillé pour groupes
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="accessible_handicapes"> Accessible aux handicapés
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Heure de fermeture :</label>
+                                <input type="time" class="form-control" name="heure_fermeture">
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="repas_place"> Repas sur place
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="repas_emportes"> Repas emportés
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row d-none divers-selector" id="divers-4">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Durée de la balade :</label>
+                                <input type="time" class="form-control" name="duree_balade">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Tarif à partir de :</label>
+                                <input type="number" class="form-control" min="0" name="tarif_a_partir">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>Distance du parcours (en Km):</label>
+                                <input type="number" class="form-control" min="0" name="distance_parcours">
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
+                <div class="modal-footer">
+                    <button type="submit" class="_btn _btn-success w-100">Créer</button>
+                </div>
+                </form>
 
-
-
-            </main>
-
-            <div class="messenger shadow rounded d-none">
             </div>
         </div>
+
+
+
+        </main>
+
+        <div class="messenger shadow rounded d-none">
+        </div>
+    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -976,6 +1248,49 @@
             });
         }
         google.maps.event.addDomListener(window, 'load', initialize);
+
+
+        // Modif
+        function initializeModif() {
+            var input = document.getElementById('searchTextFieldModif');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var place = autocomplete.getPlace();
+                var longitude = place.geometry.location.lng();
+                var latitude = place.geometry.location.lat();
+                document.getElementById('latitudeModif').value = latitude;
+                document.getElementById('longitudeModif').value = longitude;
+                console.log(place.address_components);
+
+                for (var i = 0; i < place.address_components.length; i += 1) {
+                    var expression = place.address_components[i].types[0];
+
+                    switch (expression) {
+                        case "country":
+                            document.getElementById('paysModif').value = place.address_components[i].long_name;
+                            break;
+
+                        case "locality":
+                            document.getElementById('villeModif').value = place.address_components[i].long_name;
+                            break;
+
+                        case "administrative_area_level_1":
+                            document.getElementById('regionModif').value = place.address_components[i].long_name;
+                            break;
+
+                        case "postal_code":
+                            document.getElementById('code_postalModif').value = place.address_components[i].long_name;
+                            break;
+
+                        case "administrative_area_level_2":
+                            document.getElementById('departementModif').value = place.address_components[i].long_name;
+                            break;
+                    }
+                }
+
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initializeModif);
     </script>
 </body>
 

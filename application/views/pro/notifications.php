@@ -33,9 +33,18 @@
                         <span class="_badge" id="unread-message-count"></span>
 
                     </span>
-                    <span class="profil-menu ms-3">
-                        <i class="fa-solid fa-user"></i>
+                    <span class="profil-menu ms-3" style="background-image: url('assets/image/logo-pour-fond-blanc.png');">
+
                     </span>
+                    <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['users_nom']; ?></span>
+                    <ul class="dropdown-menu">
+                        <li class="text-muted">
+                            <h5 class="dropdown-header text-center bolder"><?= $_SESSION['users_nom']; ?></h5>
+                        </li>
+                        <li class="text-muted"><a class="dropdown-item" href="<?= base_url() ?>Pro/profil"> <i class="fa-solid fa-user"></i> Profil</a></li>
+                        <li class="text-muted"><a class="dropdown-item" href="#"> <i class="fa-solid fa-circle-question"></i> Aide</a></li>
+                        <li class="text-muted"><a class="dropdown-item" href="#"> <i class="fa-solid fa-cog"></i> Déconnexion</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

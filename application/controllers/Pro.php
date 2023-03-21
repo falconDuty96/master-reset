@@ -84,6 +84,9 @@ class Pro extends CI_Controller
             $image,
             $id,
         ];
+        $_SESSION['users_nom'] = $this->input->post('users_nom');
+        $_SESSION['users_prenoms'] = $this->input->post('users_prenoms');
+        $_SESSION['users_email'] = $this->input->post('users_email');
         $this->pro->updateProUser($data);
         redirect('Pro/profil');
     }
@@ -236,9 +239,8 @@ class Pro extends CI_Controller
                 $sous_categories_id,
                 $id,
             ];
-        }
-        else {
-            $etab = $this->pro->selectEtablissementID($id) ;
+        } else {
+            $etab = $this->pro->selectEtablissementID($id);
             $data = [
                 $this->input->post("etablissements_nom"),
                 $this->input->post("etablissements_presentation"),
@@ -272,7 +274,7 @@ class Pro extends CI_Controller
         // move_uploaded_file($_FILES["etablissements_photo"]["tmp_name"], 'publics/' . $target_file);
 
 
-        
+
 
         $this->pro->updateEtablissement($data);
         redirect('Pro/');

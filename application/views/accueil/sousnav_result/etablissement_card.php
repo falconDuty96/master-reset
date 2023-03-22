@@ -61,7 +61,7 @@
             
             <a href="<?= base_url().'/Home/sousnav_result' ?>" class="__category">
                 <div class="__image">
-                    <img class="__img_category" src="http://localhost/igoguide/publics/image/Hébergements/icone cabane sur l_eau igoguide.png" alt="">
+                    <img class="__img_category" src="http://localhost/master-reset/publics/image/Hébergements/icone cabane sur l_eau igoguide.png" alt="">
                 </div>
                 <p class="__name"><?= $card->sous_categories_nom ?></p>
             </a>

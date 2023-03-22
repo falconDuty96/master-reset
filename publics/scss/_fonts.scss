@@ -1,0 +1,49 @@
+@import 'url';
+
+@font-face {
+    font-family: 'Remahpro_ExtraBold';
+    src: url($font_url+'RemahPro-ExtraBold.ttf') format('truetype') ;
+}
+
+@font-face {
+    font-family: "lovely";
+    src: url($font_url+'Lovely.ttf') format('truetype') ;
+}
+
+// ====== Montserrat ====== //
+@font-face {
+    font-family: "Montserrat_Thin";
+    src: url($font_url+'Montserrat/static/Montserrat-Thin.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_ExtraLight";
+    src: url($font_url+'Montserrat/static/Montserrat-ExtraLight.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_Light";
+    src: url($font_url+'Montserrat/static/Montserrat-Light.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_Regular";
+    src: url($font_url+'Montserrat/static/Montserrat-Regular.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_Medium";
+    src: url($font_url+'Montserrat/static/Montserrat-Medium.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_SemiBold";
+    src: url($font_url+'Montserrat/static/Montserrat-SemiBold.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_Bold";
+    src: url($font_url+'Montserrat/static/Montserrat-Bold.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_ExtraBold";
+    src: url($font_url+'Montserrat/static/Montserrat-ExtraBold.ttf') format('truetype') ;
+}
+@font-face {
+    font-family: "Montserrat_Black";
+    src: url($font_url+'Montserrat/static/Montserrat-Black.ttf') format('truetype') ;
+}

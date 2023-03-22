@@ -6,10 +6,12 @@
     <title>IGOGUIDE | PRO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0"></script>
     <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/admin.css">
     <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/admin_dark.css">
     <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/style.css">
+    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/image-uploader.min.css">
     <style>
         .pac-container {
             z-index: 20000;
@@ -919,8 +921,8 @@
                     </span>
                     <div class="form-group">
                         <label>Image de l'établissement :</label>
-                        <input type="file" class="form-control" name="etablissements_photo[]" multiple>
-
+                        <!-- <input type="file" class="form-control" name="etablissements_photo[]" multiple> -->
+                        <div class="input-images"></div>
                     </div>
 
                     <span class="sidebar-title my-3">
@@ -1201,6 +1203,7 @@
     </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?= base_url() ?>publics/pro/js/image-uploader.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js" integrity="sha512-rpLlll167T5LJHwp0waJCh3ZRf7pO6IT1+LZOhAyP6phAirwchClbTZV3iqL3BMrVxIYRbzGTpli4rfxsCK6Vw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -1291,6 +1294,23 @@
             });
         }
         google.maps.event.addDomListener(window, 'load', initializeModif);
+    </script>
+
+    <script>
+        $(document).ready(function() {
+
+            $('.input-images').imageUploader({
+                label: 'Clicker ou Deplacer votre image ici', //This option defines the label text for a draggable area that helps users to understand what to do. Default: ‘Drag & Drop files here or click to browse’, Type: String.
+                //Define the preloaded images for upload form. Default: [], Type: Array of Objects. 
+                // preloaded: [
+                //     { id: 1, src: 'https://picsum.photos/500/500?random=1' },
+                //     { id: 2, src: 'https://picsum.photos/500/500?random=2' },
+                // ], 
+                imagesInputName: 'etablissements_photo', // It defines the name of the input that will be posted, containing the files list. Default: ‘images’, Type: String. 
+                // preloadedInputName: 'Custom Name', //Show the name of the inputs that will be posted, containing the identification of the preloaded image. Default: ‘preloaded’, Type: String.
+            });
+
+        });
     </script>
 </body>
 

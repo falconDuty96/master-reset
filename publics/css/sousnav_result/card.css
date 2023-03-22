@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__sousnav_result .__result .__result_right {
+  width: calc(100% - 865px);
+  padding: 1rem 0;
+}
+.__sousnav_result .__result #maps {
+  position: sticky !important;
+  top: 100px !important;
+  height: calc(100vh - (85px + 2rem));
+}
+.__sousnav_result .__card_result_click_card {
+  width: 275px;
+  background-color: white;
+  height: max-content;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.__sousnav_result .__card_result_click_card .__card_result {
+  width: 100% !important;
+  margin: 0;
+}
+.__sousnav_result .__card_result_click_card .__card_result .carousel-inner {
+  border-radius: 0 !important;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__carousel_images .__image {
+  height: 150px;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__user {
+  height: 40px;
+  width: 40px;
+  right: 15px;
+  top: -21px;
+  border: 2px solid white;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__category {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #e4e5e5;
+  padding: 5px 15px 7px 15px;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__body {
+  padding: 13px 15px 5px 15px;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__title {
+  margin: 0.4rem 0 0.425rem 0;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__localisation {
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+@media all and (max-width: 1400px) {
+  .__sousnav_result .__result .__result_right {
+    width: calc(100% - 580px);
+  }
+}
+@media all and (max-width: 1100px) {
+  .__sousnav_result .__result .__result_right {
+    width: 50%;
+  }
+}
+@media all and (max-width: 991px) {
+  .__sousnav_result .__result .__result_right {
+    width: calc(100% - 300px);
+  }
+  .__sousnav_result .__result #maps {
+    display: block !important;
+    position: sticky !important;
+    top: 90px !important;
+    height: calc(100vh - (85px + 2rem));
+  }
+}
+@media all and (max-width: 767px) {
+  .__sousnav_result .__result .__result_right {
+    display: none;
+    width: 100%;
+  }
+  .__sousnav_result .__result #maps {
+    position: relative !important;
+    top: 0 !important;
+    height: calc(100vh - (85px + 2rem));
+  }
+}
+
+/*# sourceMappingURL=card.css.map */

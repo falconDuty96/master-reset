@@ -1,0 +1,346 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__sousnav_result .__card_result .__card_body .__category .__image .__img_category, .__sousnav_result .__card_result .__card_body .__user .__img, .__sousnav_result .__card_result .__carousel_images .__image .__img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.__sousnav_result .__card_result .__card_body .__category .__image .__img_category, .__sousnav_result .__card_result .__card_body .__user .__img, .__sousnav_result .__card_result .__carousel_images .__image .__img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.__sousnav_result .__result .__result_left {
+  width: 865px;
+  padding: 1rem 0;
+}
+.__sousnav_result .__result .__result_left .__block_left {
+  margin-left: auto;
+  padding: 0 15px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.__sousnav_result .__result .__paginations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+.__sousnav_result .__result .__paginations .pagination {
+  font-size: 14px;
+}
+.__sousnav_result .__result .__paginations .pagination .page-item {
+  margin: 0 0.5rem;
+}
+.__sousnav_result .__result .__paginations .pagination .page-item.disabled .__control {
+  color: #656666;
+}
+.__sousnav_result .__result .__paginations .pagination .page-link {
+  border: none;
+  background-color: transparent;
+  color: #2b2929;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: small;
+  font-family: "Montserrat_SemiBold";
+}
+.__sousnav_result .__result .__paginations .pagination .page-link.__control {
+  font-size: large;
+}
+.__sousnav_result .__result .__paginations .pagination .page-link:hover {
+  color: rgb(45, 41, 37);
+}
+.__sousnav_result .__result .__paginations .active {
+  border-bottom: none;
+  background-color: #252525;
+  border-radius: 50%;
+}
+.__sousnav_result .__result .__paginations .active::after {
+  content: none !important;
+}
+.__sousnav_result .__result .__paginations .active .page-link {
+  color: white !important;
+}
+.__sousnav_result .__card_result {
+  margin-bottom: 15px;
+  width: 275px;
+}
+.__sousnav_result .__card_result .__carousel_images {
+  position: relative;
+}
+.__sousnav_result .__card_result .__carousel_images .__like {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: white;
+  font-size: medium;
+  z-index: 1;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  background-color: rgba(37, 37, 37, 0.568627451);
+  border-radius: 50%;
+}
+.__sousnav_result .__card_result .__carousel_images .__like.__active {
+  background-color: rgba(255, 255, 255, 0.831372549);
+}
+.__sousnav_result .__card_result .__carousel_images .__like.__active .__icon {
+  color: #D30047;
+}
+.__sousnav_result .__card_result .__carousel_images .__like .__icon {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1px;
+  padding-left: 1px;
+}
+.__sousnav_result .__card_result .__carousel_images .__like:hover, .__sousnav_result .__card_result .__carousel_images .__like:focus, .__sousnav_result .__card_result .__carousel_images .__like:focus-visible {
+  color: #D30047;
+  outline: none;
+}
+.__sousnav_result .__card_result .__carousel_images .carousel-inner {
+  overflow: hidden;
+  border-radius: 10px;
+}
+.__sousnav_result .__card_result .__carousel_images .carousel-item {
+  background-color: transparent !important;
+}
+.__sousnav_result .__card_result .__carousel_images .carousel-item.active::after {
+  content: "" !important;
+}
+.__sousnav_result .__card_result .__carousel_images .__indicator {
+  bottom: 10px;
+}
+.__sousnav_result .__card_result .__carousel_images .__indicator li {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin: 0 2px;
+}
+.__sousnav_result .__card_result .__carousel_images .__image {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+.__sousnav_result .__card_result .__card_body {
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  margin-top: -15px;
+}
+.__sousnav_result .__card_result .__card_body .__user {
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  display: block;
+  position: absolute;
+  right: 15px;
+  top: -25px;
+  overflow: hidden;
+  border: 3px solid white;
+}
+.__sousnav_result .__card_result .__card_body .__category {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #e4e5e5;
+  padding: 5px 20px 10px 20px;
+}
+.__sousnav_result .__card_result .__card_body .__category:hover, .__sousnav_result .__card_result .__card_body .__category:focus, .__sousnav_result .__card_result .__card_body .__category:focus-visible {
+  text-decoration: none;
+}
+.__sousnav_result .__card_result .__card_body .__category .__image {
+  width: 30px;
+  height: 20px;
+  overflow: hidden;
+}
+.__sousnav_result .__card_result .__card_body .__category .__name {
+  width: calc(100% - 40px);
+  font-size: 12px;
+  margin-bottom: 0;
+  font-weight: 200;
+  font-family: "Montserrat_SemiBold";
+  padding-top: 0.25rem;
+  color: #5b5b5b;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.__sousnav_result .__card_result .__card_body .__body {
+  display: block;
+  padding: 15px 20px 15px 20px;
+}
+.__sousnav_result .__card_result .__card_body .__body:hover, .__sousnav_result .__card_result .__card_body .__body:focus, .__sousnav_result .__card_result .__card_body .__body:focus-visible {
+  text-decoration: none;
+}
+.__sousnav_result .__card_result .__card_body .__title {
+  color: #1c1c1e;
+  font-size: 14px;
+  font-family: "Montserrat_SemiBold";
+  margin: 0.4rem 0 0.425rem 0;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.__sousnav_result .__card_result .__card_body .__localisation {
+  display: flex;
+  margin-bottom: 10px;
+}
+.__sousnav_result .__card_result .__card_body .__localisation .__icon {
+  color: #D30047;
+  font-size: x-small;
+}
+.__sousnav_result .__card_result .__card_body .__localisation .__location {
+  padding-left: 5px;
+  font-size: 12px;
+  font-family: "Montserrat_Medium";
+  color: #5b5b5b;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.__sousnav_result .__card_result .__card_body .__price {
+  font-size: small;
+  color: #404041;
+  font-size: small;
+  font-family: "Montserrat_SemiBold";
+  margin-bottom: 0;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+@media all and (max-width: 1400px) {
+  .__sousnav_result .__result .__result_left {
+    width: 580px;
+    padding: 1rem 0;
+  }
+}
+@media all and (max-width: 1100px) {
+  .__sousnav_result .__result .__result_left {
+    width: 50%;
+  }
+  .__sousnav_result .__card_result {
+    width: calc(50% - 8px);
+  }
+}
+@media all and (max-width: 991px) {
+  .__sousnav_result .__result .__result_left {
+    width: 300px;
+  }
+  .__sousnav_result .__card_result {
+    width: 300px;
+  }
+}
+@media all and (max-width: 767px) {
+  .__sousnav_result .__result .__result_left {
+    width: 100%;
+  }
+  .__sousnav_result .__result .__result_left .__block_left {
+    padding: 0;
+  }
+  .__sousnav_result .__card_result {
+    width: calc(33.3333333333% - 15px);
+  }
+}
+@media all and (max-width: 675px) {
+  .__sousnav_result .__result .__result_left {
+    width: 100%;
+  }
+  .__sousnav_result .__result .__result_left .__block_left {
+    padding: 0;
+  }
+  .__sousnav_result .__card_result {
+    width: calc(50% - 10px);
+  }
+}
+@media all and (max-width: 475px) {
+  .__sousnav_result .__result .__result_left {
+    width: 100%;
+  }
+  .__sousnav_result .__result .__result_left .__block_left {
+    padding: 0;
+  }
+  .__sousnav_result .__card_result {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=list.css.map */

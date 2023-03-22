@@ -1,0 +1,260 @@
+@media all and (max-width: 1199px) {
+    
+    .boite-speciale {
+        width: calc(((100% - (30px * 2)) / 3));
+    }
+    .boite-speciale:nth-child(4n){
+        margin-right: 15px;
+    }
+    .boite-speciale:nth-child(4n + 1){
+        margin-left: 15px;
+    }
+    
+    .boite-speciale:nth-child(3n){
+        margin-right: 0;
+    }
+    .boite-speciale:nth-child(3n + 1){
+        margin-left: 0;
+    }
+
+    .show_favorites{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .nav-item {
+        width: 130px;
+    }
+    .nav-item {
+        width: 130px;
+    }
+    /* #form-banniere form{
+        width: 894px;
+    } 
+    #form-banniere form #btn-rechercher {
+        width: 157px;
+    } */
+    .element-rejoindre {
+        margin-top: 10px ;
+    }
+    #region_france_liste {
+        padding-left: 5px ;
+    }
+    
+}
+
+@media all and (max-width: 991px) {
+    .boite-speciale {
+        width: calc(((100% - (30px)) / 2));
+    }
+    .boite-speciale:nth-child(3n){
+        margin-right: 15px;
+    }
+    .boite-speciale:nth-child(3n + 1){
+        margin-left: 15px;
+    }
+    .boite-speciale:nth-child(2n){
+        margin-right: 0;
+    }
+    .boite-speciale:nth-child(2n + 1){
+        margin-left: 0;
+    }
+    .handwrite{
+        font-size: 27px;
+    }
+    .text-to-show{
+        font-size: 17px;
+    }
+    .header-card img{
+        width: 75%;
+    }
+    .text-limiter {
+        min-height: 50px;
+    }
+    body{
+        font-size: .9rem;
+    }
+    #titre_banniere{
+        font-size: 2rem;
+    }
+    #form-banniere form #btn-rechercher{
+        font-size: .9rem;
+    }
+    #form-banniere form input::placeholder{
+        font-size: .85rem;
+    }
+    #blog-slider {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    h2.entete_row{
+        font-size: 1.75rem;
+    }
+    h5.entete_row{
+        font-size: 1.2rem;
+    }
+
+    #banniere, .__top_block{
+      margin-top: 71px !important;
+    }
+
+    .ccm {
+      width: calc((100% / 2) - (20px * 1)) ;
+      height: auto 
+    }
+
+
+    .entete_logo_results {
+        top: 0px ;
+    }
+    #content_results {
+        margin-top: 60px ;
+    }
+    #navigation,#entete_logo_droite {
+        display: none ;
+    }
+    #bars {
+        display: inline-block;
+    }
+    /* #form-banniere form{
+        width: 685px;
+    } 
+    #form-banniere form input{
+        width: 238px;
+    } 
+    #form-banniere form #btn-rechercher {
+        width: 172px;
+    }    */
+    #entete_logo {
+        position: fixed;
+        z-index: 1200;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    #trouver_departement {
+        width: 100% ;
+      }
+      #trouver_region {
+        width: 100% !important; 
+      }
+    .element-rejoindre {
+        margin-top: 10px ;
+        
+    }
+    #region_france {
+        justify-content: center;
+    }
+    #region_france_liste {
+        padding-left: 40px ;
+    }
+    #maps {
+        display: none ;
+    }
+}
+
+@media all and (max-width: 767px) {
+    
+    .show_favorites{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .ccm {
+        width: 100% ;
+    }
+
+    #blog-slider {
+      position: relative ;
+      display:grid; 
+      gap: 15px 0px; 
+      grid-template-columns: repeat(1, 1fr);
+      margin-top: 20px;
+      /* height: 380px; */
+      /* overflow: auto !important; */
+    }
+
+    #img-rejoindre {
+        display: grid;
+        gap: 30px;
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+
+    /* #form-banniere form {
+        width: 480px;
+    }
+    #form-banniere form input {
+        width: 150px;
+    }
+    #form-banniere form #btn-rechercher {
+        width: 143px;
+    } */
+
+    /* .card-height-reform {
+        height: 540px;
+    } */
+    #region_france_liste {
+        padding-left: 25px ;
+    }
+
+    
+}
+
+@media all and (max-width: 575px) {
+    #slogan {
+        display: none ;
+    }
+    #titre_banniere{
+        font-size: 1.9rem;
+    }
+    h2.entete_row{
+        font-size: 1.55rem;
+    }
+    #form-banniere form #btn-rechercher{
+        width: calc(100% / 3);
+    }
+    #form-banniere form #btn-rechercher{
+        font-size: small;
+    }
+    
+}
+
+@media all and (max-width: 555px) {
+    #region_france_liste {
+        padding-left: 10px;
+    }
+    
+}
+
+@media all and (max-width: 525px) {
+    #region_france_liste {
+        padding-left: 5px;
+    }
+    #region_france {
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 500px) {
+    
+    .boite-speciale {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .show_favorites{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #form-banniere form #btn-rechercher{
+        width: max-content;
+    }
+    #form-banniere form #btn-rechercher .__icon{
+        display: block;
+        font-size: large;
+    }
+    
+    #form-banniere form #btn-rechercher .__text{
+        display: none;
+    }
+    .header-card img{
+        width: 100%;
+    }
+}

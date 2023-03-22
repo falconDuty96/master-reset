@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__sousnav_result .__title_result {
+  font-family: "Remahpro_ExtraBold";
+  font-size: x-large;
+  text-align: center;
+  width: 100%;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.__sousnav_result .__result {
+  display: flex;
+  flex-direction: wrap;
+}
+.__sousnav_result .__result_btn_responsive {
+  display: none;
+  position: fixed;
+  bottom: 4rem;
+  left: calc((100% - 250px) / 2);
+  background-color: #252525;
+  color: white;
+  font-size: medium;
+  font-family: "Montserrat_SemiBold";
+  width: 250px;
+  text-align: center;
+  padding: 0.5rem 0;
+  border: none;
+  border-radius: 2rem;
+  z-index: 15;
+}
+.__sousnav_result .__result_btn_responsive .__text, .__sousnav_result .__result_btn_responsive .__icon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+@media all and (max-width: 991px) {
+  .__sousnav_result {
+    margin-top: 71px;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

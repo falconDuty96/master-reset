@@ -162,7 +162,7 @@
                                             </h2>
                                             <p class="__localisation">
                                                 <span class="__icon"><i class="fa-solid fa-location-dot"></i></span>
-                                                <span class="__location"> ville : <?= $sousnav_data[$i]->etablissements_ville ; ?>, Region : <?= $sousnav_data[$i]->etablissements_region ; ?>, Departement: <?= $sousnav_data[$i]->etablissements_departement ; ?>, Pays: <?= $sousnav_data[$i]->etablissements_pays ; ?></span>
+                                                <span class="__location"> <?= $sousnav_data[$i]->etablissements_ville ; ?>, <?= $sousnav_data[$i]->etablissements_region ; ?>, <?= $sousnav_data[$i]->etablissements_departement ; ?>, <?= $sousnav_data[$i]->etablissements_pays ; ?></span>
                                             </p>
                                             <p class="__price">
                                                 1.000 € par nuit

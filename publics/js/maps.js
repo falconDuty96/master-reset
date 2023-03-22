@@ -16,9 +16,9 @@ window.myMap = async function () {
     // Display a map on the web page
     const map = new google.maps.Map(GOOGLE_MAP, mapOptions);
     // Multiple markers location, latitude, and longitude
-    const data = await $.getJSON(base_url("etablissements/maps/" + Number($(GOOGLE_MAP).data("page"))));
+    const data = await $.getJSON(base_url("etablissements/maps/"+ $(GOOGLE_MAP).data("type") + '/' + $(GOOGLE_MAP).data("option") + '/' + Number($(GOOGLE_MAP).data("page"))));
     const markers = data.markers;
-    
+    $("#nbre_page").text(data.pagination.counter) ;
     // Add multiple markers to map
     
     setAllMarkers(map,bounds, markers);
@@ -64,12 +64,13 @@ function setAllMarkers(map,bounds,markers) {
 function setVisibleMarker(map,markers,pagination) {
     const bounds = map.getBounds();
     let show = [];
+    console.log(bounds)
     for(let marker of markers) {
         if(
             marker.etablissements_latitude > bounds.Va.lo && 
             marker.etablissements_latitude < bounds.Va.hi &&
-            marker.etablissements_longitude > bounds.Ja.lo &&
-            marker.etablissements_longitude < bounds.Ja.hi
+            marker.etablissements_longitude > bounds.Ga.lo &&
+            marker.etablissements_longitude < bounds.Ga.hi
         ) {
             show.push(marker.etablissements_id);
         }

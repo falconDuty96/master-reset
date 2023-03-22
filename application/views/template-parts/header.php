@@ -502,11 +502,11 @@
 										<ul class="splide__list" id="splide__list">
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href="resultat-recherche.html">
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cabanes dans les arbres">
 														<img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icones cabanes dans les arbres igoguide.png" alt="">
 													</a>
 													<p class="text-center">
-														<a class="toBold " href="resultat-recherche.html">Cabanes dans les arbres</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Cabanes dans les arbres">Cabanes dans les arbres</a>
 													</p>
 												</div>
 											</li>
@@ -821,9 +821,9 @@
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activités sportives igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Activités sportives"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activités sportives igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Activités sportives</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Activités sportives">Activités sportives</a>
 													</p>
 												</div>
 											</li>

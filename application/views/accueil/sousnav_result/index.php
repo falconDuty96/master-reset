@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-xl-12">
 
-                <p class="__title_result">12 Resultats trouvés par Igoguide pour "Cabane sur l'eau"</p>
+                <p class="__title_result"><span id="nbre_page">0</span> Resultats trouvés par Igoguide pour "<?php echo urldecode($option) ;?>"</p>
 
                 <div class="__result">
                     <div class="__result_left">
@@ -26,7 +26,7 @@
                                 <i class="fa-solid fa-list"></i>
                             </span>
                         </button>
-                        <div id="maps" data-baseurl="<?= base_url() ?>" data-page="<?= $page ?>"></div>
+                        <div id="maps" data-baseurl="<?= base_url() ?>" data-page="<?= $page ?>" data-type="<?= $type ?>" data-option="<?= $option ?>"></div>
                     </div>
 
                 </div>

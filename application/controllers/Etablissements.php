@@ -7,9 +7,11 @@ class Etablissements extends CI_Controller {
         $this->load->model("EtablissementsModel", "m_etablissements");
     }
 
-    public function maps($page=1)
+    public function maps($option,$query,$page=1)
     {
-        $count = $this->m_etablissements->count();
+        // option: region 
+        // query: Bretagne
+        $count = $this->m_etablissements->count($option,urldecode($query));
         $pagination_active = $count > self::LIMIT;
         $page = (int)$page;
         $offset = ($page - 1) * self::LIMIT;
@@ -17,11 +19,12 @@ class Etablissements extends CI_Controller {
 
 
         echo json_encode([
-            "markers" => $this->m_etablissements->getMaps($offset),
+            "markers" => $this->m_etablissements->getMaps($option,urldecode($query),$offset),
             "pagination" => [
                 "active" => $pagination_active,
                 "page" => $page,
                 "nbre_page" => $nbre_page,
+                "counter" => $this->m_etablissements->count($option,urldecode($query)),
             ]
         ]);
     }

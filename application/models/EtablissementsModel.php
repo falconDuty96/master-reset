@@ -1,19 +1,63 @@
 <?php
 
-class EtablissementsModel extends CI_Model {
+class EtablissementsModel extends CI_Model
+{
 
-    public function getMaps($offset)
+    public function getMaps($option, $query , $offset)
     {
-        $data = DB::customQuery("SELECT * FROM etablissements 
+        $data = [] ;
+        if ($option == 'region') {
+            $data = DB::customQuery(
+                "SELECT * FROM etablissements 
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
             INNER JOIN users ON users.users_id=etablissements.users_id
+            WHERE etablissements.etablissements_region LIKE '%".$query."%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
-            "OFFSET {$offset}"
-        );
+                    "OFFSET {$offset}"
+            );
+        } else if ($option == 'departement') {
+            $data = DB::customQuery(
+                "SELECT * FROM etablissements 
+            INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+            INNER JOIN users ON users.users_id=etablissements.users_id
+            WHERE etablissements.etablissements_departement LIKE '%".$query."%'
+            GROUP BY etablissements_nom
+            LIMIT " . Etablissements::LIMIT . " " .
+                    "OFFSET {$offset}"
+            );
+        } else if ($option == 'motcle') {
+            $data = DB::customQuery(
+                "SELECT * FROM etablissements 
+            INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+            INNER JOIN users ON users.users_id=etablissements.users_id
+            WHERE etablissements.etablissements_motcle LIKE '%".$query."%'
+            GROUP BY etablissements_nom
+            LIMIT " . Etablissements::LIMIT . " " .
+                    "OFFSET {$offset}"
+            );
+        } else if ($option == 'sc') {
+            $data = DB::customQuery(
+                "SELECT * FROM etablissements 
+            INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+            INNER JOIN users ON users.users_id=etablissements.users_id
+            INNER JOIN sous_categories ON users.users_id=etablissements.users_id
+            WHERE sous_categories.sous_categories_nom LIKE '%".$query."%'
+            GROUP BY etablissements_nom
+            LIMIT " . Etablissements::LIMIT . " " .
+                    "OFFSET {$offset}"
+            );
+        }
+        // $data = DB::customQuery(
+        //     "SELECT * FROM etablissements 
+        //     INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+        //     INNER JOIN users ON users.users_id=etablissements.users_id
+        //     GROUP BY etablissements_nom
+        //     LIMIT " . Etablissements::LIMIT . " " .
+        //         "OFFSET {$offset}"
+        // );
 
-        foreach($data as $k => $v)
-        {
+        foreach ($data as $k => $v) {
             $data[$k]->etablissements_activites = json_decode($v->etablissements_activites);
         }
 
@@ -22,25 +66,37 @@ class EtablissementsModel extends CI_Model {
     public function getMapsVisible($id_lists)
     {
         $res = [];
-        foreach($id_lists as $id)
-        {
-            $data = DB::customQuery("SELECT * FROM etablissements 
+        foreach ($id_lists as $id) {
+            $data = DB::customQuery(
+                "SELECT * FROM etablissements 
                 INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
                 INNER JOIN users ON users.users_id=etablissements.users_id
-                WHERE etablissements_id=?", [$id], false
+                WHERE etablissements_id=?",
+                [$id],
+                false
             );
             $data->etablissements_activites = json_decode($data->etablissements_activites);
 
             $res[] = $data;
         }
-        
+
 
         return $res;
     }
 
-    public function count()
-    {
-        $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements",[], false);
+    public function count($option, $query)
+    {   
+        $res = 0 ;
+        if ($option == 'region') {
+            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_region LIKE '%".$query."%'", [], false);
+        } else if ($option == 'departement') {
+            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_departement LIKE '%".$query."%'", [], false);
+        } else if ($option == 'motcle') {
+            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_motcle LIKE '%".$query."%'", [], false);
+        }
+
+
+        // $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements", [], false);
         return (int)$res->count;
     }
 }

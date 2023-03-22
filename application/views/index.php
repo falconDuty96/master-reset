@@ -672,62 +672,62 @@
 							<div id="region_france">
 								<ul id="region_france_liste">
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-84">Auvergne-Rhône-Alpes</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Auvergne-Rhône-Alpes') ;?>" class="hover-region" id="region-84">Auvergne-Rhône-Alpes</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Bourgogne-Franche-Comté" class="hover-region" id="region-27">Bourgogne-Franche-Comté</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Bourgogne-Franche-Comté') ;?>" class="hover-region" id="region-27">Bourgogne-Franche-Comté</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Bretagne" class="hover-region" id="region-53">Bretagne</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Bretagne') ;?>" class="hover-region" id="region-53">Bretagne</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-24">Centre-Val de Loire</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Auvergne-Rhône-Alpes') ;?>" class="hover-region" id="region-24">Auvergne-Rhône-Alpes</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-94">Corse</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Corse') ;?>" class="hover-region" id="region-94">Corse</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-44">Grand Est</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Grand Est') ;?>" class="hover-region" id="region-44">Grand Est</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-32">Hauts-de-France</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Hauts-de-France') ;?>" class="hover-region" id="region-32">Hauts-de-France</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-03">Guyane</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Guyane') ;?>" class="hover-region" id="region-03">Guyane</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-04">La Réunion</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('La Réunion') ;?>" class="hover-region" id="region-04">La Réunion</a>
 									</li>
 
 									</li>
 								</ul>
 								<ul id="region_france_liste">
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-01">Guadeloupe</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Guadeloupe') ;?>" class="hover-region" id="region-01">Guadeloupe</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-02">Martinique</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Martinique') ;?>" class="hover-region" id="region-02">Martinique</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-75">Nouvelle-Aquitaine</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Nouvelle-Aquitaine') ;?>" class="hover-region" id="region-75">Nouvelle-Aquitaine</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-76">Occitaine</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Occitaine') ;?>" class="hover-region" id="region-76">Occitaine</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-52">Pays de la Loire</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Pays de la Loire') ;?>" class="hover-region" id="region-52">Pays de la Loire</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-93">Provence-Alpes-Côte d'Azur</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Provence-Alpes-Côte d\'Azur') ;?>" class="hover-region" id="region-93">Provence-Alpes-Côte d'Azur</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-28">Normandie</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Normandie') ;?>" class="hover-region" id="region-28">Normandie</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-11">Île-de-France</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Île-de-France') ;?>" class="hover-region" id="region-11">Île-de-France</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/searchByRegion/Auvergne-Rhône-Alpes" class="hover-region" id="region-06">Mayotte</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Mayotte') ;?>" class="hover-region" id="region-06">Mayotte</a>
 									</li>
 								</ul>
 

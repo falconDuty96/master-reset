@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost/Application-Dashboarding/'
+const BASE_URL = 'http://192.168.0.110/Application-Dashboarding/'
 
 class Alert{
     constructor(){

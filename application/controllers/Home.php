@@ -127,6 +127,12 @@ class Home extends CI_Controller {
 	public function getParticulierCGU() {
 		return $this->front->getCGUByType("particulier") ;
 	}
+
+
+	// search on card:
+	public function searchByRegion($region) {
+		$this->front->showEtablissementByRegion() ;
+	}
 	
 	
 }

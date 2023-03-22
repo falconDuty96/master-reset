@@ -313,6 +313,8 @@
                                                                 <div class="row">
                                                                     <div class="col-md-4">Photos : </div>
                                                                     <div class="col-md-8">
+
+                                                                        <!-- <div class="image-preview-modif"></div> -->
                                                                         <?php
                                                                         $photo_etab = json_decode($data[$ic]->etablissements_photo);
                                                                         for ($pe = 0; $pe < count($photo_etab); $pe++) : ?>
@@ -1300,7 +1302,7 @@
         $(document).ready(function() {
 
             $('.input-images').imageUploader({
-                label: 'Clicker ou Deplacer votre image ici', //This option defines the label text for a draggable area that helps users to understand what to do. Default: ‘Drag & Drop files here or click to browse’, Type: String.
+                label: 'Deplacer votre image ici', //This option defines the label text for a draggable area that helps users to understand what to do. Default: ‘Drag & Drop files here or click to browse’, Type: String.
                 //Define the preloaded images for upload form. Default: [], Type: Array of Objects. 
                 // preloaded: [
                 //     { id: 1, src: 'https://picsum.photos/500/500?random=1' },
@@ -1309,6 +1311,22 @@
                 imagesInputName: 'etablissements_photo', // It defines the name of the input that will be posted, containing the files list. Default: ‘images’, Type: String. 
                 // preloadedInputName: 'Custom Name', //Show the name of the inputs that will be posted, containing the identification of the preloaded image. Default: ‘preloaded’, Type: String.
             });
+
+
+
+            // $(".image-preview-modif").imageUploader({
+            //     label: 'Deplacer votre image ici',
+            //     preloaded: [
+            //         { id: 1, src: 'https://picsum.photos/500/500?random=1' },
+            //         { id: 2, src: 'https://picsum.photos/500/500?random=2' },
+            //     ], 
+            //     imagesInputName: 'etablissements_photo',
+            // })
+
+            // $(".input-images,.image-preview-modif").css({
+            //     'cursor':"pointer"
+            // })
+
 
         });
     </script>

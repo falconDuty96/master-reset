@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-xl-12">
 
-                <p class="__title_result">12 Resultats trouvé par Igoguide pour "Cabane sur l'eau"</p>
+                <p class="__title_result"><?php echo count($sousnav_data); ?><?php if(count($sousnav_data) > 1){ echo " Résultats";}else{ echo " Résultat";} ?> trouvé par Igoguide pour "Cabane sur l'eau"</p>
 
                 <div class="__result">
                     <div class="__result_left">
                         <div class="__block_left">
-                            <?php for ($i=1; $i < 7 ; $i++) : ?>
+                            <?php for ($i = 0; $i < count($sousnav_data) ; $i++) : ?>
 
-                                <div class="__card_result">
+                                <!-- <div class="__card_result">
                                     <div class="__carousel_images">
                                         <button class="__like">
                                             <span class="__icon">
@@ -100,7 +100,7 @@
                                             <p class="__name">Cabanes sur l'eau</p>
                                         </a>
                                     </div>
-                                </div>
+                                </div> -->
                             
                                 <div class="__card_result">
                                     <div class="__carousel_images">
@@ -109,6 +109,8 @@
                                                 <i class="fa-regular fa-heart"></i>
                                             </span>
                                         </button>
+
+                                        
                                         <div id="carouselImagesAlbum2" class="carousel slide" data-ride="carousel">
 
                                             <div class="carousel-inner">
@@ -152,15 +154,15 @@
 
                                     <div class="__card_body">
                                         <a href="#" class="__user">
-                                            <img class="__img" src="https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg" alt="">
+                                            <img class="__img" src="<?= base_url() ;?>publics/<?= $sousnav_data[$i]->users_photo ?>" alt="">
                                         </a>
                                         <a class="__body" href="<?= base_url().'/Home/detail_result' ?>">
                                             <h2 class="__title">
-                                                Suite familiale tout confort, vue sur Loire.
+                                                <?= $sousnav_data[$i]->etablissements_nom ; ?>
                                             </h2>
                                             <p class="__localisation">
                                                 <span class="__icon"><i class="fa-solid fa-location-dot"></i></span>
-                                                <span class="__location"> ville : Argelès-sur-Mer, Region : Occitanie, Departement: Pyrénées-Orientales, Pays: France</span>
+                                                <span class="__location"> ville : <?= $sousnav_data[$i]->etablissements_ville ; ?>, Region : <?= $sousnav_data[$i]->etablissements_region ; ?>, Departement: <?= $sousnav_data[$i]->etablissements_departement ; ?>, Pays: <?= $sousnav_data[$i]->etablissements_pays ; ?></span>
                                             </p>
                                             <p class="__price">
                                                 1.000 € par nuit
@@ -170,7 +172,7 @@
                                             <div class="__image">
                                                 <img class="__img_category" src="http://localhost/igoguide/publics/image/Hébergements/icone cabane sur l_eau igoguide.png" alt="">
                                             </div>
-                                            <p class="__name">Cabanes sur l'eau</p>
+                                            <p class="__name"><?= ucfirst($sousnav_data[$i]->sous_categories_nom) ; ?></p>
                                         </a>
                                     </div>
                                 </div>

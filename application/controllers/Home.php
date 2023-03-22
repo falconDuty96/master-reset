@@ -15,7 +15,8 @@ class Home extends CI_Controller {
 			'ccm' => $this->selectCcm() ,
 			'blogs' => $this->selectBlogs() ,
 			'categ' => $this->selectCategories() ,
-			'sousnav_result' => true
+			'sousnav_result' => true ,
+			'sousnav_data'=> $this->front->getEtablissement() ,
 		] ;
 		$this->load->view('accueil/header', $data) ;
 		$this->load->view('accueil/sousnav_result/index',$data) ;

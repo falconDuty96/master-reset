@@ -55,3 +55,6 @@
     .hover-clickable:hover {
         cursor: pointer;
     }
+    .input-images:hover {
+      cursor: pointer;
+    }

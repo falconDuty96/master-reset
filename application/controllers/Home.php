@@ -9,14 +9,14 @@ class Home extends CI_Controller {
 		$this->load->model('FrontModel','front') ;
 	}
 	
-	public function sousnav_result()
+	public function sousnav_result($page = 1)
 	{
 		$data = [
 			'ccm' => $this->selectCcm() ,
 			'blogs' => $this->selectBlogs() ,
 			'categ' => $this->selectCategories() ,
-			'sousnav_result' => true ,
-			'sousnav_data'=> $this->front->getEtablissement() ,
+			'sousnav_result' => true,
+			'page' => (int)$page
 		] ;
 		$this->load->view('accueil/header', $data) ;
 		$this->load->view('accueil/sousnav_result/index',$data) ;

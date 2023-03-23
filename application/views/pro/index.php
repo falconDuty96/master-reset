@@ -21,7 +21,7 @@
 
 <body>
 
-        
+
 
     <div class="backdrop d-none" id="backdrop"></div>
     <div class="header">
@@ -42,7 +42,7 @@
                         <span class="_badge" id="unread-message-count"></span>
 
                     </span>
-                    <span class="profil-menu ms-3" style="background-image: url('../publics/<?php echo $_SESSION['logo'] ?? '' ;?>');">
+                    <span class="profil-menu ms-3" style="background-image: url('../publics/<?php echo $_SESSION['logo'] ?? ''; ?>');">
 
                     </span>
                     <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['etablissement']; ?></span>
@@ -144,7 +144,7 @@
 
             </div>
             <main class="content">
-                <h1 class="h3">Nouvel fiche</h1>
+                <h1 class="h3">Nouvelle fiche</h1>
                 <div class="form-container shadow shadow-sm">
                     <h6 class="form-title d-flex justify-content-between">
                         <span>Fiches enregistrées</span>
@@ -162,7 +162,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Nom de l'établissement</th>
+                                        <th>Nom de la fiche</th>
                                         <th>Adresse</th>
                                         <th>Catégorie</th>
                                         <th>Sous catégorie</th>
@@ -225,7 +225,7 @@
                                                                     <span class="line"></span>
                                                                 </span>
                                                                 <div class="row">
-                                                                    <div class="col-md-4">Nom de l'établissement : </div>
+                                                                    <div class="col-md-4">Titre de la fiche : </div>
                                                                     <div class="col-md-8">
                                                                         <?= $data[$ic]->etablissements_nom; ?>
                                                                     </div>
@@ -237,7 +237,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row">
-                                                                    <div class="col-md-4">Télephone : </div>
+                                                                    <div class="col-md-4">Téléphone : </div>
                                                                     <div class="col-md-8">
                                                                         <?= $data[$ic]->etablissements_telephone; ?>
                                                                     </div>
@@ -532,7 +532,7 @@
                                                             <?php endfor; ?>
                                                         </div>
                                                         <span class="sidebar-title my-3">
-                                                            <span class="bolder">Catégories</span>
+                                                            <span class="bolder">Catégorie choisie</span>
                                                             <span class="line"></span>
                                                         </span>
                                                         <div class="form-group">
@@ -789,7 +789,7 @@
 
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="submit" class="_btn _btn-success w-100">Créer</button>
+                                                        <button type="submit" class="_btn _btn-success w-100">Je valide ma fiche</button>
                                                     </div>
                                                     </form>
 
@@ -818,7 +818,7 @@
                 <?php echo form_open_multipart('Pro/addEtablissement', array("class" => "modal-content")); ?>
 
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5">Créer un fiche</h1>
+                    <h1 class="modal-title fs-5">Créer une fiche</h1>
                     <button type="button" id="close-modal-fiche" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -829,7 +829,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Nom de l'établissement :</label>
+                                <label>Titre de la fiche :</label>
                                 <input type="text" class="form-control" name="etablissements_nom" required>
                             </div>
                             <div class="form-group">
@@ -863,7 +863,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Adresse :</label>
+                                <label>Numéro et nom de la rue :</label>
                                 <input type="text" class="form-control" id="searchTextField" name="etablissement_adresse" required>
                             </div>
                             <div class="form-group">
@@ -920,11 +920,11 @@
 
 
                     <span class="sidebar-title my-3">
-                        <span class="bolder">Média</span>
+                        <span class="bolder">Photos</span>
                         <span class="line"></span>
                     </span>
                     <div class="form-group">
-                        <label>Image de l'établissement :</label>
+                        <label>Images correspondantes à votre fiche :</label>
                         <!-- <input type="file" class="form-control" name="etablissements_photo[]" multiple> -->
                         <div class="input-images"></div>
                     </div>
@@ -959,16 +959,30 @@
                         <span class="line"></span>
                     </span>
                     <div class="row d-none divers-selector" id="divers-1">
-                        <div class="col-md-3">
-                            <div class="form-group">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <div class="form-group">
 
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <label>Tarif :</label>
-                                        <input type="number" name="tarif" class="form-control" min="0">
-                                    </div>
+                                    <label>Tarif à partir de :</label>
+                                    <input type="text" name="tarif" class="form-control" min="0" placeholder="En euro">
+
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Capacité :</label>
+                                    <input type="number" class="form-control" min="0" name="capacite">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Age minimum :</label>
+                                    <input type="number" class="form-control" min="0" name="age_minimum">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+
                             <div class="form-group">
                                 <label>
                                     <input type="checkbox" name="piscines"> Piscines
@@ -976,7 +990,42 @@
                             </div>
                             <div class="form-group">
                                 <label>
-                                    <input type="checkbox" name="salle_de_bain_et_wc"> Salle de bain et W.C
+                                    <input type="checkbox" name="salle_de_bain_et_wc"> Salle de bain
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="jardin"> Jardin
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="terasse"> Terasse
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="balcon"> Balcon
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="vue_mer"> Vue mer
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="vue_montagne"> Vue montagne
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="vue_campagne"> Vue campagne
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="wc_independant"> W.C indépendant
                                 </label>
                             </div>
                             <div class="form-group">
@@ -996,10 +1045,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Capacité :</label>
-                                <input type="number" class="form-control" min="0" name="capacite">
-                            </div>
+
                             <div class="form-group">
                                 <label>
                                     <input type="checkbox" name="bain_a_remous"> Bain à remous
@@ -1028,8 +1074,24 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label>Age minimum :</label>
-                                <input type="number" class="form-control" min="0" name="age_minimum">
+                                <label>
+                                    <input type="checkbox" name="jacuzzi-spa"> Jacuzzi - spa
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="jacuzzi-spa"> Hammam
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="acces-internet"> Accès à Internet
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" name="tv"> TV
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label>
@@ -1058,10 +1120,10 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label>Nombre de couchage :</label>
                                 <input type="number" class="form-control" min="0" name="nombre_de_couchage">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label>
                                     <input type="checkbox" name="cuisines"> Cuisines
@@ -1085,33 +1147,62 @@
                         </div>
                     </div>
                     <div class="row d-none divers-selector" id="divers-2">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Heure d'ouverture :</label>
-                                <input type="time" class="form-control" name="heure_ouverture_2">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Heure d'ouverture :</label>
+                                    <input type="time" class="form-control" name="heure_ouverture_2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Heure de fermeture :</label>
-                                <input type="time" class="form-control" name="heure_fermeture_2">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Heure de fermeture :</label>
+                                    <input type="time" class="form-control" name="heure_fermeture_2">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>Tarif :</label>
-                                <input type="number" class="form-control" name="tarif_2" min="0">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label>
-                                    Adapté aux handicapés :
-                                </label>
 
-                                <input type="checkbox" name="adapte_handicap_2">
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        Ouvert :
+                                    </label>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Lundi
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Mardi
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Mercredi
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Jeudi
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Vendredi
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Samedi
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="checkbox" name="adapte_handicap_2"> Dimanche
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="checkbox" name="adapte_handicap_2">
+                                    <label>
+                                        Adapté aux handicapés
+                                    </label>
+
+
+                                </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="row d-none divers-selector" id="divers-3">
                         <div class="col-md-4">
@@ -1187,7 +1278,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="_btn _btn-success w-100">Créer</button>
+                    <button type="submit" class="_btn _btn-success w-100">Je valide ma fiche</button>
                 </div>
                 </form>
 
@@ -1300,7 +1391,7 @@
         $(document).ready(function() {
 
             $('.input-images').imageUploader({
-                label: 'Deplacer votre image ici', //This option defines the label text for a draggable area that helps users to understand what to do. Default: ‘Drag & Drop files here or click to browse’, Type: String.
+                label: 'Télecharger des photos', //This option defines the label text for a draggable area that helps users to understand what to do. Default: ‘Drag & Drop files here or click to browse’, Type: String.
                 //Define the preloaded images for upload form. Default: [], Type: Array of Objects. 
                 // preloaded: [
                 //     { id: 1, src: 'https://picsum.photos/500/500?random=1' },

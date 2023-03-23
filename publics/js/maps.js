@@ -64,7 +64,6 @@ function setAllMarkers(map,bounds,markers) {
 function setVisibleMarker(map,markers,pagination) {
     const bounds = map.getBounds();
     let show = [];
-    console.log(bounds)
     for(let marker of markers) {
         if(
             marker.etablissements_latitude > bounds.Va.lo && 

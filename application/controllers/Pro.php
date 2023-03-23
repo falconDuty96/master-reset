@@ -21,6 +21,8 @@ class Pro extends CI_Controller
 
     public function index()
     {
+        $user = $this->pro->getProUserById($_SESSION['users_id']) ;
+        $_SESSION['logo'] = $user[0]->users_etablissement_logo ;
         $this->load->view('pro/index', [
             'sc' => $this->pro->getCategories_sous_categories(),
             'data' => $this->pro->selectEtablissements(),
@@ -100,6 +102,8 @@ class Pro extends CI_Controller
             
             $this->pro->updateProEtablissement($data);
             $_SESSION['etablissement'] = $this->input->post('users_etablissement') ;
+            $updated = $this->pro->getProUserById($id) ;
+            $_SESSION['logo'] = $updated[0]->users_etablissement_logo ;
             redirect('Pro/etablissement');
         }
         else {

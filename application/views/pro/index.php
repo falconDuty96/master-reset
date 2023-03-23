@@ -569,10 +569,6 @@
                                                                             <label>Tarif :</label>
                                                                             <input type="number" name="tarif" class="form-control" min="0">
                                                                         </div>
-                                                                        <div class="col-md-4">
-                                                                            <input type="checkbox" name="nuits"> Nuits
-                                                                            <input type="checkbox" name="jours"> Jours
-                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
@@ -970,10 +966,6 @@
                                     <div class="col-md-8">
                                         <label>Tarif :</label>
                                         <input type="number" name="tarif" class="form-control" min="0">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="checkbox" name="nuits"> Nuits
-                                        <input type="checkbox" name="jours"> Jours
                                     </div>
                                 </div>
                             </div>

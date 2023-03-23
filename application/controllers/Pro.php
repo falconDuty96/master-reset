@@ -154,12 +154,7 @@ class Pro extends CI_Controller
 
         switch ($categ) {
             case "categ-1":
-                $day = "";
-                if ($this->input->post("nuits") == "on" && $this->input->post("jours") == "") {
-                    $day = " euros/nuit";
-                } else if ($this->input->post("jours") == "on" && $this->input->post("nuits") == "") {
-                    $day = " euros/jour";
-                }
+                $day = " euros";
                 $id_categories = 1;
                 $activite = array(
                     "Piscines" => $this->input->post("piscines"),

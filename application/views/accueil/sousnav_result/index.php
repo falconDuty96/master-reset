@@ -26,7 +26,7 @@
                                 <i class="fa-solid fa-list"></i>
                             </span>
                         </button>
-                        <div id="maps" data-baseurl="<?= base_url() ?>" data-page="<?= $page ?>" data-type="<?= $type ?>" data-option="<?= $option ?>"></div>
+                        <div id="maps" data-baseurl="<?= base_url() ?>" data-switcher="" data-page="<?= $page ?>" data-type="<?= $type ?>" data-option="<?= $option ?>"></div>
                     </div>
 
                 </div>

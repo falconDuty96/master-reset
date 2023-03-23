@@ -28,6 +28,13 @@ class Etablissements extends CI_Controller {
             ]
         ]);
     }
+
+    public function showing_info($id) {
+        echo json_encode([
+            "markers" => $this->m_etablissements->showEtablissementsByID($id),
+        ]);
+    }
+
     public function mapsVisible()
     {
         $lists_id = $_POST["data"] ?? [];

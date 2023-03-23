@@ -3,15 +3,15 @@
 class EtablissementsModel extends CI_Model
 {
 
-    public function getMaps($option, $query , $offset)
+    public function getMaps($option, $query, $offset)
     {
-        $data = [] ;
+        $data = [];
         if ($option == 'region') {
             $data = DB::customQuery(
                 "SELECT * FROM etablissements 
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
             INNER JOIN users ON users.users_id=etablissements.users_id
-            WHERE etablissements.etablissements_region LIKE '%".$query."%'
+            WHERE etablissements.etablissements_region LIKE '%" . $query . "%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
                     "OFFSET {$offset}"
@@ -21,7 +21,7 @@ class EtablissementsModel extends CI_Model
                 "SELECT * FROM etablissements 
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
             INNER JOIN users ON users.users_id=etablissements.users_id
-            WHERE etablissements.etablissements_departement LIKE '%".$query."%'
+            WHERE etablissements.etablissements_departement LIKE '%" . $query . "%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
                     "OFFSET {$offset}"
@@ -31,7 +31,7 @@ class EtablissementsModel extends CI_Model
                 "SELECT * FROM etablissements 
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
             INNER JOIN users ON users.users_id=etablissements.users_id
-            WHERE etablissements.etablissements_motcle LIKE '%".$query."%'
+            WHERE etablissements.etablissements_motcle LIKE '%" . $query . "%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
                     "OFFSET {$offset}"
@@ -42,7 +42,7 @@ class EtablissementsModel extends CI_Model
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
             INNER JOIN users ON users.users_id=etablissements.users_id
             INNER JOIN sous_categories ON users.users_id=etablissements.users_id
-            WHERE sous_categories.sous_categories_nom LIKE '%".$query."%'
+            WHERE sous_categories.sous_categories_nom LIKE '%" . $query . "%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
                     "OFFSET {$offset}"
@@ -76,7 +76,7 @@ class EtablissementsModel extends CI_Model
                 false
             );
             $data->etablissements_activites = json_decode($data->etablissements_activites);
-
+            $data->etablissements_photo = json_decode($data->etablissements_photo) ;
             $res[] = $data;
         }
 
@@ -85,18 +85,37 @@ class EtablissementsModel extends CI_Model
     }
 
     public function count($option, $query)
-    {   
-        $res = 0 ;
+    {
+        $res = 0;
         if ($option == 'region') {
-            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_region LIKE '%".$query."%'", [], false);
+            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_region LIKE '%" . $query . "%'", [], false);
         } else if ($option == 'departement') {
-            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_departement LIKE '%".$query."%'", [], false);
+            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_departement LIKE '%" . $query . "%'", [], false);
         } else if ($option == 'motcle') {
-            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_motcle LIKE '%".$query."%'", [], false);
+            $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements WHERE etablissements_motcle LIKE '%" . $query . "%'", [], false);
         }
 
 
         // $res = DB::customQuery("SELECT COUNT(DISTINCT etablissements_nom) AS count FROM etablissements", [], false);
         return (int)$res->count;
+    }
+
+    public function showEtablissementsByID($id)
+    {
+        $res = DB::customQuery(
+            "SELECT * FROM etablissements 
+            INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+            INNER JOIN users ON users.users_id=etablissements.users_id
+            INNER JOIN categories ON categories.categories_id=etablissements.categories_id
+            WHERE etablissements_id=?",
+            [$id],
+            false
+        );
+        $res->etablissements_photo = json_decode($res->etablissements_photo) ;
+        $res->etablissements_activites = json_decode($res->etablissements_activites) ;
+
+        $data = [] ;
+        array_push($data,$res) ;
+        return $data ;
     }
 }

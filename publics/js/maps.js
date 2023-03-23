@@ -1,5 +1,5 @@
 //const CENTER = { lat: 46.856614, lng: 2.3522219 };
-const map_markers = []; 
+const map_markers = [];
 const base_url = (uri = '') => {
     return $("#maps").data('baseurl') + uri;
 }
@@ -12,34 +12,95 @@ window.myMap = async function () {
         //zoom: 6,
     };
     const GOOGLE_MAP = document.getElementById("maps");
-                    
+
     // Display a map on the web page
     const map = new google.maps.Map(GOOGLE_MAP, mapOptions);
     // Multiple markers location, latitude, and longitude
-    const data = await $.getJSON(base_url("etablissements/maps/"+ $(GOOGLE_MAP).data("type") + '/' + $(GOOGLE_MAP).data("option") + '/' + Number($(GOOGLE_MAP).data("page"))));
-    const markers = data.markers;
-    $("#nbre_page").text(data.pagination.counter) ;
-    // Add multiple markers to map
     
-    setAllMarkers(map,bounds, markers);
-    // Place each marker on the map  
-    
-    map.addListener("tilesloaded", function() {
-        setVisibleMarker(map, markers, data.pagination);
-    })
-    map.addListener("dragend", function() {
-        setVisibleMarker(map, markers, data.pagination);
-    })
+    if ($(GOOGLE_MAP).data('switcher') == "showing") {
+        const data_showing = await $.getJSON(base_url("etablissements/showing_info/" + Number($(GOOGLE_MAP).data('id'))));
+        const markers = data_showing.markers;
+        // Add multiple markers to map
+        console.log(markers)
+
+        setAllMarkers(map, bounds, markers);
+        $('#email-showing').text(markers[0].etablissements_email);
+        $('#telephone_showing').text(markers[0].etablissements_telephone);
+
+        if(markers[0].etablissements_siteweb == '') {
+            $('#siteweb_showing').addClass('d-none') ;
+        }
+        else {
+            $('#siteweb_showing').attr('href',markers[0].etablissements_siteweb) ;
+        }
+        if(markers[0].etablissements_fb == '') {
+            $('#fb_showing').addClass('d-none') ;
+        }
+        else {
+            $('#fb_showing').attr('href',markers[0].etablissements_fb) ;
+        }
+        if(markers[0].etablissements_insta == '') {
+            $('#insta_showing').addClass('d-none') ;
+        }
+        else {
+            $('#insta_showing').attr('href',markers[0].etablissements_insta) ;
+        }
+        $('#entete_showing').text(markers[0].etablissements_nom) ;
+        $("#presentation_showing").text(markers[0].etablissements_presentation) ;
+        $("#categorie_showing").text(markers[0].categories_nom);
+        $('#sous_categorie_showing').text(markers[0].sous_categories_nom);
+        $("#etablissements_nom_showing").text(markers[0].users_etablissement);
+        $('#ville_localisation_showing').text(markers[0].etablissements_ville)
+        $('#cp_localisation_showing').text(markers[0].etablissements_codepostal)
+        $('#region_localisation_showing').text(markers[0].etablissements_region)
+        $('#departement_localisation_showing').text(markers[0].etablissements_departement)
+        $('#pays_localisation_showing').text(markers[0].etablissements_pays)
+        var txt = "" ;
+        var activites = markers[0].etablissements_activites ;
+        for(const cle in markers[0].etablissements_activites) {
+            txt += "<li class='__service'>"+cle+" : "+activites[cle]+"</li>" ;
+        }
+        $("#list_showing").html(txt) ;
+        
+        $("#image_showing").attr('src','../'+markers[0].users_etablissement_logo) ;
+
+        // Place each marker on the map  
+
+        // map.addListener("tilesloaded", function () {
+        //     setVisibleMarker(map, markers, data.pagination);
+        // })
+        // map.addListener("dragend", function () {
+        //     setVisibleMarker(map, markers, data.pagination);
+        // })
+    }
+    else {
+        const data = await $.getJSON(base_url("etablissements/maps/" + $(GOOGLE_MAP).data("type") + '/' + $(GOOGLE_MAP).data("option") + '/' + Number($(GOOGLE_MAP).data("page"))));
+        const markers = data.markers;
+        $("#nbre_page").text(data.pagination.counter);
+        // Add multiple markers to map
+
+        setAllMarkers(map, bounds, markers);
+        // Place each marker on the map  
+
+        map.addListener("tilesloaded", function () {
+            setVisibleMarker(map, markers, data.pagination);
+        })
+        map.addListener("dragend", function () {
+            setVisibleMarker(map, markers, data.pagination);
+        })
+    }
+
+
 }
 
-function setAllMarkers(map,bounds,markers) {
+function setAllMarkers(map, bounds, markers) {
     let infoWindow = new google.maps.InfoWindow();
-    let i=0;
-    for( let m of markers ) {  
-        let marker; 
+    let i = 0;
+    for (let m of markers) {
+        let marker;
         var position = new google.maps.LatLng(m.etablissements_latitude, m.etablissements_longitude);
         bounds.extend(position);
-        
+
         marker = new google.maps.Marker({
             position: position,
             map: map,
@@ -49,8 +110,8 @@ function setAllMarkers(map,bounds,markers) {
             }
         });
 
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-            return function() {
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
                 infoWindow.setContent(templateOnClick(m));
                 infoWindow.open(map, marker);
             }
@@ -61,12 +122,12 @@ function setAllMarkers(map,bounds,markers) {
         i++;
     }
 }
-function setVisibleMarker(map,markers,pagination) {
+function setVisibleMarker(map, markers, pagination) {
     const bounds = map.getBounds();
     let show = [];
-    for(let marker of markers) {
-        if(
-            marker.etablissements_latitude > bounds.Va.lo && 
+    for (let marker of markers) {
+        if (
+            marker.etablissements_latitude > bounds.Va.lo &&
             marker.etablissements_latitude < bounds.Va.hi &&
             marker.etablissements_longitude > bounds.Ga.lo &&
             marker.etablissements_longitude < bounds.Ga.hi
@@ -74,23 +135,23 @@ function setVisibleMarker(map,markers,pagination) {
             show.push(marker.etablissements_id);
         }
     }
-    
-    setCards(show,pagination);
+
+    setCards(show, pagination);
 }
 
-function setCards(markers,pagination) {
-    $.post(base_url('etablissements/mapsVisible'), {data: markers, pagination: JSON.stringify(pagination)},
+function setCards(markers, pagination) {
+    $.post(base_url('etablissements/mapsVisible'), { data: markers, pagination: JSON.stringify(pagination) },
         function (data, textStatus, jqXHR) {
-            $("#etablissements-card").html(data);  
+            $("#etablissements-card").html(data);
         },
     );
 }
 
 function mappingCard(latitude, longitude) {
-    for(let m of map_markers) {
+    for (let m of map_markers) {
         const lat = m.position.lat();
         const lng = m.position.lng();
-        if(lat === latitude && lng === longitude) {
+        if (lat === latitude && lng === longitude) {
             m.setIcon({
                 url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
             })
@@ -98,7 +159,7 @@ function mappingCard(latitude, longitude) {
     }
 }
 function clearMappingCard() {
-    for(let m of map_markers) {
+    for (let m of map_markers) {
         m.setIcon({
             url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png"
         })
@@ -111,8 +172,8 @@ function clearMappingCard() {
 function templateOnClick(marker) {
     let tarif = 0;
     let activite;
-    if(activite = marker.etablissements_activites) {
-        if(activite.Tarif) {
+    if (activite = marker.etablissements_activites) {
+        if (activite.Tarif) {
             tarif = Number(activite.Tarif);
         }
     }

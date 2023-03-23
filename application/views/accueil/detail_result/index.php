@@ -4,27 +4,27 @@
             <div class="__user_reseau">
                 <a href="#" class="__link __mail">
                     <span class="__icon"><i class="fa-regular fa-envelope"></i></span>
-                    <span class="__info">rajaofetrafitahianasarobidy@gmail.com</span>
+                    <span class="__info" id="email-showing"></span>
                 </a>
 
                 <a href="#" class="__link __phone">
                     <span class="__icon"><i class="fa-solid fa-phone"></i></span>
-                    <span class="__info">+33 6 71 55 28 67</span>
+                    <span class="__info" id="telephone_showing">+33 6 71 55 28 67</span>
                 </a>
 
-                <a href="#" class="__link __web">
+                <a href="" id="siteweb_showing" class="__link __web">
                     <span class="__icon"><i class="fa-solid fa-globe"></i></span>
-                    <span class="__info">nir-info.mg</span>
+                    <span class="__info">Siteweb</span>
                 </a>
                 
-                <a href="#" class="__link __facebook">
+                <a href="" id="fb_showing" class="__link __facebook">
                     <span class="__icon"><i class="fa-brands fa-facebook-f"></i></span>
-                    <span class="__info">nir-info</span>
+                    <span class="__info">Facebook</span>
                 </a>
                 
-                <a href="#" class="__link __insta">
+                <a href="" id="insta_showing" class="__link __insta">
                     <span class="__icon"><i class="fa-brands fa-instagram"></i></span>
-                    <span class="__info">nir-info</span>
+                    <span class="__info">Instagram</span>
                 </a>
                 
             </div>
@@ -34,7 +34,7 @@
         <div class="__details_big_block">
             
             <div class="__banner">
-                <h1 class="__title">Balade-découvert du marais vendéen en canoë </h1>
+                <h1 class="__title" id="entete_showing"></h1>
                 <div class="__another">
                     <p class="__like">
                         <span class="__icon"><i class="fa-regular fa-heart"></i></span>
@@ -75,26 +75,26 @@
             <div class="__details">
 
                 <div class="__details_user">
-                    <img class="__image" src="https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg" alt="">
+                    <img class="__image" src="" id="image_showing" alt="">
                 </div>
 
                 <div class="__details_text">
                     <p class="__title_details">
-                        <span class="__category">
-                            Où boire?
+                        <span class="__category" id="categorie_showing">
+                            
                         </span>
                         <span class="__separator"><i class="fa-solid fa-circle"></i></span>
-                        <span class="__user">
-                            Bars à vins
+                        <span class="__user" id="sous_categorie_showing">
+                            
                         </span>
                         <span class="__separator"><i class="fa-solid fa-circle"></i></span>
-                        <span class="__user">
-                            Chez Warren
+                        <span class="__user" id="etablissements_nom_showing">
+                            
                         </span>
                     </p>
 
-                    <p class="__description">
-                        Promenades en mer - Pêche en Mer - Navettes Collioure. KapMer est une entreprise familiale spécialisée dans les navettes entre Argelès et Collioure. 
+                    <p class="__description" id="presentation_showing">
+                        
                     </p>
                 </div>
                 
@@ -104,8 +104,8 @@
 
                         <p class="__services_subtitle">Informations sur les services inclus</p>
 
-                        <ul class="__list">
-                            <li class="__service">Nombre de couchage : 5</li>
+                        <ul class="__list" id="list_showing">
+                            <!-- <li class="__service">Nombre de couchage : 5</li>
                             <li class="__service">Age minimum : 2</li>
                             <li class="__service">Capacité : 100</li>
                             <li class="__service">Salle de bain et W.C : 10</li>
@@ -113,12 +113,18 @@
                             <li class="__service">Sauna</li>
                             <li class="__service">Cuisines</li>
                             <li class="__service">Petit déjeuner inclus</li>
+                            <li class="__service">Petit déjeuner inclus</li>
+                            <li class="__service">Petit déjeuner inclus</li>
+                            <li class="__service">Petit déjeuner inclus</li>
+                            <li class="__service">Petit déjeuner inclus</li>
+                            <li class="__service">Petit déjeuner inclus</li>
+                            <li class="__service">Petit déjeuner inclus</li> -->
                         </ul>
                         
                         <p class="__services_subtitle">Informations sur la localisation</p>
                         <p class="__localisation">
                             <span class="__icon"><i class="fa-solid fa-location-dot"></i></span>
-                            <span class="__text">Ville Code postale, Region, Departement, Pays</span>
+                            <span class="__text"><span id="ville_localisation_showing"></span> <span id="cp_localisation_showing"></span>, <span id="region_localisation_showing"></span>, <span id="departement_localisation_showing"></span>, <span id="pays_localisation_showing"></span></span>
                         </p>
                     </div>
                     
@@ -139,7 +145,7 @@
 
                 <div class="__card_details">
                     <a class="__link" href="#">Voulez-vous en savoir plus sur la région ?</a>
-                    <div id="maps" class="__maps"></div>
+                    <div id="maps" class="__maps" id="maps" data-baseurl="<?= base_url() ?>" data-switcher="showing" data-id="<?= $id ?>"></div>
                 </div>
             </div>
 

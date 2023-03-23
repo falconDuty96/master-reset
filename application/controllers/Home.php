@@ -35,6 +35,7 @@ class Home extends CI_Controller
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
 			'detail_result' => true,
+			'id' => $id ,
 		];
 		$this->load->view('accueil/detail_result/header', $data) ;
 		$this->load->view('accueil/detail_result/index',$data) ;

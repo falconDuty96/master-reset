@@ -64,13 +64,21 @@ class Pro extends CI_Controller
     }
     public function modifProfil($id)
     {
+
         $profil = $this->pro->getProUserById($id);
         $oldImage = $profil[0]->users_photo;
+        $oldImageEtablissement = $profil[0]->users_etablissement_logo ;
         $target_dir = "pro/uploads/";
         $target_file = $target_dir . basename($_FILES["users_photo"]["name"]);
         $image = "";
         if ($_FILES['users_photo']['size'] == 0) {
-            $image = $oldImage;
+            if($this->input->post('marker_etablissement') == 'etablissement_section') {
+                $image = $oldImageEtablissement;
+            }
+            else {
+                $image = $oldImage;
+            }
+            
         } else {
             if (file_exists('publics/' . $target_dir . $oldImage)) {
                 unlink('publics/' . $target_dir . $oldImage);
@@ -79,19 +87,35 @@ class Pro extends CI_Controller
             move_uploaded_file($_FILES["users_photo"]["tmp_name"], 'publics/' . $target_file);
             $image = $target_file;
         }
-        $data = [
-            $this->input->post('users_nom'),
-            $this->input->post('users_prenoms'),
-            $this->input->post('users_email'),
-            $this->input->post('users_telephone'),
-            $image,
-            $id,
-        ];
+        
         $_SESSION['users_nom'] = $this->input->post('users_nom');
         $_SESSION['users_prenoms'] = $this->input->post('users_prenoms');
         $_SESSION['users_email'] = $this->input->post('users_email');
-        $this->pro->updateProUser($data);
-        redirect('Pro/profil');
+        if($this->input->post('marker_etablissement') == 'etablissement_section') {
+            $data = [
+                $this->input->post('users_etablissement'),
+                $image,
+                $id,
+            ];
+            
+            $this->pro->updateProEtablissement($data);
+            $_SESSION['etablissement'] = $this->input->post('users_etablissement') ;
+            redirect('Pro/etablissement');
+        }
+        else {
+            $data = [
+                $this->input->post('users_nom'),
+                $this->input->post('users_prenoms'),
+                $this->input->post('users_email'),
+                $this->input->post('users_telephone'),
+                $image,
+                $id,
+            ];
+            $this->pro->updateProUser($data);
+            redirect('Pro/profil');
+        }
+        
+        
     }
     public function modifPassword($id)
     {

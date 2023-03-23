@@ -142,7 +142,7 @@
                 <div class="container mt-4">
                     <div class="form-conteneur" style="width: 500px;">
                         <div class="row mb-2">
-                            <input type="hidden" value="etablissement_section">
+                            <input type="hidden" name="marker_etablissement" value="etablissement_section">
                             <div class="col-md-5">Photo:</div>
                             <div class="pdp-container" style="background-image: url('<?= base_url()?>publics/<?= $profil[0]->users_etablissement_logo ; ?>');">
                                 <div class="hover-clickable" id="hover-clicked">
@@ -153,7 +153,7 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-4">Nom de l'établissement:</div>
-                            <div class="col-md-8"><input type="text" name="users_nom" class="form-control" value="<?= $profil[0]->users_etablissement; ?>"></div>
+                            <div class="col-md-8"><input type="text" name="users_etablissement" class="form-control" value="<?= $profil[0]->users_etablissement; ?>"></div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-md-2"></div>

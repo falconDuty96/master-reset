@@ -26,6 +26,14 @@ class ProModel extends CI_Model
             ->where("users_id", "=")
             ->execute($data);
     }
+    public function updateProEtablissement($data)
+    {
+        DB::update('users')
+            ->parametters(['users_etablissement','users_etablissement_logo' ])
+            ->where("users_id", "=")
+            ->execute($data);
+    }
+    
     public function updatePassword($data)
     {
         DB::update('users')

@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    const URL = 'http://192.168.0.110/master-reset/'
+    const URL = 'http://localhost/master-reset/'
 
     function showSCByID(id) {
         $.ajax({

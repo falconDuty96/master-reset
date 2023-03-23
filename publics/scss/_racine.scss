@@ -1,0 +1,37 @@
+@import 'variable';
+
+%back_img {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+%img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+%img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+}
+
+@mixin flouter($blur){
+	-webkit-backdrop-filter: blur($blur); /* assure la compatibilité avec safari */
+	backdrop-filter: blur($blur);
+}
+
+@mixin nowrap($number) {
+	display: inline-block;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	display: -webkit-box !important;
+	-webkit-line-clamp: #{$number};
+	-webkit-box-orient: vertical;
+	white-space: normal;
+}

@@ -107,21 +107,25 @@ class Users extends CI_Controller {
 				}
 			}
 			else {
-
+				$this->users->addUsers($fields, $datas) ;
 				$_SESSION['connected'] = true ;
 				$_SESSION['users_nom'] = $this->input->post('users_nom') ;
 				$_SESSION['users_prenoms'] = $this->input->post('users_prenoms') ;
 				$_SESSION['users_email'] = $this->input->post('users_email') ;
+
+				$d = $this->users->getSpecificUsersByEmail($this->input->post('users_email'),$this->input->post("users_type")) ;
+				$_SESSION['users_id'] = $d[0]->users_id ;
+
 				if($this->input->post('users_type') == "particulier") {
 					$_SESSION['particulier'] = true ;
 				}
 				else if($this->input->post('users_type') == "professionnel") {
 					$_SESSION['particulier'] = false ;
+					redirect('pro/') ;
 				}
-				$d = $this->users->getSpecificUsersByEmail($this->input->post('users_email'),$this->input->post("users_type")) ;
-				$_SESSION['users_id'] = $d[0]->users_id ;
-				$this->users->addUsers($fields, $datas) ;
-				redirect('pro/') ;
+				
+				
+				
 			}
 		}
 	}

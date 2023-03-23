@@ -169,9 +169,4 @@
         public function getEtablissement() {
             return DB::customQuery('SELECT * FROM etablissements INNER JOIN categories ON categories.categories_id=etablissements.categories_id  INNER JOIN sous_categories ON sous_categories.sous_categories_id=etablissements.sous_categories_id INNER JOIN users ON users.users_id=etablissements.users_id') ;
         }
-        public function showEtablissementByRegion($region) {
-            return DB::select('etablissements')
-                    ->where("etablissements_region", "%$region%")
-                    ->execute(array($region)) ;
-        }
     }

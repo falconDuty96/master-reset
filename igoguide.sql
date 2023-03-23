@@ -96,14 +96,14 @@ INSERT INTO `ccm` (`ccm_id`, `ccm_entete`, `ccm_texte`, `ccm_image`, `ccm_create
 	(3, 'Etape 3: J\'y vais', 'Ah! Vous voyez ! Vos recherches étaient vraiment, faciles sur IGOguide!', 'image/Comment/igoguide icone COMMENT CA MARCHE 3.png', '0000-00-00');
 /*!40000 ALTER TABLE `ccm` ENABLE KEYS */;
 
--- Listage de la structure de table igoguide. cgu
+-- Listage de la structure de table igoguide.cgu
 CREATE TABLE IF NOT EXISTS `cgu` (
   `cgu_id` int NOT NULL AUTO_INCREMENT,
   `cgu_type` varchar(20) NOT NULL,
   `cgu_entete` text NOT NULL,
   `cgu_contenu` text NOT NULL,
   PRIMARY KEY (`cgu_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ;
 
 -- Listage des données de la table igoguide.cgu : 5 rows
 DELETE FROM `cgu`;
@@ -122,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `cgv` (
   `cgv_entete` text NOT NULL,
   `cgv_contenu` text NOT NULL,
   PRIMARY KEY (`cgv_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ;
 
 -- Listage des données de la table igoguide.cgv : 1 rows
 DELETE FROM `cgv`;
@@ -150,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `etablissements` (
   `etablissements_fb` varchar(255) NOT NULL,
   `etablissements_insta` varchar(200) DEFAULT NULL,
   `etablissements_photo` text,
-  `etablissements_activites` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `etablissements_activites` text CHARACTER SET utf8mb4 ,
   `users_id` int NOT NULL,
   `categories_id` int NOT NULL,
   `etablissements_createdAt` date NOT NULL,
@@ -530,7 +530,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `faq_contenu` text NOT NULL,
   `faq_type` varchar(20) NOT NULL,
   PRIMARY KEY (`faq_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ;
 
 -- Listage des données de la table igoguide.faq : 2 rows
 DELETE FROM `faq`;
@@ -602,9 +602,9 @@ CREATE TABLE IF NOT EXISTS `sous_categories` (
   `sous_categories_id` int NOT NULL AUTO_INCREMENT,
   `sous_categories_nom` varchar(255) NOT NULL,
   `categories_id` int NOT NULL,
-  `sous_categories_description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `sous_categories_description` text CHARACTER SET utf8mb4 ,
   PRIMARY KEY (`sous_categories_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 ;
 
 -- Listage des données de la table igoguide.sous_categories : ~7 rows (environ)
 DELETE FROM `sous_categories`;
@@ -660,7 +660,7 @@ CREATE TABLE IF NOT EXISTS `superuser` (
   `superuser_motdepasse` varchar(50) DEFAULT NULL,
   `superuser_type` varchar(20) NOT NULL,
   PRIMARY KEY (`superuser_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
 
 -- Listage des données de la table igoguide.superuser : ~0 rows (environ)
 DELETE FROM `superuser`;

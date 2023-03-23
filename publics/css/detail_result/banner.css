@@ -130,6 +130,21 @@
   border-radius: 1.25rem;
   overflow: hidden;
 }
+.__banner .__gallery .__images_1, .__banner .__gallery .__images_2, .__banner .__gallery .__images_3, .__banner .__gallery .__images_4, .__banner .__gallery .__images_5 {
+  position: relative;
+  cursor: pointer;
+}
+.__banner .__gallery .__images_1:hover .__galery_masque, .__banner .__gallery .__images_2:hover .__galery_masque, .__banner .__gallery .__images_3:hover .__galery_masque, .__banner .__gallery .__images_4:hover .__galery_masque, .__banner .__gallery .__images_5:hover .__galery_masque {
+  display: block;
+}
+.__banner .__gallery .__galery_masque {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(28, 28, 30, 0.5019607843);
+  cursor: pointer;
+}
 .__banner .__gallery .__img {
   height: 100% !important;
 }
@@ -156,6 +171,7 @@
 }
 .__banner .__gallery.__gallery_5 .__images_5 {
   grid-area: bottom_2;
+  position: relative;
 }
 .__banner .__gallery.__gallery_4 {
   display: grid;
@@ -203,12 +219,100 @@
   gap: 5px;
 }
 
+.__galery_more {
+  position: absolute;
+  background-color: rgba(28, 28, 30, 0.7607843137);
+  color: white;
+  border: 1px solid #e0a800;
+  right: 15px;
+  bottom: 10px;
+  border-radius: 4px;
+  display: flex;
+  width: calc(100% - 30px);
+}
+.__galery_more .__icon {
+  font-size: 15px;
+  cursor: pointer;
+}
+.__galery_more .__text {
+  font-size: 13px;
+  font-family: "Montserrat_Medium";
+  cursor: pointer;
+  padding-left: 7px;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.__modal_full_screen {
+  width: 100vw;
+  max-width: 100vw;
+  min-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+}
+.__modal_full_screen .__content {
+  height: 100%;
+  width: 100%;
+  border-radius: 0;
+  background-color: rgba(28, 28, 30, 0.9098039216);
+  border: none;
+}
+.__modal_full_screen .__content .__modal_header {
+  border-color: rgba(233, 236, 239, 0.1215686275);
+}
+.__modal_full_screen .__content .__modal_header .__modal_close {
+  color: white;
+}
+.__modal_full_screen .__content .__modal_header .__modal_title {
+  color: white;
+  margin-left: 30px;
+}
+.__modal_full_screen .__content .__modal_header .__modal_title .__number {
+  color: #e0a800;
+  font-size: larger;
+  font-family: "Remahpro_ExtraBold";
+}
+.__modal_full_screen .__content .__modal_header .__modal_title .__text {
+  color: white;
+  font-size: larger;
+  font-family: "Remahpro_ExtraBold";
+}
+.__modal_full_screen .__content .__indicator {
+  margin: 0;
+  bottom: -25px;
+}
+.__modal_full_screen .__content .__inner {
+  height: calc(100vh - 120px);
+}
+.__modal_full_screen .__content .__inner .__images {
+  height: calc(100vh - 120px);
+}
+.__modal_full_screen .__content .__inner .__images .__img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+
 @media all and (max-width: 767px) {
   .__banner {
     margin-bottom: 2rem;
   }
   .__banner .__title {
     font-size: 22px;
+  }
+  .__galery_more {
+    width: max-content;
+  }
+  .__galery_more .__text {
+    display: none !important;
   }
 }
 @media all and (max-width: 575px) {

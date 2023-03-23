@@ -9,9 +9,10 @@
             .__block_left{
                 margin-left: auto;
                 padding: 0 15px 0 0;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
+                display: grid;
+                gap: 10px;
+                grid-template-columns: repeat(3, 1fr);
+
             }
         }
     
@@ -75,7 +76,6 @@
         
     .__card_result{
         margin-bottom: 15px;
-        width: 275px;
 
         .__carousel_images{
             position: relative;
@@ -274,11 +274,11 @@
         .__result{
             .__result_left{
                 width: 50%;
-            }
-        }
 
-        .__card_result{
-            width: calc((100% / 2) - 8px);
+                .__block_left{
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
         }
     }
 
@@ -290,12 +290,14 @@
         .__result{
             .__result_left{
                 width: 300px;
+
+                .__block_left{
+                    grid-template-columns: repeat(1, 1fr);
+                }
             }
         }
 
-        .__card_result{
-            width: 300px;
-        }
+
     }
 }
 
@@ -306,13 +308,10 @@
             .__result_left{
                 width: 100%;
                 .__block_left{
-                    padding: 0;
+                    padding: 0px;
+                    grid-template-columns: repeat(3, 1fr);
                 }
             }
-        }
-
-        .__card_result{
-            width: calc((100% / 3) - (15px));
         }
     }
 }
@@ -324,13 +323,10 @@
             .__result_left{
                 width: 100%;
                 .__block_left{
-                    padding: 0;
+                    padding: 0px;
+                    grid-template-columns: repeat(2, 1fr);
                 }
             }
-        }
-
-        .__card_result{
-            width: calc((100% / 2) - (10px));
         }
     }
 }
@@ -342,13 +338,10 @@
             .__result_left{
                 width: 100%;
                 .__block_left{
-                    padding: 0;
+                    padding: 0px;
+                    grid-template-columns: repeat(1, 1fr);
                 }
             }
-        }
-
-        .__card_result{
-            width: 100%;
         }
     }
 }

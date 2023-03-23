@@ -81,5 +81,13 @@
     margin-top: 71px;
   }
 }
+@media all and (max-width: 767px) {
+  .__sousnav_result {
+    margin-top: 71px;
+  }
+  .__sousnav_result .__result_btn_responsive {
+    display: block;
+  }
+}
 
 /*# sourceMappingURL=header.css.map */

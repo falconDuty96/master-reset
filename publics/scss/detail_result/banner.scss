@@ -86,6 +86,26 @@
     .__gallery{
         border-radius: 1.25rem;
         overflow: hidden;
+        
+        .__images_1, .__images_2, .__images_3, .__images_4, .__images_5{
+            position: relative;
+            cursor: pointer;
+
+            &:hover{
+                .__galery_masque{
+                    display: block;
+                }
+            }
+        }
+
+        .__galery_masque{
+            display: none;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-color: #1c1c1e80;
+            cursor: pointer;
+        }
 
         .__img{
             height: 100% !important;
@@ -96,6 +116,7 @@
             grid-area: large; 
             height: 350px;
         }
+
 
         &.__gallery_5{
             display: grid;
@@ -118,6 +139,7 @@
             }
             .__images_5 {
                 grid-area: bottom_2;
+                position: relative;
             }
         }
         
@@ -182,6 +204,95 @@
     }
 }
 
+.__galery_more{
+    position: absolute;
+    background-color: #1c1c1ec2;
+    color: $primary;
+    border: 1px solid $tertiary_hover;
+    right: 15px;
+    bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    width: calc(100% - 30px);
+
+    .__icon{
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    .__text{
+        font-size: 13px;
+        font-family: "Montserrat_Medium";
+        cursor: pointer;
+        padding-left: 7px;
+        @include nowrap(1);
+    }
+}
+
+.__modal_full_screen{
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    min-height: 100vh;
+    margin: 0;
+
+    .__content{
+        height: 100%;
+        width: 100%;
+        border-radius: 0;
+        background-color: #1c1c1ee8;
+        border: none;
+
+        .__modal_header{
+            border-color: #e9ecef1f;
+
+            .__modal_close{
+                color: $primary;
+            }
+
+            .__modal_title{
+                color: $primary;
+                margin-left: 30px;
+
+                .__number{
+                    color: $tertiary_hover;
+                    font-size: larger;
+                    font-family: 'Remahpro_ExtraBold';
+                }
+
+                .__text{
+                    color: $primary;
+                    font-size: larger;
+                    font-family: 'Remahpro_ExtraBold';
+                }
+            }
+        }
+
+        .__indicator{
+            margin: 0;
+            bottom: -25px;
+        }
+
+        .__inner{
+            height: calc(100vh - 120px);
+
+            .__images{
+                height: calc(100vh - 120px);
+
+                .__img{
+                    object-fit: contain;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+        }
+    }
+
+}
+
 @media all and (max-width: 767px)
 {
     .__banner{
@@ -189,6 +300,13 @@
 
         .__title{
             font-size: 22px;
+        }
+    }
+    
+    .__galery_more{
+        width: max-content;
+        .__text{
+            display: none !important;
         }
     }
 

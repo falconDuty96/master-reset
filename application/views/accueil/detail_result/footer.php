@@ -8,7 +8,7 @@
 <!-- <script src="<?= base_url() ?>publics/js/maps.js"></script> -->
 <script src="<?= base_url('publics/js/maps.js') ?>"></script>
 <script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0&callback=myMap"></script>
-
+<script src="<?= base_url() ?>publics/js/details.js"></script>
 </body>
 
 </html>

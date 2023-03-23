@@ -46,3 +46,15 @@
     }
 }
 
+@media all and (max-width: 767px)
+{
+    .__sousnav_result{
+        margin-top: 71px;
+
+        .__result_btn_responsive{
+            display: block;
+        }
+    }
+    
+}
+

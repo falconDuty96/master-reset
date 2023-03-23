@@ -59,6 +59,9 @@ class Pro extends CI_Controller
     {
         $this->load->view('pro/transactions');
     }
+    public function etablissement() {
+        $this->load->view('pro/etablissement', ['profil' => $this->pro->getProUserById($_SESSION['users_id'])]);
+    }
     public function modifProfil($id)
     {
         $profil = $this->pro->getProUserById($id);

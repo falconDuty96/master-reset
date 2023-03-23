@@ -45,6 +45,10 @@
                     <?php echo form_error('users_prenoms'); ?>
                 </div>
                 <div class="form-group">
+                    <input class="border rounded form-control" type="text" name="users_etablissement" placeholder="Etablissement" value="<?php echo $val = $inscription_data['users_etablissement'] ?? '' ?>">
+                    <?php echo form_error('users_etablissement'); ?>
+                </div>
+                <div class="form-group">
                     <input class="border rounded form-control" type="email" placeholder="E-mail" name="users_email" value="<?php echo $val = $inscription_data['users_email'] ?? '' ?>">
                     <?php echo form_error('users_email'); ?>
                 </div>

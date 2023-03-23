@@ -36,10 +36,10 @@
                     <span class="profil-menu ms-3" style="background-image: url('assets/image/logo-pour-fond-blanc.png');">
 
                     </span>
-                    <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['users_nom']; ?></span>
+                    <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['etablissement']; ?></span>
                     <ul class="dropdown-menu">
                         <li class="text-muted">
-                            <h5 class="dropdown-header text-center bolder"><?= $_SESSION['users_nom']; ?></h5>
+                            <h5 class="dropdown-header text-center bolder"><?= $_SESSION['etablissement']; ?></h5>
                         </li>
                         <li class="text-muted"><a class="dropdown-item" href="<?= base_url() ?>Pro/profil"> <i class="fa-solid fa-user"></i> Profil</a></li>
                         <li class="text-muted"><a class="dropdown-item" href="#"> <i class="fa-solid fa-circle-question"></i> Aide</a></li>
@@ -113,6 +113,10 @@
                         <a href="<?php echo base_url() ?>pro/profil" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             <span class="ms-2">Profil</span>
+                        </a>
+                        <a href="<?php echo base_url() ?>pro/etablissement" class="sidebar-link">
+                            <span class="icon"><i class="fa-solid fa-building"></i></span>
+                            <span class="ms-2">Etablissement</span>
                         </a>
                         <a href="<?php echo base_url() ?>pro/faq" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-phone"></i></span>

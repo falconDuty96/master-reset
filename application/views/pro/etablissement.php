@@ -3,58 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IGOGUIDE | PRO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/admin.css">
-    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/admin_dark.css">
-    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/style.css">
-    <style>
-        .accordion {
-			background-color: #eee;
-			color: #444;
-			cursor: pointer;
-			padding: 18px;
-			width: 100%;
-			text-align: left;
-			border: none;
-			outline: none;
-			transition: 0.4s;
-		}
-
-		/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-		.actived,
-		.accordion:hover {
-			background-color: #ccc;
-		}
-
-		/* Style the accordion panel. Note: hidden by default */
-		.panel {
-			padding: 0 18px;
-			background-color: white;
-			max-height: 0;
-			overflow: hidden;
-			transition: max-height 0.2s ease-out;
-		}
-
-		.accordion:after {
-			content: '\02795';
-			/* Unicode character for "plus" sign (+) */
-			font-size: 13px;
-			color: #777;
-			float: right;
-			margin-left: 5px;
-		}
-
-		.actived:after {
-			content: "\2796";
-			/* Unicode character for "minus" sign (-) */
-		}
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/admin.css" id="style">
+    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/admin_dark.css" id="style">
+    <link rel="stylesheet" href="<?= base_url() ?>publics/pro/css/style.css" id="style">
 </head>
 
-<body>
-
+<body class="">
     <div class="backdrop d-none" id="backdrop"></div>
     <div class="header">
         <div class="wrapper">
@@ -151,15 +110,15 @@
                         <span class="line"></span>
                     </span>
                     <div class="pt-2">
-                        <a href="<?php echo base_url() ?>pro/profil" class="sidebar-link">
+                        <a href="<?php echo base_url() ?>pro/profil" class="sidebar-link ">
                             <span class="icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             <span class="ms-2">Profil</span>
                         </a>
-                        <a href="<?php echo base_url() ?>pro/etablissement" class="sidebar-link">
+                        <a href="<?php echo base_url() ?>pro/etablissement" class="sidebar-link active">
                             <span class="icon"><i class="fa-solid fa-building"></i></span>
                             <span class="ms-2">Etablissement</span>
                         </a>
-                        <a href="<?php echo base_url() ?>pro/faq" class="sidebar-link ">
+                        <a href="<?php echo base_url() ?>pro/faq" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-phone"></i></span>
                             <span class="ms-2">F.A.Q</span>
                         </a>
@@ -167,7 +126,7 @@
                             <span class="icon"><i class="fa-solid fa-receipt"></i></span>
                             <span class="ms-2">C.G.V</span>
                         </a>
-                        <a href="<?php echo base_url() ?>pro/cgu" class="sidebar-link active">
+                        <a href="<?php echo base_url() ?>pro/cgu" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-receipt"></i></span>
                             <span class="ms-2">C.G.U</span>
                         </a>
@@ -176,24 +135,35 @@
 
             </div>
             <main class="content">
-                <!-- FAQ ! -->
-                <div class="py-5" style="overflow: hidden; background-color: #fee085; background-color: white; min-height: 700px;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h2 class="text-center mb-4 entete_row entete_row_primary">C.G.U</h2>
-                                <?php if (isset($cgu)) : ?>
-                                    <?php for ($i = 0; $i < count($cgu); $i++) : ?>
-                                        <button class="accordion"><?= $cgu[$i]->cgu_entete; ?></button>
-                                        <div class="panel">
-                                            <?= $cgu[$i]->cgu_contenu; ?>
-                                        </div>
-                                    <?php endfor; ?>
-                                <?php endif; ?>
+                <h1 class="h3">Modifier établissement</h1>
+                <?php
+                echo form_open_multipart("Pro/modifProfil/{$profil[0]->users_id}");
+                ?>
+                <div class="container mt-4">
+                    <div class="form-conteneur" style="width: 500px;">
+                        <div class="row mb-2">
+                            <input type="hidden" value="etablissement_section">
+                            <div class="col-md-5">Photo:</div>
+                            <div class="pdp-container" style="background-image: url('<?= base_url()?>publics/<?= $profil[0]->users_etablissement_logo ; ?>');">
+                                <div class="hover-clickable" id="hover-clicked">
+                                    <p class="text-white text-center mt-3">Modifier</p>
+                                </div>
+                            </div>
+                            <input type="file" class="d-none" name="users_photo" id="clickable">
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-4">Nom de l'établissement:</div>
+                            <div class="col-md-8"><input type="text" name="users_nom" class="form-control" value="<?= $profil[0]->users_etablissement; ?>"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <input type="submit" class="btn btn-primary" value="Modifier">
                             </div>
                         </div>
                     </div>
                 </div>
+                </form>
             </main>
 
             <div class="messenger shadow rounded d-none">
@@ -207,23 +177,6 @@
     <script src="<?= base_url() ?>publics/pro/js/helpers.js"></script>
     <script src="<?= base_url() ?>publics/pro/js/interface.js"></script>
     <script src="<?= base_url() ?>publics/pro/js/main.js"></script>
-    <script>
-        // accordion
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function() {
-                this.classList.toggle("actived");
-                var panel = this.nextElementSibling;
-                if (panel.style.maxHeight) {
-                    panel.style.maxHeight = null;
-                } else {
-                    panel.style.maxHeight = panel.scrollHeight + "px";
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>

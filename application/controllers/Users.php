@@ -48,8 +48,11 @@ class Users extends CI_Controller {
 				$_SESSION['users_id'] = $infos[0]->users_id ;
 				if($this->input->post('users_type') == "particulier") {
 					$_SESSION['particulier'] = true ;
+					
+					$_SESSION['photo'] = $infos[0]->users_etablissement_logo ;
 				}
 				else if($this->input->post('users_type') == "professionnel") {
+					$_SESSION['etablissement'] = $infos[0]->users_etablissement ;
 					$_SESSION['particulier'] = false ;
 				}
 				redirect('pro/') ;
@@ -65,11 +68,14 @@ class Users extends CI_Controller {
 		$this->form_validation->set_rules('users_email', 'users_email', 'required',array('required' => 'Ce champ est obligatoire')) ;
 		$this->form_validation->set_rules('users_telephone', 'users_telephone', 'required',array('required' => 'Ce champ est obligatoire')) ;
 		$this->form_validation->set_rules('users_motdepasse', 'users_motdepasse', 'required',array('required' => 'Ce champ est obligatoire')) ;
+		$this->form_validation->set_rules('users_etablissement', 'users_etablissement', 'required',array('required' => 'Ce champ est obligatoire')) ;
+		
 		$this->form_validation->set_rules('users_type', 'users_type', 'required') ;
-		$fields = ['users_nom' , 'users_prenoms', 'users_email' , 'users_telephone' , 'users_motdepasse' ,'users_type', 'users_joinedAt'] ;
+		$fields = ['users_nom' , 'users_prenoms', 'users_etablissement', 'users_email' , 'users_telephone' , 'users_motdepasse' ,'users_type', 'users_joinedAt'] ;
 		$datas = [
 			$this->input->post('users_nom'),
 			$this->input->post('users_prenoms'),
+			$this->input->post('users_etablissement'),
 			$this->input->post('users_email'),
 			$this->input->post('users_telephone'),
 			sha1($this->input->post('users_motdepasse')),
@@ -112,6 +118,7 @@ class Users extends CI_Controller {
 				$_SESSION['users_nom'] = $this->input->post('users_nom') ;
 				$_SESSION['users_prenoms'] = $this->input->post('users_prenoms') ;
 				$_SESSION['users_email'] = $this->input->post('users_email') ;
+				
 
 				$d = $this->users->getSpecificUsersByEmail($this->input->post('users_email'),$this->input->post("users_type")) ;
 				$_SESSION['users_id'] = $d[0]->users_id ;
@@ -121,6 +128,7 @@ class Users extends CI_Controller {
 				}
 				else if($this->input->post('users_type') == "professionnel") {
 					$_SESSION['particulier'] = false ;
+					$_SESSION['etablissement'] = $this->input->post('users_etablissement') ;
 					redirect('pro/') ;
 				}
 				

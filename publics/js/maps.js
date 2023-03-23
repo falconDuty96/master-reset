@@ -58,11 +58,20 @@ window.myMap = async function () {
         var txt = "" ;
         var activites = markers[0].etablissements_activites ;
         for(const cle in markers[0].etablissements_activites) {
-            txt += "<li class='__service'>"+cle+" : "+activites[cle]+"</li>" ;
+            if(activites[cle] != null) {
+                if(activites[cle] == "on") {
+                    txt += "<li class='__service'>"+cle+" : Oui</li>" ;
+                }
+                else {
+                    txt += "<li class='__service'>"+cle+" : "+activites[cle]+"</li>" ;
+                }
+               
+            }
+            
         }
         $("#list_showing").html(txt) ;
         
-        $("#image_showing").attr('src','../'+markers[0].users_etablissement_logo) ;
+        $("#image_showing").attr('src',base_url()+'publics/'+markers[0].users_etablissement_logo) ;
 
         // Place each marker on the map  
 

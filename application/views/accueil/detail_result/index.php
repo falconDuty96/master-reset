@@ -42,7 +42,7 @@
                     </p>
                     <p class="__localisation">
                         <span class="__icon"><i class="fa-solid fa-magnifying-glass-location"></i></span>
-                        <span class="__text">49 Rue de Verdun, Sallertaine, France</span>
+                        <span class="__text"><span id="ville1_showing"></span> <span id="cp1_showing"></span>, <span id="region1_showing"></span>, <span id="pays1_showing"></span></span>
                     </p>
                 </div>
 

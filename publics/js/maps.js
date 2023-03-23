@@ -50,11 +50,11 @@ window.myMap = async function () {
         $("#categorie_showing").text(markers[0].categories_nom);
         $('#sous_categorie_showing').text(markers[0].sous_categories_nom);
         $("#etablissements_nom_showing").text(markers[0].users_etablissement);
-        $('#ville_localisation_showing').text(markers[0].etablissements_ville)
-        $('#cp_localisation_showing').text(markers[0].etablissements_codepostal)
-        $('#region_localisation_showing').text(markers[0].etablissements_region)
+        $('#ville_localisation_showing,#ville1_showing').text(markers[0].etablissements_ville)
+        $('#cp_localisation_showing,#cp1_showing').text(markers[0].etablissements_codepostal)
+        $('#region_localisation_showing,#region1_showing').text(markers[0].etablissements_region)
         $('#departement_localisation_showing').text(markers[0].etablissements_departement)
-        $('#pays_localisation_showing').text(markers[0].etablissements_pays)
+        $('#pays_localisation_showing,#pays1_showing').text(markers[0].etablissements_pays)
         var txt = "" ;
         var activites = markers[0].etablissements_activites ;
         for(const cle in markers[0].etablissements_activites) {

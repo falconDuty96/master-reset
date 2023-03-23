@@ -28,17 +28,17 @@ class Home extends CI_Controller
 	}
 
 
-	public function detail_result()
+	public function detail_result($id)
 	{
 		$data = [
 			'ccm' => $this->selectCcm(),
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
-			'detail_result' => true
+			'detail_result' => true,
 		];
-		$this->load->view('accueil/header', $data);
-		$this->load->view('accueil/detail_result/index', $data);
-		$this->load->view('accueil/footer');
+		$this->load->view('accueil/detail_result/header', $data) ;
+		$this->load->view('accueil/detail_result/index',$data) ;
+		$this->load->view('accueil/detail_result/footer') ;
 	}
 
 

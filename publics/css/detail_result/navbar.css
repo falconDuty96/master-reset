@@ -42,98 +42,93 @@
   font-family: "Montserrat_Black";
   src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
 }
-.__header .__carousel_header .__img {
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-}
-
-.__header .__carousel_header .__img {
-  object-fit: cover;
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-}
-
-.__header {
-  position: relative;
-  height: calc(100vh - (158px + 3rem + 50px));
-  min-height: 500px;
-}
-.__header .__masque {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  position: absolute;
-  z-index: 900;
-}
-.__header .__carousel_header .__img {
-  height: 100%;
-}
-.__header .__header_details {
-  height: 100%;
-  width: 50%;
-  margin-right: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-  z-index: 901;
-  position: relative;
-}
-.__header .__header_details .__place_name {
-  color: white;
-  width: 100%;
-  font-size: 2.5rem;
-  font-family: "Remahpro_ExtraBold";
-}
-.__header .__header_details .__localisation {
-  width: 100%;
-  font-size: x-large;
-  color: white;
-}
-.__header .__header_details .__localisation .__text {
-  font-size: large;
-  font-family: "Montserrat_SemiBold";
-}
-.__header .__header_details .__contact {
-  display: block;
-  min-width: 175px;
-  color: #1c1c1e;
-  background-color: #ffc107;
-  font-family: "Montserrat_SemiBold";
-  margin-left: 0;
-  border: 1px solid white;
-  padding: 0.45rem 1rem;
-  text-align: center;
-  font-size: small;
-  border-radius: 2rem;
-}
-.__header .__header_details .__contact:hover {
-  background-color: #e0a800;
-  text-decoration: none;
-}
-.__header .__cetegory {
-  position: absolute;
-  height: 100px;
-  right: 0px;
-  bottom: 28px;
+.__navbar {
+  background-color: white;
+  border-bottom: 2px solid #3eaba1;
+  position: sticky;
+  top: 0;
+  padding: 7px 30px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 350px 1fr;
   z-index: 1000;
 }
-.__header .__cetegory .__image {
-  height: 100%;
-  width: auto;
-  position: relative;
+.__navbar .__logo .__image {
+  width: 90px;
+  height: auto;
 }
-.__header .__cetegory .__name {
-  background-color: rgba(255, 255, 255, 0.6196078431);
-  color: #1c1c1e;
-  display: block;
-  text-align: center;
+.__navbar .__logo .__slogan {
+  margin-left: 15px;
   font-family: "Montserrat_SemiBold";
-  font-size: small;
-  padding: 0.2rem;
+  color: #1c1c1e;
+  font-size: 15px;
+}
+.__navbar .__nav {
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.__navbar .__flag_dropdown {
+  position: relative;
+  color: white;
+  border-radius: 20px;
+  padding-top: 2px !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  border: none;
+  border: 1px solid #ced4da;
+  padding-bottom: 4px;
+}
+.__navbar .__flag_dropdown .__image {
+  width: 20px;
+}
+.__navbar .__retour {
+  color: #2d2d2e;
+  font-size: 14px;
+  font-family: "Montserrat_SemiBold";
+  margin-right: 1rem;
+}
+.__navbar .__retour:hover {
+  color: #1c1c1e;
+  text-decoration: none;
+}
+.__navbar .__flag_menu {
+  min-width: 0px !important;
+}
+.__navbar .__flag_menu .__icon_flag_menu {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.__navbar .__flag_menu .__icon_flag_menu .__dropdown_icon {
+  width: 25px !important;
 }
 
-/*# sourceMappingURL=header.css.map */
+@media all and (max-width: 575px) {
+  .__navbar {
+    grid-template-columns: 230px 1fr;
+  }
+  .__navbar .__logo .__image {
+    width: 75px;
+    height: auto;
+  }
+  .__navbar .__logo .__slogan {
+    margin-left: 5px;
+    font-size: 12px;
+  }
+}
+@media all and (max-width: 499px) {
+  .__navbar {
+    padding: 0 15px;
+  }
+}
+@media all and (max-width: 450px) {
+  .__navbar {
+    grid-template-columns: 80px 1fr;
+  }
+  .__navbar .__logo .__slogan {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=navbar.css.map */

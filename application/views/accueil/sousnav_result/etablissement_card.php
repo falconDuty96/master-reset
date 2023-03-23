@@ -11,22 +11,22 @@
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <a href="<?= base_url('Home/detail_result') ?>" class="__image">
+                        <a href="<?= base_url().'Home/detail_result/'.$card->etablissements_id ?>" class="__image">
                             <img class="__img" src="<?= base_url('publics/image/activite.jpg') ?>" alt="First slide">
                         </a>
                     </div>
                 </div>
                 
-                <ol class="carousel-indicators __indicator">
+                <!-- <ol class="carousel-indicators __indicator">
                     <li class='active' data-target="#carouselImagesAlbum" data-slide-to="0" class=""></li>
                     <li data-target="#carouselImagesAlbum" data-slide-to="1"></li>
                     <li data-target="#carouselImagesAlbum" data-slide-to="2"></li>
                     <li data-target="#carouselImagesAlbum" data-slide-to="3" class=""></li>
                     <li data-target="#carouselImagesAlbum" data-slide-to="4"></li>
                     <li data-target="#carouselImagesAlbum" data-slide-to="5"></li>
-                </ol>
+                </ol> -->
 
-                <a class=" carousel-control-prev" href="#carouselImagesAlbum" role="button" data-slide="prev">
+                <!-- <a class=" carousel-control-prev" href="#carouselImagesAlbum" role="button" data-slide="prev">
                     <span class="__icon">
                         <i class="fa-solid fa-angle-left"></i>
                     </span>
@@ -37,14 +37,14 @@
                         <i class="fa-solid fa-angle-right"></i>
                     </span>
                     <span class="sr-only">Next</span>
-                </a>
+                </a> -->
             </div>
         </div>
         <div class="__card_body">
             <a href="#" class="__user">
                 <img class="__img" src="<?= base_url('publics/image/avatar.png') ?>" alt="">
             </a>
-            <a class="__body" href="<?= base_url().'/Home/detail_result' ?>">
+            <a class="__body" href="<?= base_url().'Home/detail_result/'.$card->etablissements_id ?>">
                 <h2 class="__title">
                     <?= $card->etablissements_nom ?>
                 </h2>

@@ -1,0 +1,229 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__banner .__gallery .__img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.__banner .__gallery .__img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.__banner {
+  margin-bottom: 2rem;
+}
+.__banner .__title {
+  font-size: x-large;
+  font-family: "Remahpro_ExtraBold";
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+.__banner .__another {
+  display: flex;
+  flex-wrap: wrap;
+}
+.__banner .__another .__like {
+  font-size: small;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+}
+.__banner .__another .__like .__icon {
+  color: #D30047;
+}
+.__banner .__another .__like .__nombre {
+  font-family: "Montserrat_Medium";
+  color: #5f6e7d;
+}
+.__banner .__another .__localisation {
+  font-size: small;
+  margin-bottom: 0;
+}
+.__banner .__another .__localisation .__icon {
+  color: #e0a800;
+}
+.__banner .__another .__localisation .__text {
+  font-family: "Montserrat_Medium";
+  color: #5f6e7d;
+}
+.__banner .__actions {
+  margin-top: 0.25rem;
+  text-align: right;
+}
+.__banner .__actions .__add_like {
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  right: 15px;
+  border: none;
+  background-color: transparent;
+  margin-bottom: 0.25rem;
+  padding-left: 0.25rem;
+}
+.__banner .__actions .__add_like:hover .__icon {
+  color: #D30047;
+}
+.__banner .__actions .__add_like:hover .__text {
+  width: max-content;
+  height: auto;
+}
+.__banner .__actions .__add_like .__icon {
+  color: #1c1c1e;
+  display: inline-block;
+  cursor: pointer;
+}
+.__banner .__actions .__add_like .__text {
+  width: 0;
+  height: 0;
+  display: inline-grid;
+  transition: 1s;
+  font-size: small;
+  cursor: pointer;
+}
+.__banner .__gallery {
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.__banner .__gallery .__img {
+  height: 100% !important;
+}
+.__banner .__gallery .__images_1 {
+  grid-area: large;
+  height: 350px;
+}
+.__banner .__gallery.__gallery_5 {
+  display: grid;
+  grid-template-areas: "large large large large top_1 top_1 top_2 top_2" "large large large large bottom_1 bottom_1 bottom_2 bottom_2";
+  gap: 5px;
+}
+.__banner .__gallery.__gallery_5 .__images_1 {
+  height: auto;
+}
+.__banner .__gallery.__gallery_5 .__images_2 {
+  grid-area: top_1;
+}
+.__banner .__gallery.__gallery_5 .__images_3 {
+  grid-area: top_2;
+}
+.__banner .__gallery.__gallery_5 .__images_4 {
+  grid-area: bottom_1;
+}
+.__banner .__gallery.__gallery_5 .__images_5 {
+  grid-area: bottom_2;
+}
+.__banner .__gallery.__gallery_4 {
+  display: grid;
+  grid-template-areas: "large large large top top" "large large large bottom_1 bottom_2";
+  gap: 5px;
+}
+.__banner .__gallery.__gallery_4 .__images_1 {
+  height: auto;
+}
+.__banner .__gallery.__gallery_4 .__images_2 {
+  grid-area: top;
+}
+.__banner .__gallery.__gallery_4 .__images_3 {
+  grid-area: bottom_1;
+}
+.__banner .__gallery.__gallery_4 .__images_4 {
+  grid-area: bottom_2;
+}
+.__banner .__gallery.__gallery_3 {
+  display: grid;
+  grid-template-areas: "large large top" "large large bottom";
+  gap: 5px;
+}
+.__banner .__gallery.__gallery_3 .__images_1 {
+  height: auto;
+}
+.__banner .__gallery.__gallery_3 .__images_2 {
+  grid-area: top;
+}
+.__banner .__gallery.__gallery_3 .__images_3 {
+  grid-area: bottom;
+}
+.__banner .__gallery.__gallery_2 {
+  display: grid;
+  grid-template-areas: "large larger" "large larger";
+  gap: 5px;
+}
+.__banner .__gallery.__gallery_2 .__images_2 {
+  grid-area: larger;
+  height: 350px;
+}
+.__banner .__gallery.__gallery_1 {
+  display: grid;
+  grid-template-areas: "large";
+  gap: 5px;
+}
+
+@media all and (max-width: 767px) {
+  .__banner {
+    margin-bottom: 2rem;
+  }
+  .__banner .__title {
+    font-size: 22px;
+  }
+}
+@media all and (max-width: 575px) {
+  .__banner {
+    margin-bottom: 1rem;
+  }
+  .__banner .__title {
+    font-size: 20px;
+  }
+  .__banner .__another .__like {
+    font-size: 11px;
+  }
+  .__banner .__another .__localisation {
+    font-size: 11px;
+  }
+}
+
+/*# sourceMappingURL=banner.css.map */

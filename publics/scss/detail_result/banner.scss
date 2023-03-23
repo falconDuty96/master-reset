@@ -1,8 +1,7 @@
 @import '../racine';
 
 .__banner{
-    background-color: $primary;
-    padding: 3rem 0 2.5rem 0;
+    margin-bottom: 2rem;
 
     .__title{
         font-size: x-large;
@@ -57,6 +56,7 @@
             border: none;
             background-color: transparent;
             margin-bottom: .25rem;
+            padding-left: .25rem;
 
             &:hover{
                 .__icon{
@@ -180,4 +180,36 @@
             gap: 5px;
         }
     }
+}
+
+@media all and (max-width: 767px)
+{
+    .__banner{
+        margin-bottom: 2rem;
+
+        .__title{
+            font-size: 22px;
+        }
+    }
+
+}
+
+@media all and (max-width: 575px)
+{
+    .__banner{
+        margin-bottom: 1rem;
+        .__title{
+            font-size: 20px;
+        }
+        .__another{
+            .__like{
+                font-size: 11px;
+            }
+    
+            .__localisation{
+                font-size: 11px;
+            }
+        }
+    }
+
 }

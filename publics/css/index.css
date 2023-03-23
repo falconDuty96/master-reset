@@ -417,7 +417,7 @@ body {
   width: auto;
   max-width: 120px;
   height: 100px ;
-  object-fit: fill;
+  object-fit: contain;
   position: relative;
   left: 0;
   top: 0;

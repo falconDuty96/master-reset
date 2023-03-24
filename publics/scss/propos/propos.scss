@@ -1,0 +1,114 @@
+@import '../racine';
+
+.__propos_page{
+    background-color: $primary !important;
+    padding: 2rem 0;
+
+    .__propod_link_block{
+        display: flex;
+        margin-bottom: 1rem;
+
+        .__separator{
+            font-size: 5px;
+            display: flex;
+            align-items: center;
+            margin: 0 .5rem;
+            color: $tertiary_hover;
+        }
+
+        .__propos_link{
+            color: $black;
+            font-size: small;
+            font-family: 'Montserrat_Medium';
+
+            .__icon{
+                color: $tertiary_hover;
+                display: inline-block;
+                margin-right: 3px;
+                font-size: 15px;
+            }
+
+            &.__accueil{
+                &:hover{
+                    text-decoration: none;
+                    border-bottom: none;
+                }
+            }
+
+            &:hover{
+                text-decoration: none;
+                border-bottom: 1px solid $tertiary_hover;
+            }
+        }
+
+    }
+
+    .__propos_block{
+        .__propos_title{
+            color: $black;
+            font-family: "Remahpro_ExtraBold";
+            font-size: 21px;
+        }
+
+        .__propos_content{
+            text-align: justify;
+            color: mix($repart_grey_darken, $black);
+            font-size: 13px;
+            font-family: 'Montserrat_Medium' !important;
+
+            div, p, span, i, em, li, a{
+                font-family: 'Montserrat_Medium' !important;
+            }
+
+            b, strong{
+                font-family: 'Montserrat_Regular' !important;
+            }
+
+            h1{
+                font-size: 19px;
+                font-family: 'Montserrat_SemiBold' !important;
+                color: mix($repart_grey_darken, $black, 25);
+            } 
+            h2{
+                font-size: 18px;
+                font-family: 'Montserrat_SemiBold' !important;
+                color: mix($repart_grey_darken, $black, 25);
+            } 
+            h3{
+                font-size: 17px;
+                font-family: 'Montserrat_SemiBold' !important;
+                color: mix($repart_grey_darken, $black, 25);
+            } 
+            h4{
+                font-size: 16px;
+
+            } font-family: 'Montserrat_SemiBold' !important;
+                color: mix($repart_grey_darken, $black, 25);
+            h5{
+                font-size: 15px;
+                font-family: 'Montserrat_SemiBold' !important;
+                color: mix($repart_grey_darken, $black, 25);
+            } 
+            h6{
+                font-size: 14px;
+                font-family: 'Montserrat_SemiBold' !important;
+                color: mix($repart_grey_darken, $black, 25);
+            }
+
+            img{
+                display: block;
+                width: 75%;
+                height: auto;
+                margin: .5rem 0;
+            }
+        }
+    }
+}
+
+
+@media all and (max-width: 991px)
+{
+    .__propos_page{
+        margin-top: 71px;
+    }
+}

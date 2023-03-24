@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__favoris_page {
+  padding: 2rem 0;
+}
+.__favoris_page .__favoris_block .__favoris_title {
+  color: #1c1c1e;
+  font-size: x-large;
+  font-family: "Remahpro_ExtraBold";
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.__favoris_page .__favoris_block .__favoris_result {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media all and (max-width: 1199px) {
+  .__favoris_page .__favoris_block .__favoris_result {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media all and (max-width: 991px) {
+  .__favoris_page {
+    margin-top: 71px;
+  }
+  .__favoris_page .__favoris_block .__favoris_result {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media all and (max-width: 500px) {
+  .__favoris_page {
+    margin-top: 71px;
+  }
+  .__favoris_page .__favoris_block .__favoris_result {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/*# sourceMappingURL=favoris.css.map */

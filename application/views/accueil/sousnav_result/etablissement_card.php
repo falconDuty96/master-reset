@@ -12,7 +12,10 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <a href="<?= base_url().'Home/detail_result/'.$card->etablissements_id ?>" class="__image">
-                            <img class="__img" src="<?= base_url('publics/image/activite.jpg') ?>" alt="First slide">
+                            <?php if(gettype($card->etablissements_photo) == "array"):?>
+                                <img class="__img" src="<?= base_url().'publics/'.($card->etablissements_photo)[0] ; ?> " alt="First slide">
+                            <?php endif ?>
+                            
                         </a>
                     </div>
                 </div>
@@ -42,7 +45,8 @@
         </div>
         <div class="__card_body">
             <a href="#" class="__user">
-                <img class="__img" src="<?= base_url('publics/image/avatar.png') ?>" alt="">
+                <span class="__user_name"><?= $card->users_etablissement ;?></span>
+                <img class="__img" src="<?= base_url().'publics/'.$card->users_etablissement_logo; ?>" alt="">
             </a>
             <a class="__body" href="<?= base_url().'Home/detail_result/'.$card->etablissements_id ?>">
                 <h2 class="__title">
@@ -106,3 +110,5 @@
         </ul>
     </div>
 <?php endif ?>
+
+

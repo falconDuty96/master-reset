@@ -160,17 +160,47 @@
             margin-top: -15px;
 
             .__user{
-                border-radius: 50%;
-                height: 45px;
-                width: 45px;
-                display: block;
+                display: flex;
+                align-items: center;
                 position: absolute;
                 right: 15px;
                 top: -25px;
-                overflow: hidden;
-                border: 3px solid $primary;
+
+                &:hover{
+                    text-decoration: none;
+                    .__user_name{
+                        background-color: $primary;
+                        color: darken($grey, 50);
+                        width: auto;
+                        max-width: calc(100% - 45px);
+                        width: max-content;
+                        padding: 4px 7px 4px 15px;
+                        border: 1px solid lighten($grey, 7);
+                    }
+                }
+
+                .__user_name{
+                    background-color: transparent;
+                    color: $primary;
+                    font-family: 'Montserrat_SemiBold';
+                    font-size: 13px;
+                    position: relative;
+                    right: -6px;
+                    border-bottom-left-radius: 15px;
+                    border-top-left-radius: 15px;
+                    width: 0px;
+                    padding: 0;
+                    @include nowrap(1);
+                    display: block;
+                }
 
                 .__img{
+                    z-index: 1;
+                    overflow: hidden;
+                    border: 3px solid $primary;
+                    border-radius: 50%;
+                    height: 45px;
+                    width: 45px;
                     @extend %img;
                 }
             }

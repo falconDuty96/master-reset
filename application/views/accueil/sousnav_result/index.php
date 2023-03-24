@@ -3,8 +3,8 @@
         <div class="row">
             <div class="col-xl-12">
 
-                <p class="__title_result"><span id="nbre_page">0</span> Resultats trouvés par Igoguide pour "<?php echo urldecode($option) ;?>"</p>
-
+                <p class="__title_result"><span class="__title_result" id="nbre_page">0</span> Resultats trouvés par Igoguide pour "<?php echo urldecode($option) ;?>"</p>
+                
                 <div class="__result">
                     <div class="__result_left">
                         <div class="__block_left" id="etablissements-card">

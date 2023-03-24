@@ -13,6 +13,16 @@
             Resultat de recherhe
 		<?php elseif(isset($detail_result) && $detail_result === true) : ?>
 			Details
+		<?php elseif(isset($cgu_page) && $cgu_page === true) : ?>
+			CGU
+		<?php elseif(isset($faq_page) && $faq_page === true) : ?>
+			FAQ
+		<?php elseif(isset($propos_page) && $propos_page === true) : ?>
+			Propos
+		<?php elseif(isset($favory_page) && $favory_page === true) : ?>
+			Favoris
+		<?php elseif(isset($profil_page) && $profil_page === true) : ?>
+			Favoris
         <?php endif;?>
     </title>
 
@@ -37,8 +47,17 @@
 	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/sousnav_result/header.css">
 	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/sousnav_result/list.css">
 	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/sousnav_result/card.css">
-	<?php elseif(isset($detail_result) && $detail_result === true) : ?>
-	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/detail_result/header.css">
+	<?php elseif(isset($cg_page) && $cg_page === true) : ?>
+	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/propos/condition_generale.css">
+	<?php elseif(isset($faq_page) && $faq_page === true) : ?>
+	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/propos/faq.css">
+	<?php elseif(isset($propos_page) && $propos_page === true) : ?>
+	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/propos/propos.css">
+	<?php elseif(isset($favory_page) && $favory_page === true) : ?>
+		<link rel="stylesheet" href="<?= base_url(); ?>publics/css/user/favoris.css">
+	    <link rel="stylesheet" href="<?= base_url(); ?>publics/css/sousnav_result/list.css">
+	<?php elseif(isset($profil_page) && $profil_page === true) : ?>
+		<link rel="stylesheet" href="<?= base_url(); ?>publics/css/user/profil.css">
     <?php endif;?>
     
 
@@ -80,9 +99,6 @@
 			margin-left: 5px;
 		}
 
-		.active:after {
-			content: "\2796";
-		}
 	</style>
 
 </head>
@@ -111,12 +127,30 @@
 								<a class="dropdown-item" href="<?= base_url() ?>Users/deconnectUsers">Déconnexion</a>
 							</div>
 						<?php else : ?>
-							<a href="<?= base_url(); ?>Home/loginUsers" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user icon-log"></i><span class="btn-log">Se connecter</span></a>
-							<a href="<?= base_url(); ?>Home/loginProfessionnel" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user-tie icon-log"></i><span class="btn-log">Espace Pro</span></a>
+							<!-- <a href="<?= base_url(); ?>Home/loginUsers" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user icon-log"></i><span class="btn-log">Se connecter</span></a>
+							<a href="<?= base_url(); ?>Home/loginProfessionnel" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user-tie icon-log"></i><span class="btn-log">Espace Pro</span></a> -->
+							<a href="<?= base_url(); ?>Home/favoris" class="btn btn-dark btn-log-container">
+								<i class="fa-regular fa-heart icon-log"></i>
+								<span class="btn-log">Favoris</span>
+							</a>
+							
+							<a href="<?= base_url(); ?>Home/profil" class="btn btn-dark btn-log-container">
+								<i class="fa-solid fa-user icon-log"></i>
+								<span class="btn-log">Profil</span>
+							</a>
 						<?php endif; ?>
 					<?php else : ?>
-						<a href="<?= base_url(); ?>Home/loginUsers" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user icon-log"></i><span class="btn-log">Se connecter</span></a>
-						<a href="<?= base_url(); ?>Home/loginProfessionnel" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user-tie icon-log"></i><span class="btn-log">Espace Pro</span></a>
+						<!-- <a href="<?= base_url(); ?>Home/loginUsers" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user icon-log"></i><span class="btn-log">Se connecter</span></a>
+						<a href="<?= base_url(); ?>Home/loginProfessionnel" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user-tie icon-log"></i><span class="btn-log">Espace Pro</span></a> -->
+						<a href="<?= base_url(); ?>Home/favoris" class="btn btn-dark btn-log-container">
+								<i class="fa-regular fa-heart icon-log"></i>
+								<span class="btn-log">Favoris</span>
+							</a>
+							
+							<a href="<?= base_url(); ?>Home/profil" class="btn btn-dark btn-log-container">
+								<i class="fa-solid fa-user icon-log"></i>
+								<span class="btn-log">Profil</span>
+							</a>
 					<?php endif; ?>
 
 					<a class="dropdown">

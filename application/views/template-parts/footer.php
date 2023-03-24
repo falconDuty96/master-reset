@@ -28,13 +28,13 @@
 				<p class="boldTxt text-white">A propos</p>
 				<ul class="my-list">
 					<li>
-						<a href="">Besoin d'aide ?</a>
+						<a href="<?= base_url() ?>Home/aide">Besoin d'aide ?</a>
 					</li>
 					<li>
-						<a href="">Mentions légales</a>
+						<a href="<?= base_url() ?>Home/mentions">Mentions légales</a>
 					</li>
 					<li>
-						<a href="">Confidentialité</a>
+						<a href="<?= base_url() ?>Home/confidentialite">Confidentialité</a>
 					</li>
 					<li>
 						<a href="<?php echo base_url() ;?>Home/cgu">CGU</a>

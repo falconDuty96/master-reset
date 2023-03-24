@@ -1,0 +1,205 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__profil_page .__profil_block .__profil_user .__user_image .__img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.__profil_page .__profil_block .__profil_user .__user_image .__img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
+.__profil_page {
+  padding: 2rem 0;
+}
+.__profil_page .__profil_block {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: 325px 1fr;
+}
+.__profil_page .__profil_block .__profil_user .__user_info {
+  border-radius: 2px;
+  padding: 20px 15px;
+  background-color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  top: -10px;
+  height: calc(100% - 100px + 10px);
+}
+.__profil_page .__profil_block .__profil_user .__user_info .__user_identifiant {
+  font-family: "Montserrat_Medium";
+  color: #1c1c1e;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.__profil_page .__profil_block .__profil_user .__user_info .__user_inscrption {
+  font-size: small;
+  text-align: left;
+  color: #5f6e7d;
+  margin-bottom: 7px;
+}
+.__profil_page .__profil_block .__profil_user .__user_info .__user_like {
+  display: flex;
+  margin: 0;
+}
+.__profil_page .__profil_block .__profil_user .__user_info .__user_like .__icon {
+  color: #D30047;
+  display: block;
+  margin-right: 7px;
+}
+.__profil_page .__profil_block .__profil_user .__user_info .__user_like .__text {
+  font-size: small;
+  text-align: left;
+  color: #5f6e7d;
+}
+.__profil_page .__profil_block .__profil_user .__user_image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  z-index: 1;
+  position: relative;
+}
+.__profil_page .__profil_block .__profil_form {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.01), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 2px;
+  padding: 15px 20px;
+  background-color: rgba(255, 255, 255, 0.7294117647);
+}
+.__profil_page .__profil_block .__profil_form .__profil_title {
+  font-family: "Montserrat_SemiBold";
+  font-size: medium;
+  margin-bottom: 10px;
+}
+.__profil_page .__profil_block .__profil_form .__input {
+  border-radius: 0;
+  margin-bottom: 10px;
+  font-size: small;
+  font-family: "Montserrat_SemiBold";
+  background-color: rgba(255, 255, 255, 0.4705882353);
+}
+.__profil_page .__profil_block .__profil_form .__input::placeholder {
+  font-size: 13px;
+  color: #8594a3;
+  font-family: "Montserrat_Medium";
+}
+.__profil_page .__profil_block .__profil_form .__input:focus, .__profil_page .__profil_block .__profil_form .__input:focus-visible {
+  box-shadow: none;
+  border-color: #e0a800;
+}
+.__profil_page .__profil_block .__profil_form .__btn {
+  background-color: #e0a800;
+  color: #1c1c1e;
+  font-family: "Montserrat_SemiBold";
+  font-size: small;
+  border-radius: 0;
+  border: none;
+  padding: 0.5rem 1rem;
+  min-width: 150px;
+  max-width: 100%;
+  margin-left: auto;
+  display: block;
+}
+
+@media all and (max-width: 991px) {
+  .__profil_page {
+    margin-top: 71px;
+  }
+}
+@media all and (max-width: 767px) {
+  .__profil_page .__profil_block {
+    grid-template-columns: 250px 1fr;
+  }
+  .__profil_page .__profil_block .__profil_user .__user_info {
+    top: 0;
+  }
+  .__profil_page .__profil_block .__profil_user .__user_info .__user_identifiant {
+    word-break: break-all;
+  }
+}
+@media all and (max-width: 575px) {
+  .__profil_page .__profil_block {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .__profil_page .__profil_block .__profil_user {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .__profil_page .__profil_block .__profil_user .__user_info {
+    width: calc(100% - 110px);
+    height: max-content;
+    margin-left: 10px;
+  }
+  .__profil_page .__profil_block .__profil_user .__user_info .__user_identifiant {
+    text-align: left;
+  }
+}
+@media all and (max-width: 450px) {
+  .__profil_page .__profil_block .__profil_user .__user_info {
+    width: calc(100% - 85px);
+  }
+  .__profil_page .__profil_block .__profil_user .__user_image {
+    height: 75px;
+    width: 75px;
+    margin: 0 auto;
+  }
+}
+@media all and (max-width: 375px) {
+  .__profil_page .__profil_block .__profil_user .__user_info {
+    width: calc(100% - 65px);
+  }
+  .__profil_page .__profil_block .__profil_user .__user_image {
+    height: 50px;
+    width: 50px;
+  }
+}
+
+/*# sourceMappingURL=profil.css.map */

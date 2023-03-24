@@ -10,23 +10,47 @@ class Home extends CI_Controller
 		$this->load->model('FrontModel', 'front');
 	}
 
-	public function sousnav_result($type,$option,$page = 1)
+	public function sousnav_result($type, $option, $page = 1)
 	{
 		$data = [
 			'ccm' => $this->selectCcm(),
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
 			'sousnav_result' => true,
-			'page' => (int)$page ,
-			'type' => $type ,
-			'option' => $option ,
+			'page' => (int)$page,
+			'type' => $type,
+			'option' => $option,
 		];
 
 		$this->load->view('accueil/header', $data);
 		$this->load->view('accueil/sousnav_result/index', $data);
 		$this->load->view('accueil/footer');
 	}
+	public function favoris()
+	{
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'favory_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/user/favoris');
+		$this->load->view('accueil/footer', $data);
+	}
 
+	public function profil()
+	{
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'profil_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/user/profil');
+		$this->load->view('accueil/footer', $data);
+	}
 
 	public function detail_result($id)
 	{
@@ -35,11 +59,11 @@ class Home extends CI_Controller
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
 			'detail_result' => true,
-			'id' => $id ,
+			'id' => $id,
 		];
-		$this->load->view('accueil/detail_result/header', $data) ;
-		$this->load->view('accueil/detail_result/index',$data) ;
-		$this->load->view('accueil/detail_result/footer') ;
+		$this->load->view('accueil/detail_result/header', $data);
+		$this->load->view('accueil/detail_result/index', $data);
+		$this->load->view('accueil/detail_result/footer');
 	}
 
 
@@ -73,33 +97,79 @@ class Home extends CI_Controller
 	}
 	public function faq()
 	{
-		$this->load->view('template-parts/header');
-		$this->load->view('faq', ['faq' => $this->getParticulierFAQ()]);
-		$this->load->view('template-parts/footer');
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'faq_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/propos/faq');
+		$this->load->view('accueil/footer', $data);
 	}
+
 	public function cgu()
 	{
-		$data = $this->getParticulierCGU();
-		$this->load->view('template-parts/header');
-		$this->load->view('cgu', [
-			'cgu' => $this->getParticulierCGU(),
-			"id" => 0,
-			'resultat' => $data[0]->cgu_contenu,
-
-		]);
-		$this->load->view('template-parts/footer');
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'cg_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/propos/cgu');
+		$this->load->view('accueil/footer', $data);
 	}
+
 	public function cgv()
 	{
-		$data = $this->front->getCGV();
-		$this->load->view('template-parts/header');
-		$this->load->view('cgv', [
-			'cgv' => $this->front->getCGV(),
-			"id" => 0,
-			'resultat' => $data[0]->cgv_contenu,
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'cg_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/propos/cgv');
+		$this->load->view('accueil/footer', $data);
+	}
+	public function confidentialite()
+	{
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'propos_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/propos/confidentialite');
+		$this->load->view('accueil/footer', $data);
+	}
 
-		]);
-		$this->load->view('template-parts/footer');
+	public function mentions()
+	{
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'propos_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/propos/mentions');
+		$this->load->view('accueil/footer', $data);
+	}
+
+	public function aide()
+	{
+		$data = [
+			'ccm' => $this->selectCcm(),
+			'blogs' => $this->selectBlogs(),
+			'categ' => $this->selectCategories(),
+			'propos_page' => true
+		];
+		$this->load->view('accueil/header', $data);
+		$this->load->view('accueil/propos/aide');
+		$this->load->view('accueil/footer', $data);
 	}
 	public function showCGU($id)
 	{

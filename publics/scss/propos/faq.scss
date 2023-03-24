@@ -1,0 +1,74 @@
+@import '../racine';
+
+.__faq_block{
+    background-color: $primary;
+    padding: 2rem 0;
+
+    .__title{
+        color: $black;
+        font-family: 'Remahpro_ExtraBold';
+        font-size: xx-large;
+        text-align: left;
+        margin-bottom: 1rem;
+    }
+
+    .__faq_card{
+        border: none;
+    }
+
+    .__faq_header{
+        background-color: transparent !important;
+        border: none;
+        padding: 0;
+
+        .__btn{
+            background-color: transparent;
+            padding: 0;
+            border: none;
+            position: relative;
+            width: 100%;
+            text-align: left;
+            color: $black;
+            color: darken($tertiary_hover, 27);
+            padding: .5rem 0;
+            border-bottom: 1px solid #d2d2d2;
+
+            &:not(.collapsed){
+                .__icon{
+                    transform: rotate(0deg);
+                }
+            }
+            &:focus, &:focus-visible{
+                outline: none;
+            }
+
+            .__text{
+                font-size: large;
+                font-family: 'Montserrat_Bold';
+            }
+
+            .__icon{
+                position: absolute;
+                right: 0;
+                top: .5rem;
+                transform: rotate(-90deg);
+                font-size: large;
+            }
+        }
+    }
+
+    .__faq_body{
+        padding: .5rem 0;
+        font-size: 'Montserrat_Medium';
+        color: darken($grey, 45);
+        font-size: 15px;
+    }
+}
+
+
+@media all and (max-width: 991px)
+{
+    .__faq_block{
+        margin-top: 71px;
+    }
+}

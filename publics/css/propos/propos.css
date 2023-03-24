@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__propos_page {
+  background-color: white !important;
+  padding: 2rem 0;
+}
+.__propos_page .__propod_link_block {
+  display: flex;
+  margin-bottom: 1rem;
+}
+.__propos_page .__propod_link_block .__separator {
+  font-size: 5px;
+  display: flex;
+  align-items: center;
+  margin: 0 0.5rem;
+  color: #e0a800;
+}
+.__propos_page .__propod_link_block .__propos_link {
+  color: #1c1c1e;
+  font-size: small;
+  font-family: "Montserrat_Medium";
+}
+.__propos_page .__propod_link_block .__propos_link .__icon {
+  color: #e0a800;
+  display: inline-block;
+  margin-right: 3px;
+  font-size: 15px;
+}
+.__propos_page .__propod_link_block .__propos_link.__accueil:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+.__propos_page .__propod_link_block .__propos_link:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #e0a800;
+}
+.__propos_page .__propos_block .__propos_title {
+  color: #1c1c1e;
+  font-family: "Remahpro_ExtraBold";
+  font-size: 21px;
+}
+.__propos_page .__propos_block .__propos_content {
+  text-align: justify;
+  color: #343435;
+  font-size: 13px;
+  font-family: "Montserrat_Medium" !important;
+  font-family: "Montserrat_SemiBold" !important;
+  color: #28282a;
+}
+.__propos_page .__propos_block .__propos_content div, .__propos_page .__propos_block .__propos_content p, .__propos_page .__propos_block .__propos_content span, .__propos_page .__propos_block .__propos_content i, .__propos_page .__propos_block .__propos_content em, .__propos_page .__propos_block .__propos_content li, .__propos_page .__propos_block .__propos_content a {
+  font-family: "Montserrat_Medium" !important;
+}
+.__propos_page .__propos_block .__propos_content b, .__propos_page .__propos_block .__propos_content strong {
+  font-family: "Montserrat_Regular" !important;
+}
+.__propos_page .__propos_block .__propos_content h1 {
+  font-size: 19px;
+  font-family: "Montserrat_SemiBold" !important;
+  color: #28282a;
+}
+.__propos_page .__propos_block .__propos_content h2 {
+  font-size: 18px;
+  font-family: "Montserrat_SemiBold" !important;
+  color: #28282a;
+}
+.__propos_page .__propos_block .__propos_content h3 {
+  font-size: 17px;
+  font-family: "Montserrat_SemiBold" !important;
+  color: #28282a;
+}
+.__propos_page .__propos_block .__propos_content h4 {
+  font-size: 16px;
+}
+.__propos_page .__propos_block .__propos_content h5 {
+  font-size: 15px;
+  font-family: "Montserrat_SemiBold" !important;
+  color: #28282a;
+}
+.__propos_page .__propos_block .__propos_content h6 {
+  font-size: 14px;
+  font-family: "Montserrat_SemiBold" !important;
+  color: #28282a;
+}
+.__propos_page .__propos_block .__propos_content img {
+  display: block;
+  width: 75%;
+  height: auto;
+  margin: 0.5rem 0;
+}
+
+@media all and (max-width: 991px) {
+  .__propos_page {
+    margin-top: 71px;
+  }
+}
+
+/*# sourceMappingURL=propos.css.map */

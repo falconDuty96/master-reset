@@ -28,13 +28,13 @@
 				<p class="boldTxt text-white">A propos</p>
 				<ul class="my-list">
 					<li>
-						<a href="">Besoin d'aide ?</a>
+						<a href="<?= base_url() ?>Home/aide">Besoin d'aide ?</a>
 					</li>
 					<li>
-						<a href="">Mentions légales</a>
+						<a href="<?= base_url() ?>Home/mentions">Mentions légales</a>
 					</li>
 					<li>
-						<a href="">Confidentialité</a>
+						<a href="<?= base_url() ?>Home/confidentialite">Confidentialité</a>
 					</li>
 					<li>
 						<a href="<?= base_url() ;?>Home/cgu">CGU</a>
@@ -499,8 +499,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 
-<script src="<?= base_url('publics/js/maps.js') ?>"></script>
-<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0&callback=myMap"></script>
+
 
 <script>
 	window.FontAwesomeConfig = {
@@ -509,6 +508,13 @@
 </script>
 
 <script src="<?= base_url() ?>publics/js/app.js"></script>
+
+<?php if(!isset($cg_page) && !isset($faq_page) && !isset($favory_page) && !isset($propos_page) && !isset($profil_page)) : ?>
+	<script src="<?= base_url('publics/js/maps.js') ?>"></script>
+<script src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0&callback=myMap"></script>
+	<!-- <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCD7BvR3RtGHKwPXt_Q6vaSzvwTYzNIZ_0&callback=initMap"></script>
+	<script src="<?= base_url() ?>publics/js/maps.js"></script>	 -->
+<?php endif; ?>
 
 <script src="<?= base_url() ?>publics/js/result.js"></script>
 

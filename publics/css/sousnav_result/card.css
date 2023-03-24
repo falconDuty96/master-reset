@@ -49,7 +49,7 @@
 .__sousnav_result .__result #maps {
   position: sticky !important;
   top: 100px !important;
-  height: calc(100vh - (120px + 4rem + 2rem));
+  height: calc(100vh - (85px + 2rem));
 }
 .__sousnav_result .__card_result_click_card {
   width: 275px;
@@ -69,11 +69,15 @@
   height: 150px;
 }
 .__sousnav_result .__card_result_click_card .__card_result .__card_body .__user {
-  height: 40px;
-  width: 40px;
   right: 15px;
   top: -21px;
-  border: 2px solid white;
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__user:hover .__user_name {
+  max-width: calc(100% - 40px);
+}
+.__sousnav_result .__card_result_click_card .__card_result .__card_body .__user .__img {
+  height: 40px;
+  width: 40px;
 }
 .__sousnav_result .__card_result_click_card .__card_result .__card_body .__category {
   display: flex;

@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "Remahpro_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/RemahPro-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "lovely";
+  src: url("http://localhost/master-reset/publics/font/Lovely.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Thin";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraLight";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Light";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Regular";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Medium";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_SemiBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Bold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_ExtraBold";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Montserrat_Black";
+  src: url("http://localhost/master-reset/publics/font/Montserrat/static/Montserrat-Black.ttf") format("truetype");
+}
+.__faq_block {
+  background-color: white;
+  padding: 2rem 0;
+}
+.__faq_block .__title {
+  color: #1c1c1e;
+  font-family: "Remahpro_ExtraBold";
+  font-size: xx-large;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.__faq_block .__faq_card {
+  border: none;
+}
+.__faq_block .__faq_header {
+  background-color: transparent !important;
+  border: none;
+  padding: 0;
+}
+.__faq_block .__faq_header .__btn {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  position: relative;
+  width: 100%;
+  text-align: left;
+  color: #1c1c1e;
+  color: #564100;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #d2d2d2;
+}
+.__faq_block .__faq_header .__btn:not(.collapsed) .__icon {
+  transform: rotate(0deg);
+}
+.__faq_block .__faq_header .__btn:focus, .__faq_block .__faq_header .__btn:focus-visible {
+  outline: none;
+}
+.__faq_block .__faq_header .__btn .__text {
+  font-size: large;
+  font-family: "Montserrat_Bold";
+}
+.__faq_block .__faq_header .__btn .__icon {
+  position: absolute;
+  right: 0;
+  top: 0.5rem;
+  transform: rotate(-90deg);
+  font-size: large;
+}
+.__faq_block .__faq_body {
+  padding: 0.5rem 0;
+  font-size: "Montserrat_Medium";
+  color: #54616f;
+  font-size: 15px;
+}
+
+@media all and (max-width: 991px) {
+  .__faq_block {
+    margin-top: 71px;
+  }
+}
+
+/*# sourceMappingURL=faq.css.map */

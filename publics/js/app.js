@@ -244,6 +244,15 @@ $(document).ready(function() {
     })
     
 
+    $("#image_click").on("click",function() {
+        $("#myFile").click() ;
+        
+        
+    })
+    $("#myFile").on("change",function() {
+        $('#submitter').submit() ;
+    })
+
     
 
 

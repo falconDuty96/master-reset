@@ -84,14 +84,14 @@
                 </li>
             <?php else: ?>
                 <li class="page-item">
-                    <a class="page-link __control" href="<?= base_url('home/sousnav_result/' . ($pagination->page - 1)) ?>">
+                    <a class="page-link __control" href="<?= base_url() ?>home/sousnav_result/<?php echo $type ;?>/<?php echo $option ;?>/<?php echo ($pagination->page - 1)?>">
                         <i class="fa-solid fa-angle-left"></i>
                     </a>
                 </li>
             <?php endif; ?>
 
             <?php for($i=1; $i<=$pagination->nbre_page; $i++): ?>
-                <li class="page-item <?= $pagination->page === $i ? 'active' : '' ?>"><a class="page-link" href="<?= base_url('home/sousnav_result/'. $i ) ?>"><?= $i ?></a></li>
+                <li class="page-item <?= $pagination->page === $i ? 'active' : '' ?>"><a class="page-link" href="<?= base_url() ?>home/sousnav_result/<?php echo $type ;?>/<?php echo $option ;?>/<?php echo $i ;?>"><?= $i ?></a></li>
             <?php endfor; ?>
             
             <?php if($pagination->page >= $pagination->nbre_page): ?>
@@ -102,7 +102,7 @@
                 </li>
             <?php else: ?>
                 <li class="page-item">
-                    <a class="page-link __control" href="<?= base_url('home/sousnav_result/' . ($pagination->page + 1)) ?>">
+                    <a class="page-link __control" href="<?= base_url() ?>home/sousnav_result/<?php echo $type ;?>/<?php echo $option ;?>/<?php echo ($pagination->page - 1)?>">
                         <i class="fa-solid fa-angle-right"></i>
                     </a>
                 </li>

@@ -5,6 +5,7 @@ class Pro extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library("checkout");
         $this->load->model("FrontModel", "front");
         $this->load->model("ProModel", "pro");
         $this->load->model("AbonnementsModel", "m_abonnement");

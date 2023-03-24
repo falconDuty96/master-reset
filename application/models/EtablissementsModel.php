@@ -118,4 +118,9 @@ class EtablissementsModel extends CI_Model
         array_push($data,$res) ;
         return $data ;
     }
+    public function findBy($id) {
+        return DB::select('etablissements')
+                  ->where('users_id','=')
+                  ->execute([$id['users_id']]) ;
+    }
 }

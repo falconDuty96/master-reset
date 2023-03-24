@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 24 mars 2023 à 11:14
--- Version du serveur :  10.4.11-MariaDB
--- Version de PHP : 7.4.1
+-- Généré le : ven. 24 mars 2023 à 18:12
+-- Version du serveur : 10.4.27-MariaDB
+-- Version de PHP : 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,12 +31,21 @@ CREATE TABLE `abonnements` (
   `abonnements_id` int(10) UNSIGNED NOT NULL,
   `abonnements_duree` varchar(50) NOT NULL,
   `etablissements_id` int(11) NOT NULL,
-  `abonnements_datedebut` date NOT NULL,
-  `abonnements_datefin` date NOT NULL,
+  `abonnements_datedebut` date DEFAULT NULL,
+  `abonnements_datefin` date DEFAULT NULL,
+  `users_id` int(11) NOT NULL,
   `abonnements_createdAt` date NOT NULL,
   `abonnements_etat` varchar(10) NOT NULL,
-  `abonnements_montant` varchar(100) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `abonnements_montant` varchar(100) NOT NULL,
+  `abonnements_reference` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+--
+-- Déchargement des données de la table `abonnements`
+--
+
+INSERT INTO `abonnements` (`abonnements_id`, `abonnements_duree`, `etablissements_id`, `abonnements_datedebut`, `abonnements_datefin`, `users_id`, `abonnements_createdAt`, `abonnements_etat`, `abonnements_montant`, `abonnements_reference`) VALUES
+(1, '1', 359, NULL, NULL, 420, '2023-03-24', 'non paye', '50', 'ref641d9f04ccfd8');
 
 -- --------------------------------------------------------
 
@@ -51,7 +59,7 @@ CREATE TABLE `blogs` (
   `blogs_lien` text NOT NULL,
   `blogs_image` text NOT NULL,
   `blogs_createdAt` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `blogs`
@@ -73,7 +81,7 @@ CREATE TABLE `categories` (
   `categories_texte` text NOT NULL,
   `categories_image1` text NOT NULL,
   `categories_image2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `categories`
@@ -99,7 +107,7 @@ CREATE TABLE `ccm` (
   `ccm_texte` varchar(200) NOT NULL,
   `ccm_image` text NOT NULL,
   `ccm_createdAt` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `ccm`
@@ -121,7 +129,7 @@ CREATE TABLE `cgu` (
   `cgu_type` varchar(20) NOT NULL,
   `cgu_entete` text NOT NULL,
   `cgu_contenu` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `cgu`
@@ -144,7 +152,7 @@ CREATE TABLE `cgv` (
   `cgv_id` int(11) NOT NULL,
   `cgv_entete` text NOT NULL,
   `cgv_contenu` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `cgv`
@@ -165,7 +173,7 @@ CREATE TABLE `emails` (
   `emails_contenu` text NOT NULL,
   `emails_date` text NOT NULL,
   `users_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `emails`
@@ -199,13 +207,13 @@ CREATE TABLE `etablissements` (
   `etablissements_fb` varchar(255) NOT NULL,
   `etablissements_insta` varchar(200) DEFAULT NULL,
   `etablissements_photo` text DEFAULT NULL,
-  `etablissements_activites` text CHARACTER SET utf8mb4 DEFAULT NULL,
+  `etablissements_activites` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `users_id` int(11) NOT NULL,
   `categories_id` int(11) NOT NULL,
   `etablissements_createdAt` date NOT NULL,
   `etablissements_ville` varchar(200) NOT NULL,
   `sous_categories_id` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `etablissements`
@@ -587,7 +595,7 @@ CREATE TABLE `faq` (
   `faq_question` text NOT NULL,
   `faq_contenu` text NOT NULL,
   `faq_type` varchar(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `faq`
@@ -608,7 +616,27 @@ CREATE TABLE `favoris` (
   `etablissements_id` int(11) NOT NULL,
   `users_id` int(11) NOT NULL,
   `favoris_createdAt` date NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `forfait`
+--
+
+CREATE TABLE `forfait` (
+  `id` int(11) NOT NULL,
+  `prix` float DEFAULT NULL,
+  `nbre_annee` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `forfait`
+--
+
+INSERT INTO `forfait` (`id`, `prix`, `nbre_annee`) VALUES
+(1, 50, 1),
+(2, 94.99, 2);
 
 -- --------------------------------------------------------
 
@@ -624,7 +652,7 @@ CREATE TABLE `mentions` (
   `mentions_confidentialites` varchar(50) NOT NULL,
   `mentions_faq` text NOT NULL,
   `mentions_disclosure` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -634,7 +662,7 @@ CREATE TABLE `mentions` (
 
 CREATE TABLE `migrations` (
   `version` bigint(20) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `migrations`
@@ -654,7 +682,7 @@ CREATE TABLE `reseauxsociaux` (
   `rs_name` varchar(50) NOT NULL,
   `rs_icon` text NOT NULL,
   `rs_lien` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -667,7 +695,7 @@ CREATE TABLE `sous_categories` (
   `sous_categories_nom` varchar(255) NOT NULL,
   `categories_id` int(11) NOT NULL,
   `sous_categories_description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `sous_categories`
@@ -729,7 +757,7 @@ CREATE TABLE `superuser` (
   `superuser_pseudo` varchar(50) DEFAULT NULL,
   `superuser_motdepasse` varchar(50) DEFAULT NULL,
   `superuser_type` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `superuser`
@@ -756,7 +784,7 @@ CREATE TABLE `users` (
   `users_joinedAt` date NOT NULL,
   `users_etablissement` text DEFAULT NULL,
   `users_etablissement_logo` text DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -1252,6 +1280,12 @@ ALTER TABLE `favoris`
   ADD PRIMARY KEY (`favoris_id`);
 
 --
+-- Index pour la table `forfait`
+--
+ALTER TABLE `forfait`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `mentions`
 --
 ALTER TABLE `mentions`
@@ -1289,7 +1323,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `abonnements`
 --
 ALTER TABLE `abonnements`
-  MODIFY `abonnements_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `abonnements_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `blogs`
@@ -1344,6 +1378,12 @@ ALTER TABLE `faq`
 --
 ALTER TABLE `favoris`
   MODIFY `favoris_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `forfait`
+--
+ALTER TABLE `forfait`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `mentions`

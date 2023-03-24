@@ -150,10 +150,10 @@ window.myMap = async function () {
         // Place each marker on the map  
 
         map.addListener("tilesloaded", function () {
-            setVisibleMarker(map, markers, data.pagination);
+            setVisibleMarker(map, markers, data.pagination,$(GOOGLE_MAP).data("type"),$(GOOGLE_MAP).data("option"));
         })
         map.addListener("dragend", function () {
-            setVisibleMarker(map, markers, data.pagination);
+            setVisibleMarker(map, markers, data.pagination,$(GOOGLE_MAP).data("type"),$(GOOGLE_MAP).data("option"));
         })
     }
 
@@ -189,7 +189,7 @@ function setAllMarkers(map, bounds, markers) {
         i++;
     }
 }
-function setVisibleMarker(map, markers, pagination) {
+function setVisibleMarker(map, markers, pagination,type,option) {
     const bounds = map.getBounds();
     let show = [];
     for (let marker of markers) {
@@ -203,11 +203,11 @@ function setVisibleMarker(map, markers, pagination) {
         }
     }
 
-    setCards(show, pagination);
+    setCards(show, pagination,type, option);
 }
 
-function setCards(markers, pagination) {
-    $.post(base_url('etablissements/mapsVisible'), { data: markers, pagination: JSON.stringify(pagination) },
+function setCards(markers, pagination,type,option) {
+    $.post(base_url('etablissements/mapsVisible/'+type+'/'+option), { data: markers, pagination: JSON.stringify(pagination) },
         function (data, textStatus, jqXHR) {
             $("#etablissements-card").html(data);
         },

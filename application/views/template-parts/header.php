@@ -84,13 +84,21 @@
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" id="entete_logo_droite">
 					<?php if (isset($_SESSION['connected'])) : ?>
 						<?php if ($_SESSION['connected'] && $_SESSION["particulier"]) : ?>
-							<a href="" class="btn btn-dark btn-log-container "><i class="fa-solid fa-heart text-danger icon-log mr-2"></i><span class="btn-log">Favoris</span></a>
-							<a href="" class="btn btn-dark btn-log-container " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-cog icon-log mr-2"></i><span class="btn-log">Parametres</span></a>
-
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="">Profil</a>
-								<a class="dropdown-item" href="<?php echo base_url() ?>Users/deconnectUsers">Déconnexion</a>
-							</div>
+							<a href="<?= base_url(); ?>Home/favoris" class="btn btn-dark btn-log-container">
+								<i class="fa-regular fa-heart icon-log"></i>
+								<span class="btn-log">Favoris</span>
+							</a>
+							
+							<a href="<?= base_url(); ?>Home/profil" class="btn btn-dark btn-log-container">
+								<i class="fa-solid fa-user icon-log"></i>
+								<span class="btn-log">Profil</span>
+							</a>
+							<a class="btn btn-dark btn-log-container" href="<?php echo base_url() ?>Users/deconnectUsers">
+							<span class="btn-log">Déconnexion</span></a>
+							<!-- <a class="dropdown-item" href="<?php echo base_url() ?>Users/deconnectUsers">Déconnexion</a> -->
+							<!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								
+							</div> -->
 						<?php else : ?>
 							<a href="<?php echo base_url(); ?>Home/loginUsers" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user icon-log"></i><span class="btn-log">Se connecter</span></a>
 							<a href="<?php echo base_url(); ?>Home/loginProfessionnel" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user-tie icon-log"></i><span class="btn-log">Espace Pro</span></a>
@@ -502,103 +510,103 @@
 										<ul class="splide__list" id="splide__list">
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href="<?= base_url()?>Home/sousnav_result/sc/Cabanes dans les arbres">
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20dans%20les%20arbres">
 														<img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icones cabanes dans les arbres igoguide.png" alt="">
 													</a>
 													<p class="text-center">
-														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Cabanes dans les arbres">Cabanes dans les arbres</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20dans%20les%20arbres">Cabanes dans les arbres</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href="resultat-recherche.html">
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20sous%20terre">
 														<img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icones cabanes sous terre igoguide.png" alt="">
 													</a>
 													<p class="text-center">
-														<a class="toBold " href="resultat-recherche.html">Cabanes sous terre</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20sous%20terre">Cabanes sous terre</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone cabane sur terre igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20sur%20terre"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone cabane sur terre igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Cabanes sur terre</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20sur%20terre">Cabanes sur terre</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone cabane sur l_eau igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20sur%20l%27eau"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone cabane sur l_eau igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Cabanes sur l'eau</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Cabanes%20sur%20l%27eau">Cabanes sur l'eau</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone bulle igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Bulles"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone bulle igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Bulles</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Bulles">Bulles</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone tipis_tente_yourte igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Tipis - tentes - yourtes"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone tipis_tente_yourte igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Tipis / Tentes / Yourtes</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Tipis - tentes - yourtes">Tipis / Tentes / Yourtes</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone habitat roulant igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Habitats%20roulants"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone habitat roulant igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Habitats roulants</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Habitats%20roulants">Habitats roulants</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone monument historique igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Monuments%20historiques"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone monument historique igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Monuments historiques</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Monuments%20historiques">Monuments historiques</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone bateau igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Bateaux"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone bateau igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Bateaux</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Bateaux">Bateaux</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone hébergements de charme igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/H%C3%A9bergements%20de%20charme"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone hébergements de charme igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Hébergements de charme</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/H%C3%A9bergements%20de%20charme">Hébergements de charme</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone hotels atypiques igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/H%C3%B4tels%20atypiques"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Hébergements/icone hotels atypiques igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Hôtels atypiques</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/H%C3%B4tels%20atypiques">Hôtels atypiques</a>
 													</p>
 												</div>
 											</li>
@@ -617,63 +625,63 @@
 
 											<li class="splide__slide">
 												<div class="content-submenu content-submenu-7">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar à whiskies igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/<?= urlencode('Bar lounges - Whiskies - Coktails') ;?>"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar à whiskies igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Lounges / Whiskies / Coktails</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/<?= urlencode('Bar lounges - Whiskies - Coktails') ;?>">Lounges / Whiskies / Coktails</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7  mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar rooftop igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Bar%20lounges%20-%20Whiskies%20-%20Coktails"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar rooftop igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Bars à rooftop</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Bar%20lounges%20-%20Whiskies%20-%20Coktails">Bars à rooftop</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar à vin igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Bars%20%C3%A0%20vins"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar à vin igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Bars à vins</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Bars%20%C3%A0%20vins">Bars à vins</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar pubs _ tapas igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Pubs%20-%20Bars%20%C3%A0%20tapas"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar pubs _ tapas igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Pubs / Bars à tapas</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Pubs%20-%20Bars%20%C3%A0%20tapas">Pubs / Bars à tapas</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar billard.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Bars%20%C3%A0%20th%C3%A8mes%20-%20Jeux%20-%20Billards"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar billard.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Bars à thèmes / Jeux / Billards</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Bars%20%C3%A0%20th%C3%A8mes%20-%20Jeux%20-%20Billards">Bars à thèmes / Jeux / Billards</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone concert bar igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Concerts%20bars"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone concert bar igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Concerts bars</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Concerts%20bars">Concerts bars</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar à chat igoguidee.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Bars%20%C3%A0%20chats"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou boire/icone bar à chat igoguidee.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Bars à chats</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Bars%20%C3%A0%20chats">Bars à chats</a>
 													</p>
 												</div>
 											</li>
@@ -690,54 +698,54 @@
 										<ul class="splide__list" id="splide__list">
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone_restaurants_originaux.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Restaurants%20originaux"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone_restaurants_originaux.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Restaurants originaux</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Restaurants%20originaux">Restaurants originaux</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/Restaurants avec animation.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Restaurants%20avec%20animations"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/Restaurants avec animation.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Restaurants avec animations</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Restaurants%20avec%20animations">Restaurants avec animations</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/brasserie bistrot.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Brasserie%20-%20Bistrot%20-%20Auberges"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/brasserie bistrot.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Brasserie - Bistrot - Auberges</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Brasserie%20-%20Bistrot%20-%20Auberges">Brasserie - Bistrot - Auberges</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone cuisine traditionnelle igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cuisines%20traditionnelles"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone cuisine traditionnelle igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Cuisines traditionnelles</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Cuisines%20traditionnelles">Cuisines traditionnelles</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone cuisine du monde igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Cuisines%20du%20monde"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone cuisine du monde igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Cuisines du monde</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Cuisines%20du%20monde">Cuisines du monde</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone type fast food igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Type%20fast-food%20-%20Tapas"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Ou manger/icone type fast food igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Types fast food / Tapas</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Type%20fast-food%20-%20Tapas">Types fast food / Tapas</a>
 													</p>
 												</div>
 											</li>
@@ -755,45 +763,45 @@
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icone au fil de l_eau igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Au%20fil%20de%20l%27eau"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icone au fil de l_eau igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Au fil de l'eau</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Au%20fil%20de%20l%27eau">Au fil de l'eau</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icones randonnées nature igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Randonn%C3%A9es%20nature"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icones randonnées nature igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Randonnées nature</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Randonn%C3%A9es%20nature">Randonnées nature</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icone monuments hsitoriques igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Sites%20historiques"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icone monuments hsitoriques igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Sites historiques</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Sites%20historiques">Sites historiques</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icone les perles sauvages igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Les%20perles%20sauvages"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/icone les perles sauvages igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Les perles sauvages</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Les%20perles%20sauvages">Les perles sauvages</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/Icone jardins de l_imaginaire igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Les%20jardins%20de%20l%27imaginaire"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Balades/Icone jardins de l_imaginaire igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Les jardins de l'imaginaire</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Les%20jardins%20de%20l%27imaginaire">Les jardins de l'imaginaire</a>
 													</p>
 												</div>
 											</li>
@@ -812,63 +820,63 @@
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone ateliers et stage igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Ateliers%20et%20stages"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone ateliers et stage igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Ateliers et stages</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Ateliers%20et%20stages">Ateliers et stages</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href="<?= base_url()?>Home/sousnav_result/sc/Activités sportives"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activités sportives igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20sportives"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activités sportives igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Activités sportives">Activités sportives</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20sportives">Activités sportives</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icones activités ludiques igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20ludiques"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icones activités ludiques igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Activités ludiques</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20ludiques">Activités ludiques</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icones activités gustatives igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20gustative"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icones activités gustatives igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Activités gustative</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20gustative">Activités gustative</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activité educative igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20%C3%A9ducatives"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activité educative igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Activités éducatives</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20%C3%A9ducatives">Activités éducatives</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activités bien etre igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20bien-%C3%AAtre"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone activités bien etre igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Activités bien-être</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Activit%C3%A9s%20bien-%C3%AAtre">Activités bien-être</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone shopping artisans créateurs igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Shoppings%20artisans%20et%20cr%C3%A9ateurs"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Activités/icone shopping artisans créateurs igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Shoppings artisans et créateurs</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Shoppings%20artisans%20et%20cr%C3%A9ateurs">Shoppings artisans et créateurs</a>
 													</p>
 												</div>
 											</li>
@@ -887,63 +895,63 @@
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone organisateurs igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Organisateurs"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone organisateurs igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Organisateurs</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Organisateurs">Organisateurs</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone photographe igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Photographes"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone photographe igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold " href="">Photographes etc.</a>
+														<a class="toBold " href="<?= base_url()?>Home/sousnav_result/sc/Photographes">Photographes etc.</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone traiteur igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Traiteurs"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone traiteur igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Traiteurs</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Traiteurs">Traiteurs</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone fleuriste igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Fleuristes"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone fleuriste igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Fleuristes</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Fleuristes">Fleuristes</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone location de voiture igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Locations%20de%20v%C3%A9hicules"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone location de voiture igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Locations de véhicules</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Locations%20de%20v%C3%A9hicules">Locations de véhicules</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone location de velo igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Locations%20de%20v%C3%A9los"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone location de velo igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Locations de vélos</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Locations%20de%20v%C3%A9los">Locations de vélos</a>
 													</p>
 												</div>
 											</li>
 
 											<li class="splide__slide">
 												<div class="content-submenu mr-2 content-submenu-7 mb-4">
-													<a href=""><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone divers pressing igoguide.png" alt=""></a>
+													<a href="<?= base_url()?>Home/sousnav_result/sc/Divers"><img class="img-submenu" src="<?php echo base_url() ?>publics/image/Services/icone divers pressing igoguide.png" alt=""></a>
 													<p class="text-center">
-														<a class="toBold" href="">Divers</a>
+														<a class="toBold" href="<?= base_url()?>Home/sousnav_result/sc/Divers">Divers</a>
 													</p>
 												</div>
 											</li>

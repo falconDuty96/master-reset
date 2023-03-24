@@ -40,5 +40,17 @@
                 ->parametters($fields)
                 ->execute($datas) ;
         }
+        public function alterUsersParticuliers($data) {
+            DB::update('users')
+              ->parametters(['users_motdepasse'])
+              ->where('users_id',"=")
+              ->execute($data) ;
+        }
+        public function alterUsersParticuliersPhoto($data) {
+            DB::update('users')
+              ->parametters(['users_photo'])
+              ->where('users_id',"=")
+              ->execute($data) ;
+        }
         
     }

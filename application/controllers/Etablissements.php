@@ -35,14 +35,16 @@ class Etablissements extends CI_Controller {
         ]);
     }
 
-    public function mapsVisible()
+    public function mapsVisible($type,$option)
     {
         $lists_id = $_POST["data"] ?? [];
         $pagination = json_decode($_POST["pagination"]);
         $data = $this->m_etablissements->getMapsVisible($lists_id);
         $this->load->view("accueil/sousnav_result/etablissement_card", [
             "etablissements" => $data,
-            "pagination" => $pagination
+            "pagination" => $pagination,
+            "type" => $type ,
+            "option" => $option ,
         ]);
     }
 }

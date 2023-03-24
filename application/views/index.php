@@ -687,7 +687,7 @@
 										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Corse') ;?>" class="hover-region" id="region-94">Corse</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Grand Est') ;?>" class="hover-region" id="region-44">Grand Est</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/Grand%20Est" class="hover-region" id="region-44">Grand Est</a>
 									</li>
 									<li>
 										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Hauts-de-France') ;?>" class="hover-region" id="region-32">Hauts-de-France</a>
@@ -715,10 +715,10 @@
 										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Occitaine') ;?>" class="hover-region" id="region-76">Occitaine</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Pays de la Loire') ;?>" class="hover-region" id="region-52">Pays de la Loire</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/Pays%20de%20la%20Loire" class="hover-region" id="region-52">Pays de la Loire</a>
 									</li>
 									<li>
-										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Provence-Alpes-Côte d\'Azur') ;?>" class="hover-region" id="region-93">Provence-Alpes-Côte d'Azur</a>
+										<a href="<?= base_url() ;?>Home/sousnav_result/region/Provence-Alpes-Côte%20d%27Azur" class="hover-region" id="region-93">Provence-Alpes-Côte d'Azur</a>
 									</li>
 									<li>
 										<a href="<?= base_url() ;?>Home/sousnav_result/region/<?= urlencode('Normandie') ;?>" class="hover-region" id="region-28">Normandie</a>

@@ -8,6 +8,7 @@ class Home extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('FrontModel', 'front');
+		$this->load->model('UsersModel', 'users');
 	}
 
 	public function sousnav_result($type, $option, $page = 1)
@@ -41,11 +42,15 @@ class Home extends CI_Controller
 
 	public function profil()
 	{
+
+		$user = $this->users->getUsersById($_SESSION['users_id']) ;
+
 		$data = [
 			'ccm' => $this->selectCcm(),
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
-			'profil_page' => true
+			'profil_page' => true,
+			'users_info' => $user[0] ,
 		];
 		$this->load->view('accueil/header', $data);
 		$this->load->view('accueil/user/profil');
@@ -101,7 +106,9 @@ class Home extends CI_Controller
 			'ccm' => $this->selectCcm(),
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
-			'faq_page' => true
+			'faq_page' => true,
+			"faq" => $this->front->getFAQByType('particulier'),
+			"su" => $this->front->getSU()
 		];
 		$this->load->view('accueil/header', $data);
 		$this->load->view('accueil/propos/faq');
@@ -114,7 +121,9 @@ class Home extends CI_Controller
 			'ccm' => $this->selectCcm(),
 			'blogs' => $this->selectBlogs(),
 			'categ' => $this->selectCategories(),
-			'cg_page' => true
+			'cg_page' => true,
+			"cgu" => $this->front->getCGU(),
+			"su" => $this->front->getSU()
 		];
 		$this->load->view('accueil/header', $data);
 		$this->load->view('accueil/propos/cgu');

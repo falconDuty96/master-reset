@@ -119,13 +119,17 @@
 				<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6" id="entete_logo_droite">
 					<?php if (isset($_SESSION['connected'])) : ?>
 						<?php if ($_SESSION['connected'] && $_SESSION["particulier"]) : ?>
-							<a href="" class="btn btn-dark btn-log-container "><i class="fa-solid fa-heart text-danger icon-log mr-2"></i><span class="btn-log">Favoris</span></a>
-							<a href="" class="btn btn-dark btn-log-container " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-cog icon-log mr-2"></i><span class="btn-log">Parametres</span></a>
-
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="">Profil</a>
-								<a class="dropdown-item" href="<?= base_url() ?>Users/deconnectUsers">Déconnexion</a>
-							</div>
+							<a href="<?= base_url(); ?>Home/favoris" class="btn btn-dark btn-log-container">
+								<i class="fa-regular fa-heart icon-log"></i>
+								<span class="btn-log">Favoris</span>
+							</a>
+							
+							<a href="<?= base_url(); ?>Home/profil" class="btn btn-dark btn-log-container">
+								<i class="fa-solid fa-user icon-log"></i>
+								<span class="btn-log">Profil</span>
+							</a>
+							<a class="btn btn-dark btn-log-container" href="<?php echo base_url() ?>Users/deconnectUsers">
+							<span class="btn-log">Déconnexion</span></a>
 						<?php else : ?>
 							<!-- <a href="<?= base_url(); ?>Home/loginUsers" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user icon-log"></i><span class="btn-log">Se connecter</span></a>
 							<a href="<?= base_url(); ?>Home/loginProfessionnel" class="btn btn-dark btn-log-container"><i class="fa-solid fa-user-tie icon-log"></i><span class="btn-log">Espace Pro</span></a> -->

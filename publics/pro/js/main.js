@@ -4,28 +4,28 @@ $(document).ready(function () {
 
     function showSCByID(id) {
         $.ajax({
-            url: URL+"Pro/showSC" ,
+            url: URL + "Pro/showSC",
             type: "post",
             data: {
-                'id': id ,
+                'id': id,
             }
         })
-        .done(function(data) {
-            
-        })
+            .done(function (data) {
+
+            })
     }
     function afficheCategorie() {
         $.ajax({
-            url: URL+"Pro/showCategorie",
+            url: URL + "Pro/showCategorie",
             type: "post",
             data: {},
         })
-        .done(function(data) {
-            $("#selector-categ").html(data) ;
-            $("#selector-categ-modif").html(data) ;
-        })
+            .done(function (data) {
+                $("#selector-categ").html(data);
+                $("#selector-categ-modif").html(data);
+            })
     }
-    afficheCategorie() ;
+    afficheCategorie();
 
     $(".sc-selector").removeClass("d-none")
     $(".sc-selector").addClass("d-none")
@@ -59,6 +59,14 @@ $(document).ready(function () {
                 $(".divers-selector").addClass('d-none')
                 $("#divers-4").removeClass("d-none")
                 break;
+            case "categ-5":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-5").removeClass("d-none")
+                break;
+            case "categ-6":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-6").removeClass("d-none")
+                break;
             default:
                 $(".divers-selector").addClass('d-none')
         }
@@ -68,7 +76,7 @@ $(document).ready(function () {
         var value = $(this).val();
         $(".sc-selector").removeClass("d-none")
         $(".sc-selector").addClass("d-none")
-        $("#" + value+"-modif").removeClass("d-none")
+        $("#" + value + "-modif").removeClass("d-none")
         switch (value) {
             case "categ-1":
                 $(".divers-selector").addClass('d-none')
@@ -85,6 +93,14 @@ $(document).ready(function () {
             case "categ-4":
                 $(".divers-selector").addClass('d-none')
                 $("#divers-4-modif").removeClass("d-none")
+                break;
+            case "categ-5":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-5-modif").removeClass("d-none")
+                break;
+            case "categ-6":
+                $(".divers-selector").addClass('d-none')
+                $("#divers-6-modif").removeClass("d-none")
                 break;
             default:
                 $(".divers-selector").addClass('d-none')

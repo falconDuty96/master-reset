@@ -92,4 +92,11 @@ class ProModel extends CI_Model
 
         return $data_port;
     }
+    public function getAllMails() {
+        $res = DB::select("emails")
+                  ->where('users_id',"=")
+                  ->order(['emails_id' => 'DESC'])
+                  ->execute([$_SESSION["users_id"]]) ;
+        return $res ;
+    }
 }

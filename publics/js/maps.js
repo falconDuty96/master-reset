@@ -59,6 +59,7 @@ window.myMap = async function () {
 
         var affichage_inner_carousel = '' ;
         var carousel_indicator = '' ;
+        
         for(let a = 0; a < len_images; a++) {
             
             if(a == 0) {

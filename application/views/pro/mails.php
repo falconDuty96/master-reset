@@ -33,7 +33,7 @@
                         <span class="_badge" id="unread-message-count"></span>
 
                     </span>
-                    <span class="profil-menu ms-3" style="background-image: url('../publics/<?php echo $_SESSION['logo'] ?? '' ;?>');">
+                    <span class="profil-menu ms-3" style="background-image: url('../publics/<?php echo $_SESSION['logo'] ?? ''; ?>');">
 
                     </span>
                     <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['etablissement']; ?></span>
@@ -156,23 +156,52 @@
                                         <th>Envoyeur</th>
                                         <th>Objet</th>
                                         <th>Date</th>
-                                        <th>Etat</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>ketaka@gmail.com</td>
-                                        <td class="text-limiter" style="max-width: 150px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quidem voluptate asperiores nihil pariatur dolore ratione soluta esse doloribus, veritatis at expedita eveniet inventore numquam reprehenderit neque suscipit ex placeat?</td>
+                                    <?php for ($i = 0; $i < count($emails); $i++) : ?>
+                                        <tr>
+                                            <td><?= $emails[$i]->emails_envoyeur; ?></td>
+                                            <td class="text-limiter" style="max-width: 150px;"><?= $emails[$i]->emails_contenu; ?></td>
 
-                                        <td>21/02/2023</td>
-                                        <td>Non lu</td>
-                                        <td>
-                                            <span role="button" onclick="createEmails()" class="btn-tooltip text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voir">
-                                                <i class="fa-regular fa-eye"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
+                                            <td><?= $emails[$i]->emails_date; ?></td>
+                                            <td>
+                                                <span role="button" class="btn-tooltip text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Voir">
+                                                    <i class="fa-regular fa-eye"></i>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <div class="modal fade" id="modal-emails<?= $emails[$i]->emails_id ; ?>" tabindex="-1" aria-labelledby="modal-emails" aria-hidden="true" data-bs-backdrop="static">
+                                            <div class="modal-dialog" id="form-header">
+
+                                                <form class="modal-content">
+
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5">Contenu</h1>
+                                                        <button type="button" id="close-modal-emails" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+
+                                                        <div class="header-content">
+                                                            <p class="bolder">Envoyeur: </p>
+                                                            <p><?= $emails[$i]->emails_envoyeur; ?></p>
+                                                        </div>
+                                                        <div class="body-content">
+                                                            <p class="bolder">Contenu:</p>
+                                                            <p><?= $emails[$i]->emails_contenu; ?></p>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="_btn _btn-success w-50">Fermer</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    <?php endfor; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -181,35 +210,7 @@
 
 
                 <!-- Modal -->
-                <div class="modal fade" id="modal-emails" tabindex="-1" aria-labelledby="modal-emails" aria-hidden="true" data-bs-backdrop="static">
-                    <div class="modal-dialog" id="form-header">
 
-                        <form class="modal-content">
-
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5">Contenu</h1>
-                                <button type="button" id="close-modal-emails" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="header-content">
-                                    <p class="bolder">Envoyeur: </p>
-                                    <p>ketaka@gmail.com</p>
-                                </div>
-                                <div class="body-content">
-                                    <p class="bolder">Objet:</p>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, nobis id. Tempore, vitae sint veritatis cupiditate atque similique voluptates at repellat nulla, id facere aliquid maiores doloribus! Dolore, consectetur praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores soluta aut, perspiciatis tenetur quae culpa et dignissimos quidem fuga corporis, quia ea repellat beatae impedit rerum hic fugiat earum eveniet.</p>
-                                </div>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="_btn _btn-success w-50">Fermer</button>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
             </main>
 
             <div class="messenger shadow rounded d-none">

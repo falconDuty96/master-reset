@@ -52,7 +52,7 @@
                         <span class="__text">Ajouté aux favoris</span>
                     </button>
                 </div>
-
+                
                 <div class="__gallery" id="showing-images">
                     <!-- <div class="__images_1">
                         <div class="__galery_masque" data-target="#galeryCarouselIndicators" data-slide-to="0" onclick="seeGaleryModal('galeryModal')"></div>

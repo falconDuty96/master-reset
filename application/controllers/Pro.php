@@ -35,7 +35,7 @@ class Pro extends CI_Controller
     }
     public function mails()
     {
-        $this->load->view('pro/mails');
+        $this->load->view('pro/mails',["emails" => $this->readEmails()]);
     }
     public function notifications()
     {
@@ -493,5 +493,8 @@ class Pro extends CI_Controller
     {
         $this->pro->deleteEtablissement($id);
         redirect('Pro/');
+    }
+    public function readEmails() {
+        return $this->pro->getAllMails() ;
     }
 }

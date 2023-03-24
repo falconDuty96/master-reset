@@ -33,13 +33,13 @@
                         <span class="_badge" id="unread-message-count"></span>
 
                     </span>
-                    <span class="profil-menu ms-3" style="background-image: url('../publics/<?php echo $_SESSION['logo'] ?? '' ;?>');">
+                    <span class="profil-menu ms-3" style="background-image: url('assets/image/logo-pour-fond-blanc.png');">
 
                     </span>
-                    <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['etablissement']; ?></span>
+                    <span class="ms-1 dropdown-toggle dropdown-custom" data-bs-toggle="dropdown"> <?= $_SESSION['users_nom']; ?></span>
                     <ul class="dropdown-menu">
                         <li class="text-muted">
-                            <h5 class="dropdown-header text-center bolder"><?= $_SESSION['etablissement']; ?></h5>
+                            <h5 class="dropdown-header text-center bolder"><?= $_SESSION['users_nom']; ?></h5>
                         </li>
                         <li class="text-muted"><a class="dropdown-item" href="<?= base_url() ?>Pro/profil"> <i class="fa-solid fa-user"></i> Profil</a></li>
                         <li class="text-muted"><a class="dropdown-item" href="#"> <i class="fa-solid fa-circle-question"></i> Aide</a></li>
@@ -114,10 +114,6 @@
                             <span class="icon"><i class="fa-solid fa-grip-vertical"></i></span>
                             <span class="ms-2">Profil</span>
                         </a>
-                        <a href="<?php echo base_url() ?>pro/etablissement" class="sidebar-link">
-                            <span class="icon"><i class="fa-solid fa-building"></i></span>
-                            <span class="ms-2">Etablissement</span>
-                        </a>
                         <a href="<?php echo base_url() ?>pro/faq" class="sidebar-link">
                             <span class="icon"><i class="fa-solid fa-phone"></i></span>
                             <span class="ms-2">F.A.Q</span>
@@ -144,65 +140,11 @@
                                 <i class="fa-solid fa-plus"></i>
                                 <span>Ajouter</span>
                             </button>
-                            <button type="button" class="d-none" data-bs-toggle="modal" data-bs-target="#modal-abonnement" id="open-modal-abonnement"></button>
                         </span>
                     </h6>
-                    <div class="form-table">
+                    <div class="form-table" id="content-table">
 
-                        <div class="table-responsive table-sticky">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Etablissement</th>
-                                        <th>Nombre d'année</th>
-
-                                        <th>Total</th>
-                                        <th>Date début</th>
-                                        <th>Date fin</th>
-                                        <th>Etat</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Mamaliza</td>
-                                        <td>2 ans</td>
-                                        <td>65000 MGA</td>
-                                        <td>21/02/2023</td>
-                                        <td>21/02/2024</td>
-                                        <td>
-                                            <p class="text-danger bolder">Inactif</p>
-                                        </td>
-                                        <td>
-                                            <span role="button" class="btn-tooltip text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editer">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </span>
-                                            <span role="button" class="btn-tooltip ms-1 text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Supprimer">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mamaliza</td>
-                                        <td>2 ans</td>
-                                        <td>65000 MGA</td>
-                                        <td>21/02/2023</td>
-                                        <td>21/02/2024</td>
-                                        <td>
-                                            <p class="text-success bolder">Actif</p>
-                                        </td>
-                                        <td>
-                                            <span role="button" class="btn-tooltip text-success" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Editer">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </span>
-                                            <span role="button" class="btn-tooltip ms-1 text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Supprimer">
-                                                <i class="fa-regular fa-trash-can"></i>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        <?php include("components/table_abonnement.php") ?>
                     </div>
                 </div>
 
@@ -210,41 +152,7 @@
                 <!-- Modal -->
                 <div class="modal fade" id="modal-abonnement" tabindex="-1" aria-labelledby="modal-abonnement" aria-hidden="true" data-bs-backdrop="static">
                     <div class="modal-dialog" id="form-header">
-
-                        <form class="modal-content">
-
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5">Créer Abonnement</h1>
-                                <button type="button" id="close-modal-abonnement" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="form-group">
-                                    <label for="header-gt">Nombre d'année :</label>
-                                    <input type="number" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="header-gt">Etablissement :</label>
-                                    <select class="form-control">
-                                        <option value="">Mamaliza</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="header-gt">Total</label>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label for="header-gt">Nombre d'année :</label>
-                                    <input type="date" class="form-control">
-                                </div>
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="_btn _btn-success w-100">Créer</button>
-                            </div>
-                        </form>
-
+                        <?php include("components/form_abonnement.php") ?>
                     </div>
                 </div>
             </main>
@@ -260,6 +168,8 @@
     <script src="<?= base_url() ?>publics/pro/js/helpers.js"></script>
     <script src="<?= base_url() ?>publics/pro/js/interface.js"></script>
     <script src="<?= base_url() ?>publics/pro/js/main.js"></script>
+    
+    <script src="<?= base_url("publics/pro/js/request.js") ?>"></script>
 </body>
 
 </html>

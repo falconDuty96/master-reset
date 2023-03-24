@@ -7,6 +7,9 @@ class Pro extends CI_Controller
         parent::__construct();
         $this->load->model("FrontModel", "front");
         $this->load->model("ProModel", "pro");
+        $this->load->model("AbonnementsModel", "m_abonnement");
+        $this->load->model("EtablissementsModel","m_etablissement");
+        $this->load->model("UsersModel","m_user");
     }
 
     public function showCategorie()
@@ -31,7 +34,12 @@ class Pro extends CI_Controller
     }
     public function abonnement()
     {
-        $this->load->view('pro/abonnement');
+        $users_id = $this->session->userdata("users_id");
+        $etablissements = $this->m_etablissement->findBy(["users_id" => $users_id]);
+        $this->load->view('pro/abonnement', [
+            "etablissements" => $etablissements,
+            "lists" => $this->m_abonnement->findByUser($users_id)
+        ]);
     }
     public function mails()
     {
@@ -496,5 +504,20 @@ class Pro extends CI_Controller
     }
     public function readEmails() {
         return $this->pro->getAllMails() ;
+    }
+    public function paiement()
+    {
+        $abonnements_id = (int)$_POST["id"];
+        $users_id = $this->session->userdata("users_id");
+
+        $user = $this->m_user->getUsersById($users_id);
+        $abonnement = $this->m_abonnement->findOneById($abonnements_id);
+
+        $request = new MoneticoDemoWebKit\PaymentRequestDemo($user[0], $abonnement);
+        $this->load->view("pro/paiement_monetico", [
+            "paiement" => $request->getOrderContext()->getPaymentRequest(),
+            "fields" => $request->getOrderContext()->getPaymentRequest()->getFormFields(),
+            "card" => $request->getOrderContext()->getPaymentRequest()->getContexteCommande()->getOrderContextShoppingCart()
+        ]);
     }
 }

@@ -2,7 +2,7 @@
 
 class EtablissementsModel extends CI_Model
 {
-
+    protected $table = "etablissements";
     public function getMaps($option, $query, $offset)
     {
         $data = [];

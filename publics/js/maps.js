@@ -21,7 +21,64 @@ window.myMap = async function () {
         const data_showing = await $.getJSON(base_url("etablissements/showing_info/" + Number($(GOOGLE_MAP).data('id'))));
         const markers = data_showing.markers;
         // Add multiple markers to map
-        console.log(markers)
+
+        const len_images = markers[0].etablissements_photo.length ;
+        $("#number_photo").text(len_images) ;
+        if(len_images > 1) {
+            $("#masculin_feminin").text('Photos') ;
+        }
+        else {
+            $("#masculin_feminin").text('Photo') ;
+        }
+        if(len_images < 5) {
+            $("#showing-images").addClass("__gallery_"+len_images) ;
+            var affichage = '' ;
+            for(let i = 0; i < 5; i++) {
+                affichage += '<div class="__images_'+(i+1)+'">' ;
+                affichage += `<div class="__galery_masque" data-target="#galeryCarouselIndicators" data-slide-to="${i}" onclick="seeGaleryModal('galeryModal')"></div>` ;
+                affichage += '<img class="__img" src="'+base_url('publics/')+(markers[0].etablissements_photo)[i]+'" alt="">' ;
+                affichage += '</div>' ;
+            }
+            $('#showing-images').html(affichage) ;
+        }
+        else {
+            $("#showing-images").addClass("__gallery_5") ;
+            var affichage = '' ;
+            for(let i = 0; i < 5; i++) {
+                affichage += '<div class="__images_'+(i+1)+'">' ;
+                affichage +=   `<div class="__galery_masque" data-target="#galeryCarouselIndicators" data-slide-to="${i}" onclick="seeGaleryModal('galeryModal')"></div>` ;
+                if((i+1) == 5) {
+                    affichage += '<button class="__galery_more" data-toggle="modal" data-target="#galeryModal"><span class="__icon"><i class="fa-solid fa-images"></i></span><span class="__text">Afficher toutes les photos</span></button>' ;
+                }
+                affichage += '<img class="__img" src="'+base_url('publics/')+(markers[0].etablissements_photo)[i]+'" alt="">' ;
+                affichage += '</div>' ;
+            }
+            $('#showing-images').html(affichage) ;
+        }
+
+
+        var affichage_inner_carousel = '' ;
+        var carousel_indicator = '' ;
+        for(let a = 0; a < len_images; a++) {
+            
+            if(a == 0) {
+                affichage_inner_carousel += '<div class="carousel-item active"><div class="__images"><img class="__img" src="'+base_url('publics/')+(markers[0].etablissements_photo)[a]+'" alt=""></div></div>' ;
+            }
+            else {
+                affichage_inner_carousel += '<div class="carousel-item"><div class="__images"><img class="__img" src="'+base_url('publics/')+(markers[0].etablissements_photo)[a]+'" alt=""></div></div>' ;
+            }
+            
+            if(a == 0) {
+                carousel_indicator += '<li data-target="#galeryCarouselIndicators" data-slide-to="'+a+'" class="active"></li>' ;
+            }
+            else {
+                carousel_indicator += '<li data-target="#galeryCarouselIndicators" data-slide-to="'+a+'"></li>' ;
+            }
+
+            $("#carousel_inner").html(affichage_inner_carousel) ;
+            $("#indicators_carousel").html(carousel_indicator) ;
+        }
+
 
         setAllMarkers(map, bounds, markers);
         $('#email-showing').text(markers[0].etablissements_email);

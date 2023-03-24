@@ -157,54 +157,63 @@ class Pro extends CI_Controller
                 $day = " euros";
                 $id_categories = 1;
                 $activite = array(
-                    "Piscines" => $this->input->post("piscines"),
-                    "Salle de bain et W.C" => $this->input->post("salle_de_bain_et_wc"),
-                    "Animaux" => $this->input->post("animaux"),
-                    "Lits doubles" => $this->input->post("lits_doubles"),
-                    "Lits superposés" => $this->input->post("lits_superposes"),
-                    "Bain à remous" => $this->input->post("bain_a_remous"),
-                    "Accès à Internet" => $this->input->post("acces_a_internet"),
-                    "Enfants" => $this->input->post("enfants"),
-                    "Lits d'appoints" => $this->input->post("lits_appoints"),
-                    "Accessible aux handicapés" => $this->input->post("accessible_handicapes"),
-                    "Sauna" => $this->input->post("sauna"),
-                    "Ménage inclus" => $this->input->post("menage_inclus"),
-                    "Petit déjeuner inclus" => $this->input->post("petit_dejeuner"),
-                    "Lits pour bébé" => $this->input->post("lits_pour_bebe"),
-                    "Possibilité de manger sur place" => $this->input->post("manger_sur_place"),
-                    "Cuisines" => $this->input->post("cuisines"),
-                    "Draps et linges inclus" => $this->input->post("draps_et_linges"),
-                    "Lits simples" => $this->input->post("lits_simples"),
-                    "Canapés lits" => $this->input->post("canapes_lits"),
-                    "Tarif" => $this->input->post("tarif") . $day,
-                    "Capacité" => $this->input->post("capacite"),
-                    "Age minimum" => $this->input->post("age_minimum"),
-                    "Nombre de couchage" => $this->input->post("nombre_de_couchage"),
+                    "Piscines" => $this->input->post("piscines"), // OK
+                    "Salle de bain" => $this->input->post("salle_de_bain_et_wc"), // OK
+                    "Animaux acceptés" => $this->input->post("animaux"), // OK
+                    "Lits doubles" => $this->input->post("lits_doubles"), //OK
+                    "Lits superposés" => $this->input->post("lits_superposes"), // oK
+                    "Bain à remous" => $this->input->post("bain_a_remous"), // OK
+                    "Enfants acceptés" => $this->input->post("enfants"), // OK
+                    "Sauna" => $this->input->post("sauna"), // OK
+                    "Ménage inclus" => $this->input->post("menage_inclus"), // OK
+                    "Petit déjeuner inclus" => $this->input->post("petit_dejeuner"), // OK
+                    "Lits pour bébé" => $this->input->post("lits_pour_bebe"), //OK 
+                    "Possibilité de manger sur place" => $this->input->post("manger_sur_place"), // OK
+                    "Cuisines" => $this->input->post("cuisines"), // OK
+                    "Draps et linges inclus" => $this->input->post("draps_et_linges"), //OK
+                    "Lits simples" => $this->input->post("lits_simples"), // OK
+                    "Canapés lits" => $this->input->post("canapes_lits"), // OK
+                    "Tarif à partir de" => $this->input->post("tarif") . $day, // OK
+                    "Capacité" => $this->input->post("capacite"), // OK
+                    "Age minimum" => $this->input->post("age_minimum"), //OK
+                    "Jacuzzi et Spa" => $this->input->post('jacuzzi-spa'), // OK
+                    "Hammam" => $this->input->post('hammam'), // OK
+                    "Accès à Internet" => $this->input->post('acces-internet'), // Ok
+                    "TV" => $this->input->post('tv'), // Ok
+                    "WC indépendant" => $this->input->post('wc_independant'), // OK
+                    "Jardin" => $this->input->post("jardin"), // OK
+                    "Terrasse" => $this->input->post("terrasse") , // OK
+                    "Balcon" => $this->input->post("balcon") , // OK
+                    "Vue mer" => $this->input->post("vue_mer") , // OK
+                    "Vue montagne" => $this->input->post("vue_montagne") , // OK
+                    "Vue campagne" => $this->input->post("vue_campagne") , // OK
+                    
                 );
                 $sous_categories_id = $this->input->post("sc_1");
                 break;
             case "categ-2":
                 $id_categories = 2;
                 $activite = array(
-                    "Heure d'ouverture" => $this->input->post("heure_ouverture_2"),
-                    "Heure de fermeture" => $this->input->post("heure_fermeture_2"),
-                    "Tarif" => $this->input->post("tarif_2"),
-                    "Adapté aux handicapés" => $this->input->post("adapte_handicap_2"),
+                    "Heure d'ouverture" => $this->input->post("heure_ouverture_2"), // OK
+                    "Heure de fermeture" => $this->input->post("heure_fermeture_2"), // OK
+                    "Jours ouverts" => "" , // OK
+                    "Adapté aux handicapés" => $this->input->post("adapte_handicap_2"), // OK
+
                 );
                 $sous_categories_id = $this->input->post("sc_2");
                 break;
             case "categ-3":
                 $id_categories = 3;
                 $activite = array(
-                    "Jours non ouverts" => $this->input->post("jours_non_ouverts"),
-                    "Famille avec enfants" => $this->input->post("famille_enfants"),
+                    "Jours ouverts" => $this->input->post("jours_ouverts"),
+                    "Famille" => $this->input->post("famille_enfants"),
                     "Livraisons" => $this->input->post("livraisons"),
                     "Heure d'ouverture" => $this->input->post("heure_ouverture"),
-                    "Conseillé pour groupes" => $this->input->post("conseille_groupes"),
+                    "Groupe" => $this->input->post("conseille_groupes"),
                     "Accessible aux handicapés" => $this->input->post("accessible_handicapes"),
                     "Heure de fermeture" => $this->input->post("heure_fermeture"),
                     "Repas sur place" => $this->input->post("repas_place"),
-                    "Repas emportés" => $this->input->post("repas_emportes"),
+                    "Repas à emporter" => $this->input->post("repas_emportes"),
                 );
                 $sous_categories_id = $this->input->post("sc_3");
                 break;

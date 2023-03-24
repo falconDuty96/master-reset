@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `cgu` (
   `cgu_entete` text NOT NULL,
   `cgu_contenu` text NOT NULL,
   PRIMARY KEY (`cgu_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `cgu`
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `cgv` (
   `cgv_entete` text NOT NULL,
   `cgv_contenu` text NOT NULL,
   PRIMARY KEY (`cgv_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `cgv`
@@ -189,7 +189,7 @@ CREATE TABLE IF NOT EXISTS `etablissements` (
   `etablissements_fb` varchar(255) NOT NULL,
   `etablissements_insta` varchar(200) DEFAULT NULL,
   `etablissements_photo` text,
-  `etablissements_activites` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `etablissements_activites` text CHARACTER SET utf8mb4,
   `users_id` int NOT NULL,
   `categories_id` int NOT NULL,
   `etablissements_createdAt` date NOT NULL,
@@ -579,7 +579,7 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `faq_contenu` text NOT NULL,
   `faq_type` varchar(20) NOT NULL,
   PRIMARY KEY (`faq_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `faq`
@@ -668,7 +668,7 @@ CREATE TABLE IF NOT EXISTS `sous_categories` (
   `categories_id` int NOT NULL,
   `sous_categories_description` text,
   PRIMARY KEY (`sous_categories_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Déchargement des données de la table `sous_categories`
@@ -732,7 +732,7 @@ CREATE TABLE IF NOT EXISTS `superuser` (
   `superuser_motdepasse` varchar(50) DEFAULT NULL,
   `superuser_type` varchar(20) NOT NULL,
   PRIMARY KEY (`superuser_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `superuser`

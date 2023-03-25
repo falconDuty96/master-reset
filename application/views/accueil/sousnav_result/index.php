@@ -29,7 +29,11 @@
                 <div class="__result">
                     <div class="__result_left">
                         <div class="__block_left" id="etablissements-card">
-                            
+                            <span></span>
+                            <div class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+                                <img src="<?= base_url("publics/image/loader.gif") ?>" width="100px">
+                            </div>
+                            <span></span>
 
                         </div> 
                         <button type="button" class="__result_btn_responsive" onclick="seeCart(event)">

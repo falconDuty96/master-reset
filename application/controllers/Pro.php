@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Pro extends CI_Controller
+class Pro extends ProController
 {
     public function __construct()
     {

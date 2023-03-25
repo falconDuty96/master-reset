@@ -47,6 +47,7 @@ class EtablissementsModel extends CI_Model
             );
         }
         else if($option == "rechercher") {
+            
             // $lieu ;
             $queryExploder = explode('_',$query) ;
             if($queryExploder[0] == 'none') {
@@ -54,7 +55,7 @@ class EtablissementsModel extends CI_Model
                     "SELECT * FROM etablissements 
                 INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
                 INNER JOIN users ON users.users_id=etablissements.users_id
-                WHERE etablissements.etablissements_adresse LIKE '%" . $queryExploder[1] . "%'
+                WHERE etablissements.etablissements_adresse LIKE '%{$queryExploder[1]}%'
                 GROUP BY etablissements_nom
                 LIMIT " . Etablissements::LIMIT . " " .
                         "OFFSET {$offset}"
@@ -65,15 +66,14 @@ class EtablissementsModel extends CI_Model
                     "SELECT * FROM etablissements 
                 INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
                 INNER JOIN users ON users.users_id=etablissements.users_id
-                WHERE etablissements.etablissements_motcle LIKE '%" . $queryExploder[0] . "%'
+                WHERE etablissements.etablissements_motcle LIKE '%{$queryExploder[0]}%'
                 GROUP BY etablissements_nom
                 LIMIT " . Etablissements::LIMIT . " " .
                         "OFFSET {$offset}"
                 );
             }
             else {
-                $lieu = $queryExploder[1] ;
-                $motcle = $queryExploder[0] ;
+                
                 $data = DB::customQuery(
                     "SELECT * FROM etablissements 
                 INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id

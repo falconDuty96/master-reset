@@ -1,4 +1,13 @@
 $(document).ready(function() {
+    // Rechercher:
+    $('#btn-rechercher').click(function() {
+        // alert("hey")
+        $('#btn_submit').click() ;
+    })
+
+
+
+
     // Get the navbar
     var navbar = document.getElementById("navigation");
 

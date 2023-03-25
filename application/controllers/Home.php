@@ -27,6 +27,28 @@ class Home extends CI_Controller
 		$this->load->view('accueil/sousnav_result/index', $data);
 		$this->load->view('accueil/footer');
 	}
+	public function rechercher() {
+		$motcle = $this->input->post('motcle') ;
+		$lieu = $this->input->post('lieu') ;
+		$txt = '' ;
+		if($motcle == '') {
+			if($lieu == '') {
+				redirect('Home/') ;
+			}
+			else {
+				$txt = 'none_'.$lieu ;
+			}
+		}
+		else {
+			if($lieu == '') {
+				$txt = $motcle.'_none' ;
+			}
+			else {
+				$txt = $motcle.'_'.$lieu ;
+			}
+		}
+		$this->sousnav_result('rechercher',$txt) ;
+	}
 	public function favoris()
 	{
 		$data = [

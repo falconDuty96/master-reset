@@ -30,7 +30,6 @@ class EtablissementsModel extends CI_Model
             $data = DB::customQuery(
                 "SELECT * FROM etablissements 
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
-            INNER JOIN users ON users.users_id=etablissements.users_id
             WHERE etablissements.etablissements_motcle LIKE '%" . $query . "%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
@@ -41,12 +40,50 @@ class EtablissementsModel extends CI_Model
                 "SELECT * FROM etablissements 
             INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
             INNER JOIN users ON users.users_id=etablissements.users_id
-            INNER JOIN sous_categories ON users.users_id=etablissements.users_id
             WHERE sous_categories.sous_categories_nom LIKE '%" . $query . "%'
             GROUP BY etablissements_nom
             LIMIT " . Etablissements::LIMIT . " " .
                     "OFFSET {$offset}"
             );
+        }
+        else if($option == "rechercher") {
+            
+            // $lieu ;
+            $queryExploder = explode('_',$query) ;
+            if($queryExploder[0] == 'none') {
+                $data = DB::customQuery(
+                    "SELECT * FROM etablissements 
+                INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+                INNER JOIN users ON users.users_id=etablissements.users_id
+                WHERE etablissements.etablissements_adresse LIKE '%{$queryExploder[1]}%'
+                GROUP BY etablissements_nom
+                LIMIT " . Etablissements::LIMIT . " " .
+                        "OFFSET {$offset}"
+                );
+            }
+            else if($queryExploder[1] == 'none') {
+                $data = DB::customQuery(
+                    "SELECT * FROM etablissements 
+                INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+                INNER JOIN users ON users.users_id=etablissements.users_id
+                WHERE etablissements.etablissements_motcle LIKE '%{$queryExploder[0]}%'
+                GROUP BY etablissements_nom
+                LIMIT " . Etablissements::LIMIT . " " .
+                        "OFFSET {$offset}"
+                );
+            }
+            else {
+                
+                $data = DB::customQuery(
+                    "SELECT * FROM etablissements 
+                INNER JOIN sous_categories ON etablissements.sous_categories_id=sous_categories.sous_categories_id
+                INNER JOIN users ON users.users_id=etablissements.users_id
+                WHERE etablissements.etablissements_motcle LIKE '%" . $queryExploder[0] . "%' OR etablissements.etablissements_adresse LIKE '%" . $queryExploder[1] . "%'
+                GROUP BY etablissements_nom
+                LIMIT " . Etablissements::LIMIT . " " .
+                        "OFFSET {$offset}"
+                );
+            }
         }
         // $data = DB::customQuery(
         //     "SELECT * FROM etablissements 

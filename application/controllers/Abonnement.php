@@ -1,5 +1,5 @@
 <?php
-class Abonnement extends CI_Controller {
+class Abonnement extends ProController {
 
     public function __construct()
     {

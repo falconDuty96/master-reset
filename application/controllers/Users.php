@@ -42,6 +42,7 @@ class Users extends CI_Controller
 				$_SESSION['users_prenoms'] = $infos[0]->users_prenoms;
 				$_SESSION['users_email'] = $infos[0]->users_email;
 				$_SESSION['users_id'] = $infos[0]->users_id;
+				$_SESSION['users_type'] = $this->input->post('users_type');
 				if ($this->input->post('users_type') == "particulier") {
 					$_SESSION['particulier'] = true;
 

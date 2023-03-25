@@ -190,6 +190,11 @@ function setAllMarkers(map, bounds, markers) {
     }
 }
 function setVisibleMarker(map, markers, pagination,type,option) {
+    $("#etablissements-card").html(`<span></span>
+        <div class="d-flex justify-content-center align-items-center" style="min-height: 60vh;">
+            <img src="${ base_url("publics/image/loader.gif") }" width="100px">
+        </div>
+        <span></span>`);
     const bounds = map.getBounds();
     let show = [];
     for (let marker of markers) {
@@ -207,6 +212,7 @@ function setVisibleMarker(map, markers, pagination,type,option) {
 }
 
 function setCards(markers, pagination,type,option) {
+    
     $.post(base_url('etablissements/mapsVisible/'+type+'/'+option), { data: markers, pagination: JSON.stringify(pagination) },
         function (data, textStatus, jqXHR) {
             $("#etablissements-card").html(data);
@@ -248,11 +254,11 @@ function templateOnClick(marker) {
     <div class="__card_result_click_card">
         <div class="__card_result">
             <div class="__carousel_images">
-                <button class="__like">
+                <!-- <button class="__like">
                     <span class="__icon">
                         <i class="fa-regular fa-heart"></i>
                     </span>
-                </button>
+                </button> -->
 
                 <div id="carouselImagesCard" class="carousel slide" data-ride="carousel">
 
@@ -290,4 +296,21 @@ function templateOnClick(marker) {
             </div>
         </div>
     </div>`
+}
+
+
+function addFavorite(self,id) {
+    $.post(base_url('etablissements/addFavorite'), {id: id},
+        function (data, textStatus, jqXHR) {
+            if(data.success) {
+                if(data.action === "add") {
+                    $(self).addClass("__active");
+                }
+                else if(data.action === "delete"){
+                    $(self).removeClass("__active");
+                }
+            }
+        },
+        "json"
+    );
 }

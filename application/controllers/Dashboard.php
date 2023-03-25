@@ -7,37 +7,47 @@
             $this->load->model('FrontModel','front') ;
         }
         public function index() {
+            $this->_auth();
             $this->load->view("dashboard/index", [
                 "ccm" => $this->front->getCcm(),
                 "su" => $this->front->getSU() ,
             ]) ;
         }
         public function blogs() {
+            $this->_auth();
             $this->load->view("dashboard/blog",["blogs" => $this->front->getBlogs(),"su" => $this->front->getSU() ,]) ;
         }
         public function categories() {
+            $this->_auth();
             $this->load->view("dashboard/categories",["categories" => $this->front->getAllCategories(),"su" => $this->front->getSU() ,]) ;
         }
         public function cgu() {
+            $this->_auth();
             $this->load->view("dashboard/cgu",["cgu" => $this->front->getCGU(),"su" => $this->front->getSU() ,]) ;
         }
         public function faq() {
+            $this->_auth();
             $this->load->view("dashboard/faq",["faq" => $this->front->getFAQByType('particulier'),"su" => $this->front->getSU() ,]) ;
         }
         public function cgv() {
+            $this->_auth();
             $this->load->view("dashboard/cgv",["cgv" => $this->front->getCGV(),"su" => $this->front->getSU() ,]) ;
         }
         public function fiches() {
+            $this->_auth();
             $this->load->view("dashboard/fiches") ;
         }
         public function statistiques() {
+            $this->_auth();
             $this->load->view("dashboard/statistiques") ;
         }
         public function modifCCM($id) {
+            $this->_auth();
             $this->front->modifCcm([$this->input->post('ccm_entete'),$this->input->post('ccm_texte'),$id]) ;
             redirect('Dashboard/') ;
         }
         public function addBlogs() {
+            $this->_auth();
             $data = [] ;
             $target_dir = "dashboard/uploads/" ;
             $target_file = $target_dir.basename($_FILES["blogs_image"]["name"]) ;
@@ -54,7 +64,7 @@
 
         }
         public function dropBlogs($id) {
-            
+            $this->_auth();
             $blogs = $this->front->getBlogsById($id) ;
             $image = "publics/".$blogs[0]->blogs_image ;
             
@@ -63,6 +73,7 @@
             redirect('Dashboard/blogs') ;
         }
         public function modifBlogs() {
+            $this->_auth();
             $blogs = $this->front->getBlogsById($this->input->post('blogs_id')) ;
             $oldImage = $blogs[0]->blogs_image ;
             $target_dir = "dashboard/uploads/" ;
@@ -87,6 +98,7 @@
         }
 
         public function alterCategories($id) {
+            $this->_auth();
             $categories = $this->front->getCategoriesById($id) ;
             $oldImage1 = $categories[0]->categories_image1 ;
             $oldImage2 = $categories[0]->categories_image2 ;
@@ -123,6 +135,7 @@
         }
 
         public function modifSuperUser($id) {
+            $this->_auth();
             $this->front->updateSU([
                 $this->input->post('superuser_pseudo') ,
                 sha1($this->input->post('superuser_motdepasse')) ,
@@ -153,6 +166,8 @@
             else {
                 $su = $this->front->getSUSpecified($data) ;
                 if(count($su) > 0) {
+                    $_SESSION["connected"] = true;
+                    $_SESSION["users_type"] = "admin";
                     $_SESSION['superuser'] = true ;
                     $_SESSION['pseudo'] = $this->input->post('superuser_pseudo') ;
                     redirect("Dashboard/") ;
@@ -169,6 +184,7 @@
         }
 
         public function faqAdding() {
+            $this->_auth();
             $data = [
                 $this->input->post("faq_type") ,
                 $this->input->post("faq_question") ,
@@ -178,6 +194,7 @@
             redirect("Dashboard/faq") ;
         }
         public function cguAdding() {
+            $this->_auth();
             $data = [
                 $this->input->post("cgu_type") ,
                 $this->input->post("cgu_entete") ,
@@ -187,6 +204,7 @@
             redirect("Dashboard/cgu") ;
         }
         public function cgvAdding() {
+            $this->_auth();
             $data = [
                 $this->input->post("cgv_entete") ,
                 $this->input->post("cgv_contenu") ,
@@ -195,6 +213,7 @@
             redirect("Dashboard/cgv") ;
         }
         public function modifFAQ($id) {
+            $this->_auth();
             $data = [
                 $this->input->post("faq_type") ,
                 $this->input->post("faq_question") ,
@@ -205,6 +224,7 @@
             redirect("Dashboard/faq") ;
         }
         public function modifCGU($id) {
+            $this->_auth();
             $data = [
                 $this->input->post("cgu_type") ,
                 $this->input->post("cgu_entete") ,
@@ -215,6 +235,7 @@
             redirect("Dashboard/cgu") ;
         }
         public function modifCGV($id) {
+            $this->_auth();
             $data = [
                 $this->input->post("cgv_entete") ,
                 $this->input->post("cgv_contenu") ,
@@ -224,15 +245,32 @@
             redirect("Dashboard/cgv") ;
         }
         public function dropFAQ($id) {
+            $this->_auth();
             $this->front->deleteFAQ($id) ;
             redirect("Dashboard/faq") ;
         }
         public function dropCGU($id) {
+            $this->_auth();
             $this->front->deleteCGU($id) ;
             redirect("Dashboard/cgu") ;
         }
         public function dropCGV($id) {
+            $this->_auth();
             $this->front->deleteCGV($id) ;
             redirect("Dashboard/cgv") ;
+        }
+
+        private function _auth()
+        {
+            if(!$this->session->userdata("connected"))
+            {
+                redirect(base_url("dashboard/connect"));
+                exit();
+            }
+            if($this->session->userdata("users_type") !== "admin")
+            {
+                redirect(base_url("dashboard/connect"));
+                exit();
+            }
         }
     }

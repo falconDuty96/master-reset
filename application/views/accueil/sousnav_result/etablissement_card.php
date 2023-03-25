@@ -1,11 +1,13 @@
 <?php foreach($etablissements as $card): ?>
     <div class="__card_result" onmouseover="mappingCard(<?= $card->etablissements_latitude ?>,<?= $card->etablissements_longitude ?>)" onmouseleave="clearMappingCard()">
         <div class="__carousel_images">
-            <button class="__like">
-                <span class="__icon">
-                    <i class="fa-regular fa-heart"></i>
-                </span>
-            </button>
+            <?php if($this->session->userdata("connected") && $this->session->userdata("users_type") !== "admin"): ?>
+                <button class="__like <?= (in_array($card->etablissements_id, $users_favoris) ? '__active' : '') ?>" onclick="addFavorite(this,<?= $card->etablissements_id ?>)">
+                    <span class="__icon">
+                        <i class="fa-regular fa-heart"></i>
+                    </span>
+                </button>
+            <?php endif; ?> 
 
             <div id="carouselImagesAlbum" class="carousel slide" data-ride="carousel">
 

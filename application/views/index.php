@@ -26,14 +26,14 @@
 					<div id="form-banniere">
 						<div class="w-100">
 							<h1 id="titre_banniere" class="titre">Une nuit insolite, une sortie et c’est parti !</h1>
-							<form>
-								<input type="" name="" placeholder="Mot clé (Ex : Dormir, bars, restaurants...)" class="form-control">
-								<input type="" name="" placeholder="Lieu (Ex : Bordeaux)" class="form-control input_2">
+							<?= form_open('Home/rechercher', array('id' => 'form_rechercher')); ?>
+								<input type="" name="motcle" placeholder="Mot clé (Ex : Dormir, bars, restaurants...)" class="form-control">
+								<input type="" name="lieu" placeholder="Lieu (Ex : Bordeaux)" class="form-control input_2">
 								<a href="#" class="btn btn-warning" id="btn-rechercher">
-									<span class="__text"> Rechercher</span>
+									<span class="__text" id="rechercher_btn"> Rechercher</span>
 									<span class="__icon"><i class="fa-solid fa-magnifying-glass"></i></span>
 								</a>
-
+							<input type="submit" class="d-none" value="" id="btn_submit">
 								<img id="favoris" src="<?php echo base_url() ?>publics/image/igoguide-mes-favoris@4x.png" alt="">
 							</form>
 						</div>

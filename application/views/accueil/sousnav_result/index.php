@@ -3,7 +3,28 @@
         <div class="row">
             <div class="col-xl-12">
 
+                <?php
+                $txtlien= "" ;
+                    if(strpos($option,'_') > -1) {
+                        $exp = explode("_",$option) ;
+                        if($exp[0] == "none") {
+                            $txtlien = $exp[1] ;
+                        }
+                        else if($exp[1] == "none") {
+                            $txtlien = $exp[0] ;
+                        }
+                        else {
+                            $txtlien = $exp[0].'-'.$exp[1] ;
+                        }
+                ?>
+                <p class="__title_result"><span class="__title_result" id="nbre_page">0</span> Resultats trouvés par Igoguide pour "<?php echo $txtlien;?>"</p>
+                <?php
+                    } else {
+                ?>
                 <p class="__title_result"><span class="__title_result" id="nbre_page">0</span> Resultats trouvés par Igoguide pour "<?php echo urldecode($option) ;?>"</p>
+                <?php } ?>
+
+                
                 
                 <div class="__result">
                     <div class="__result_left">
